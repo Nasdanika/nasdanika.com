@@ -1,14 +1,15 @@
-# The model tower
-
-Each floor extends the floor below it, so everything above a floor inherits its vocabulary. Reading bottom-up, every floor adds one concern, and by the top an element is documented, owned, access controlled, staged, decided, governed, worked, and threat-modeled without any single model defining more than its own concern. Composition examples are given per floor; they compound as you climb.
+Each floor extends the floor below it, so everything above a floor inherits its vocabulary.
+Reading bottom-up, every floor adds one concern, and by the top an element is documented, owned, access controlled, staged, decided, governed, worked, and threat-modeled without any single model defining more than its own concern.
+Composition examples are given per floor; they compound as you climb.
 
 ## Bedrock
 
-**[Ecore](https://www.eclipse.org/modeling/emf/)** with Java, EMF, and Git. Not a floor: what the ground is made of. Models and metamodels, code generation, storage, and versioning are twenty-year-old load-bearing technology.
+**[Ecore](https://ecore.models.nasdanika.org/)** with Java, EMF, and Git. Not a floor: what the ground is made of.
+Models and metamodels, code generation, storage, and versioning are twenty-year-old load-bearing technology.
 
 ## The spine
 
-* **[NxCore](https://nxcore.models.nasdanika.org/)**: the base. Model elements with documentation as structure (Section, Content), the time dimension including relative time (temporal, period), and provenance via nested markers: every element and every computed value can carry the tree of sources it came from.
+* **[NxCore](https://nxcore.models.nasdanika.org/)**: the base. Model elements with documentation as structure (Section, Content), the time dimension including relative time ([temporal](https://nxcore.models.nasdanika.org/references/eClassifiers/Temporal/index.html), [period](https://nxcore.models.nasdanika.org/references/eClassifiers/Period/index.html)), and provenance via nested [markers](https://nxcore.models.nasdanika.org/references/eClassifiers/Marker/index.html): every element and every computed value can carry the tree of sources it came from. [Git markers](https://nxcore.models.nasdanika.org/references/eClassifiers/GitMarker/index.html) also carry commit hash, branch, origins.
 * **[Role](https://role.models.nasdanika.org/)**: ownership and responsibility. Undergoer, Role, Actor. Role defines its own Section and Content extending both the NxCore classes and Role, so documentation itself acquires ownership: every section of a document can answer "whose is this".
 * **IAM**: who can see and do what, for people and agents alike. IAM likewise defines Section and Content extending NxCore and IAM, so documentation becomes audience-targeted: one source, generated for multiple audiences in multiple formats, similar to what Leanpub does for books but at element granularity. Crypto sits on top of IAM: signatures for non-repudiation, encryption so models can be distributed yet protected.
 * **Lifecycle**: stages and transitions. Combined with the floors below, transitions get guards: who may fire this transition is an IAM question, and stage ownership is a Role question.

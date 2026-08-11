@@ -22,9 +22,11 @@ public class Generator {
 		Document modelCoreDiagram = Document.load(new File("nasdanika.drawio"));
 		Document modelTowerDiagram = Document.load(new File("model-tower.drawio"));
 		String heroDiagramDescription = Files.readString(new File("hero.md").toPath(), StandardCharsets.UTF_8);;
+		String towerDiagramDescription = Files.readString(new File("tower.md").toPath(), StandardCharsets.UTF_8);;
 		Map<String, String> tokens = Map.of(
 				"circle-diagram", modelCoreDiagram.toHtml().replace("<div class=\"mxgraph\"", "<div aria-describedby=\"hero-diagram-description\" class=\"mxgraph mx-auto\""),
 				"hero-diagram-description", MarkdownHelper.INSTANCE.markdownToHtml(heroDiagramDescription),
+				"tower-diagram-description", MarkdownHelper.INSTANCE.markdownToHtml(towerDiagramDescription),
 				"tower-diagram", modelTowerDiagram.toHtml().replace("<div class=\"mxgraph\"", "<div class=\"mxgraph mx-auto\""));
 		
 		String indexHtml = Util.interpolate(indexHtmlTemplate, tokens::get);		

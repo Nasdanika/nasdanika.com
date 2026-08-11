@@ -21,7 +21,6 @@
   </div>
 </header>
 
-<!-- DIAGRAM (placeholder for embedded Draw.io) -->
 <section class="text-center container pb-4">	
 	<figure>
        ${circle-diagram}
@@ -34,11 +33,11 @@
 	</figure>
 	
 	<!-- Modal Container -->
-	<div class="modal fade" id="heroModal" tabindex="-1" role="dialog" aria-labelledby="diagramSpecLabel" aria-hidden="true">
+	<div class="modal fade" id="heroModal" tabindex="-1" role="dialog" aria-labelledby="heroLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h2 class="modal-title" id="diagramSpecLabel">About this diagram</h2>
+	        <h2 class="modal-title" id="heroLabel">About this diagram</h2>
 	        <!-- Close Button (BS4 uses data-dismiss="modal" and &times;) -->
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
@@ -181,36 +180,33 @@
   <div class="container text-center">
     <h2>The model tower</h2>
 	<figure>
-      ${tower-diagram}
-	  
-	  <!-- Trigger Button (BS4 uses data-toggle and data-target) -->
-	  <button type="button" class="btn btn-sm btn-outline-secondary mt-2" data-toggle="modal" data-target="#diagramSpecModal">
-	    View Full Diagram Specification
-	  </button>
+       ${tower-diagram}
+
+	  <figcaption>	  
+		  <button type="button" class="btn btn-sm btn-outline-primary mt-2" data-toggle="modal" data-target="#towerModal">
+		    Explore the tower
+		  </button>
+	  </figcaption>	  
 	</figure>
 	
 	<!-- Modal Container -->
-	<div class="modal fade" id="diagramSpecModal" tabindex="-1" role="dialog" aria-labelledby="diagramSpecLabel" aria-hidden="true">
+	<div class="modal fade" id="towerModal" tabindex="-1" role="dialog" aria-labelledby="towerLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="diagramSpecLabel">Diagram Architecture Description</h5>
+	        <h2 class="modal-title" id="diagramSpecLabel">The Model Tower</h2>
 	        <!-- Close Button (BS4 uses data-dismiss="modal" and &times;) -->
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body">
-	        <p>Detailed textual breakdown for AI assistants and human reviewers...</p>
+	      <div class="modal-body morkdown-body text-left" id="tower-diagram-description">
+	        ${tower-diagram-description}	        
 	      </div>
 	    </div>
 	  </div>
 	</div>    
-    # About this diagram
-
-        
-    <p/>
-    <a href="models.html" class="btn btn-outline-primary mt-3">Explore the tower</a>
+    <p/>    
   </div>
 </section>
 
