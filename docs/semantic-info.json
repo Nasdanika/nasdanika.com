@@ -1,6 +1,6 @@
 [
     {
-        "identifiers": ["uuid:fd7b2c87-7a9d-4629-b19c-d82942ef6251"],
+        "identifiers": ["uuid:6a099ba9-b132-4530-9226-4110b92c7451"],
         "name": "Nasdanika",
         "icon": "/images/nasdanika-logo.png",
         "location": "index.html",
@@ -12,9 +12,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:fd7b2c87-7a9d-4629-b19c-d82942ef6251"]
+            "identifiers": ["uuid:6a099ba9-b132-4530-9226-4110b92c7451"]
         },
-        "identifiers": ["uuid:296e0ee3-469b-43a3-8846-590f8f888278"],
+        "identifiers": ["uuid:cd86ff80-59f0-46f2-abd7-56fd5f23325b"],
         "type": {
             "name": "Label",
             "ns-uri": "ecore://app.models.nasdanika.org"
@@ -23,11 +23,11 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:fd7b2c87-7a9d-4629-b19c-d82942ef6251"]
+            "identifiers": ["uuid:6a099ba9-b132-4530-9226-4110b92c7451"]
         },
-        "identifiers": ["uuid:8d03b55e-0a6e-4336-bd83-318c4f591a62"],
+        "identifiers": ["uuid:998fc39f-bb51-4f9d-9dff-23f2375ccc61"],
         "name": "Models",
-        "icon": "/images/data-model.svg",
+        "icon": "fas fa-sitemap",
         "location": "models.html",
         "type": {
             "name": "Action",
@@ -37,9 +37,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:fd7b2c87-7a9d-4629-b19c-d82942ef6251"]
+            "identifiers": ["uuid:6a099ba9-b132-4530-9226-4110b92c7451"]
         },
-        "identifiers": ["uuid:07151c97-a46c-4135-ad55-eacc1eba7980"],
+        "identifiers": ["uuid:c0d4ce49-813c-45eb-84d7-bfc63e9adc07"],
         "name": "Docs",
         "icon": "fas fa-book",
         "location": "https://docs.nasdanika.org",
@@ -50,10 +50,101 @@
     },
     {
         "container": {
-            "reference": "navigation",
-            "identifiers": ["uuid:fd7b2c87-7a9d-4629-b19c-d82942ef6251"]
+            "reference": "children",
+            "identifiers": ["uuid:6a099ba9-b132-4530-9226-4110b92c7451"]
         },
-        "identifiers": ["uuid:0899111e-5118-42a8-9212-edfefc7eee4a"],
+        "identifiers": ["uuid:31dcf7cb-4028-4ba6-a3a4-e29df55ef7e5"],
+        "name": "Stories",
+        "icon": "fas fa-newspaper",
+        "location": "stories/index.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "anonymous",
+            "identifiers": ["uuid:31dcf7cb-4028-4ba6-a3a4-e29df55ef7e5"]
+        },
+        "identifiers": ["uuid:0fe25e98-967b-4a68-9609-53d4b6718a72"],
+        "name": "2026",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:0fe25e98-967b-4a68-9609-53d4b6718a72"]
+        },
+        "identifiers": ["uuid:14c447c0-898d-44fc-b87a-17c8acaeada5"],
+        "name": "Micro-models - A Model Should Fit in Your Head",
+        "location": "stories/2026/micro-models.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:0fe25e98-967b-4a68-9609-53d4b6718a72"]
+        },
+        "identifiers": ["uuid:14b9c128-6dec-4f1b-889d-d2849c8ee545"],
+        "name": "Micro-wikis - The Model Is the Site Map",
+        "location": "stories/2026/micro-wikis.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:0fe25e98-967b-4a68-9609-53d4b6718a72"]
+        },
+        "identifiers": ["uuid:770f2dc5-efc2-421b-a3d7-79b704549a2a"],
+        "name": "When Architecture Reads the News",
+        "location": "stories/2026/when-architecture-reads-the-news.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:0fe25e98-967b-4a68-9609-53d4b6718a72"]
+        },
+        "identifiers": ["uuid:7bea91de-cc09-41e4-977c-7d9edb4c14b6"],
+        "name": "Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building",
+        "location": "stories/2026/nobody-credits-the-mail-slot.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:0fe25e98-967b-4a68-9609-53d4b6718a72"]
+        },
+        "identifiers": ["uuid:fc004a46-3f8c-45ea-98d4-59a6ca241546"],
+        "name": "The Value Is in the Builder, Not the Chat",
+        "location": "stories/2026/the-value-is-in-the-builder-not-the-chat.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "navigation",
+            "identifiers": ["uuid:6a099ba9-b132-4530-9226-4110b92c7451"]
+        },
+        "identifiers": ["uuid:4b9c2796-c54f-4f62-9e3f-f96e0564ebdf"],
         "name": "GitHub",
         "icon": "fab fa-github",
         "location": "https://github.com/Nasdanika/",

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="6a099ba9-b132-4530-9226-4110b92c7451" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="998fc39f-bb51-4f9d-9dff-23f2375ccc61" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="31dcf7cb-4028-4ba6-a3a4-e29df55ef7e5" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="7bea91de-cc09-41e4-977c-7d9edb4c14b6" data-nsd-action-uris="uuid:7bea91de-cc09-41e4-977c-7d9edb4c14b6" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="31dcf7cb-4028-4ba6-a3a4-e29df55ef7e5"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="0fe25e98-967b-4a68-9609-53d4b6718a72">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="7bea91de-cc09-41e4-977c-7d9edb4c14b6">Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="7bea91de-cc09-41e4-977c-7d9edb4c14b6" class="nsd-app-content-panel-title">Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><p><em>Boundaries Are the Architecture, Protocols Are How You Knock</em></p>
+<p>Published on <a href="https://medium.com/nasdanika/nobody-credits-the-mail-slot-mcp-microservices-and-the-return-of-the-big-building-394b223e950d">Medium</a> on July 15, 2026. Tags: Software Architecture, System Design, Microservices, Model Context Protocol, Artificial Intelligence</p>
+<p><img src="https://miro.medium.com/v2/1*Ne0yAJFYpW_mNjRwz5cRYQ.png" alt="Nobody Credits the Mail Slot" style="width: 100%;"></p>
+<p>Nowadays MCP is in every keynote, every roadmap. However, MCP is a protocol — a delivery mechanism. Agents use tools; MCP standardizes how tools (and resources, and prompts) are delivered to them. Anthropic’s own tagline:</p>
+<blockquote>
+<p><em>USB-C port for AI</em></p>
+</blockquote>
+<p>already concedes the point: port standards are valuable because they are boring. In the same way a standard shipping container is valuable. But nobody credits the container for what is inside. Two metaphors to illustrate the point.</p>
+<h2><a href="#buildings" id="buildings">Buildings</a></h2>
+<h3><a href="#the-apartment-building-monolith" id="the-apartment-building-monolith">The apartment building (monolith)</a></h3>
+<p><img src="https://miro.medium.com/v2/1*3cs_uVth7gNdC-DCAz2BKg.png" alt="The apartment building" style="width: 100%;"></p>
+<p>People used to live in huge apartment buildings. Everyone under one roof: cheap to heat, one address, you could borrow sugar from a neighbor by knocking on a wall. That was the monolith, and for a while it was fine.</p>
+<p>Then the building got big. Noisy neighbors kept you up at night (one team’s hot loop starved everyone’s threads). Graffiti crept up the stairwells (nobody owned the shared code, so everybody defaced it). A busted pipe in one apartment flooded three floors below (one module’s failure took down modules that had nothing to do with it). Cockroaches from one kitchen colonized the whole building (a bad dependency, once in, was everywhere). The lease said nothing about any of this, because inside one building there are no contracts, only neighbors.</p>
+<h3><a href="#suburbia-microservices" id="suburbia-microservices">Suburbia (microservices)</a></h3>
+<p><img src="https://miro.medium.com/v2/1*IEHKeyTqVUqq_7t1QJYUgQ.png" alt="Suburbia" style="width: 100%;"></p>
+<p>So people invented suburbia. Everyone got their own house: their own walls, their own pipes, their own pest control. Microservices. And the brochure was accurate, as far as it went. Your neighbor’s flood was now strictly your neighbor’s problem.</p>
+<p>But now nothing was a knock on the wall anymore. To borrow sugar you had to get dressed (serialize), walk or drive (make a network call), and hope about the weather (outages, latency). The streets had gangs, so every door needed a lock (TLS), and when someone knocked you had to check they were who they claimed to be (authentication). Every house ran its own furnace, its own water heater, its own alarm system: the operational overhead that used to be amortized across the whole building was now duplicated per household. Some families spent more time maintaining the house than living in it.</p>
+<p>Please note, I’m not saying that microservices are wrong. In any non-trivial endeavor there is a huge design space and a tremendous number of decisions and trade-offs to make, paraphrasing Steve Jobs:</p>
+<p>So both monoliths and microservices are different points in the design space. And what is a monolith? It is a <em>macro</em>service. Monolith-microservice are not two points, but rather a continuum. An average Spring Booot microservice carries ~600 Maven dependencies — some may say that it sounds monolithy, doesn’t it?</p>
+<h3><a href="#the-office-building" id="the-office-building">The office building</a></h3>
+<p><img src="https://miro.medium.com/v2/1*0J0ekTXYjuPoUeWnzUSnXQ.png" alt="The office building" style="width: 100%;"></p>
+<p>And slowly it dawned on people that the problem with the apartment building was never the building. It was that inside it, anybody could go anywhere. No badges, no locked floors, no rules about who enters whose kitchen. Colocation was fine; the free-for-all was not.</p>
+<p>So people are moving back into big buildings, but this time they run them like office buildings: badges, and doors that check them. Clear zones, controlled entrances, and you still get the shared heating, one address, and hallway conversations instead of commutes. The modular monolith.</p>
+<p>There are two ways to run such a building. JPMS is the strict way: badge readers on every door, and if your badge does not open the door, you are not getting in, period (the compiler and the runtime enforce the boundary).</p>
+<p><img src="https://miro.medium.com/v2/1*wfMdB4YbYfmlSZoFkkRC6w.png" alt="JPMS badge access" style="width: 100%;"></p>
+<p>Spring Modulith is the boarding-school way: every house has its own uniform, so a pupil wandering into the wrong common room is spotted instantly and walked back by a prefect (boundaries live in package conventions, and the test suite catches violations before they ship). One is a locked door, the other is high-visibility social enforcement. Both beat the free-for-all.</p>
+<p><em>Full disclaimer: I know JPMS well and Spring Modulith mostly from its documentation; corrections welcome in the comments.</em></p>
+<h3><a href="#where-mcp-fits" id="where-mcp-fits">Where MCP fits</a></h3>
+<p><img src="https://miro.medium.com/v2/1*Jg7fmg1g0qzvAxOH9BavSA.png" alt="Where MCP fits" style="width: 100%;"></p>
+<p>Here is the part the current hype gets backwards. Whatever kind of building you live in, deliveries still have to arrive, and it helps enormously if every courier from every company follows the same procedure at the front desk: sign here, badge there, packages through this window. That standardized front-desk procedure is MCP. Agents use tools; MCP is a standard way to deliver tools to them.</p>
+<p>A standard delivery protocol is genuinely valuable, precisely because it is boring: any courier can serve any building without a custom arrangement per pair. But nobody confuses the front-desk procedure with the contents of the packages. The value is in the tools, the data, the capabilities being delivered. The protocol just makes the handoff cheap. Celebrating MCP as if it were the intelligence is celebrating the mail slot for the quality of the letters.</p>
+<h2><a href="#the-version-that-is-literally-true-organizations" id="the-version-that-is-literally-true-organizations">The version that is literally true — Organizations</a></h2>
+<p>If buildings feel like a stretch, here is the version that is not a metaphor at all. Conway’s law: systems mirror communication structures.</p>
+<p>A monolith is one company with everyone in one open office. Communication is a shoulder tap: instant, informal, free. That is its superpower and its disease. Nothing stops anyone from tapping anyone, so over time everything depends on everything, nobody can say who owns what, and one team’s chaos (a reorg, a fire drill, a bad quarter) ripples through the whole floor.</p>
+<p>Microservices are what happens when you spin every team off into its own company. Now every interaction is formal: contracts (APIs), invoices, SLAs, procurement. You verify who you are dealing with (authentication), you put agreements in writing (schemas), you accept that couriers get delayed and shipments get lost (network failures), and you keep lawyers on retainer (serialization, versioning, compatibility). Amazon’s two-pizza team is exactly this: a team small enough to feed with two pizzas, owning a service end to end and talking to other teams only through published interfaces. A two-pizza team is the organizational form of a microservice. The industry even has a name for choosing your architecture by choosing your org chart: the inverse Conway maneuver.</p>
+<p>The formality buys real things: autonomy, independent scaling, blast-radius containment, the ability to fire a vendor. But everyone who has worked across company boundaries knows the tax. What used to be a shoulder tap is now a statement of work.</p>
+<p>The modular monolith is the middle that businesses have always known about: one company with real departments. Shared payroll, shared facilities, one legal entity (one deployment, one operational surface), but clear departmental boundaries, defined interfaces between them, and badge access to sensitive areas. Finance does not wander into Engineering’s repos, and Engineering does not book journal entries, yet neither files an invoice to talk to the other.</p>
+<p>Inside this frame the two Java flavors are two governance styles. JPMS is compliance-grade: physical access control, the badge either opens the door or it does not. Spring Modulith is culture-grade: strong conventions, visible team identities, and an internal audit (the test suite) that flags anyone found in the wrong department before the quarter closes.</p>
+<h3><a href="#where-mcp-fits" id="where-mcp-fits">Where MCP fits</a></h3>
+<p>MCP is standardized procurement paperwork: the EDI of the agent world. When every vendor accepts the same purchase-order format, onboarding a new supplier becomes cheap, and that is worth real money. But no company ever became great because of its purchase-order format. The value is in what the suppliers actually deliver. Agents use tools; MCP just standardizes how tools are procured and delivered. Standards make markets; they are not the merchandise. Anyone selling you “an MCP strategy” is selling you a mail-slot strategy.</p>
+<h2><a href="#one-line-moral" id="one-line-moral">One-line moral</a></h2>
+<p>Architecture is org design under Conway’s law. Choose your boundaries the way you would choose your org chart, and treat protocols, MCP included, as the paperwork that lets boundaries be crossed cheaply, not as the strategy.</p>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

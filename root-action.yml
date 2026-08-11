@@ -11,7 +11,7 @@ Action:
         text: "" # A trick to suppress the principal action
     - Action:
         location: models.html
-        icon: /images/data-model.svg
+        icon: fas fa-sitemap
         text: Models		
         content:
           content.Markdown:
@@ -21,7 +21,53 @@ Action:
         location: https://docs.nasdanika.org
         icon: fas fa-book
         text: Docs
-
+    - Action:
+        location: stories/index.html
+        icon: fas fa-newspaper
+        text: Stories		
+        content:
+          content.Markdown:
+            source:
+              exec.content.Resource: stories/stories.md
+        anonymous:
+          - Action:
+              text: 2026		
+              children:
+                - Action:
+                    location: 2026/micro-models.html
+                    text: Micro-models - A Model Should Fit in Your Head		
+                    content:
+                      content.Markdown:
+                        source:
+                          exec.content.Resource: stories/2026/micro-models.md              
+                - Action:
+                    location: 2026/micro-wikis.html
+                    text: Micro-wikis - The Model Is the Site Map		
+                    content:
+                      content.Markdown:
+                        source:
+                          exec.content.Resource: stories/2026/micro-wikis.md              
+                - Action:
+                    location: 2026/when-architecture-reads-the-news.html
+                    text: When Architecture Reads the News		
+                    content:
+                      content.Markdown:
+                        source:
+                          exec.content.Resource: stories/2026/when-architecture-reads-the-news/story.md             
+                - Action:
+                    location: 2026/nobody-credits-the-mail-slot.html
+                    text: "Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building"
+                    content:
+                      content.Markdown:
+                        source:
+                          exec.content.Resource: stories/2026/nobody-credits-the-mail-slot/story.md     
+                - Action:
+                    location: 2026/the-value-is-in-the-builder-not-the-chat.html
+                    text: The Value Is in the Builder, Not the Chat		
+                    content:
+                      content.Markdown:
+                        source:
+                          exec.content.Resource: stories/2026/the-value-is-in-the-builder-not-the-chat/story.md             
   navigation:
     - Link:
         text: GitHub

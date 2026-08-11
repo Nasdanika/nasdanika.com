@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>When Architecture Reads the News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="6a099ba9-b132-4530-9226-4110b92c7451" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="998fc39f-bb51-4f9d-9dff-23f2375ccc61" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="31dcf7cb-4028-4ba6-a3a4-e29df55ef7e5" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="770f2dc5-efc2-421b-a3d7-79b704549a2a" data-nsd-action-uris="uuid:770f2dc5-efc2-421b-a3d7-79b704549a2a" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="31dcf7cb-4028-4ba6-a3a4-e29df55ef7e5"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="0fe25e98-967b-4a68-9609-53d4b6718a72">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="770f2dc5-efc2-421b-a3d7-79b704549a2a">When Architecture Reads the News</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="770f2dc5-efc2-421b-a3d7-79b704549a2a" class="nsd-app-content-panel-title">When Architecture Reads the News</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><p><em>Why the true consumer of technology updates isn’t your attention — it’s your architecture repository</em></p>
+<p>Published on <a href="https://medium.com/nasdanika/when-architecture-reads-the-news-f12de24020d6">Medium</a> on July 19, 2026. Tags: Agentic AI, Knowledge Management, Model Driven Engineering, GitOps, Software Engineering</p>
+<p><img src="https://miro.medium.com/v2/1*plhiGxNH7irXhnImcmH2lg.png" alt="When Architecture Reads the News" style="width: 100%;"></p>
+<p>On a recent developer community call the conversation turned to a familiar complaint: we are drowning in news. Releases, deprecations, new models, new frameworks, security advisories. The proposed remedy was equally familiar: better targeting. Java developers should get Java news, React developers should get React news.</p>
+<p>Reasonable. Also, I think, aimed at the wrong reader.</p>
+<h2><a href="#the-feed-is-not-the-answer" id="the-feed-is-not-the-answer">The feed is not the answer</a></h2>
+<p>The industry’s standard answer to information overload is a personalized feed. daily.dev does this well: two thousand sources, AI ranking, a daily briefing. If the goal is to keep a human pleasantly informed, that lane is served, and I have no intention of competing in it.</p>
+<p>But ask a different question: why does a release announcement matter to you professionally? Not because it is interesting. It matters when it invalidates or reinforces something you have decided. A release fixes the bug you wrote a workaround decision around. A model vendor changes pricing and flips the economics of an architecture choice. A framework deprecates the API your integration standard depends on.</p>
+<p>In other words, the natural consumer of most professional news is not your attention. It is your repository: the place where your decisions are recorded. A feed can only interrupt you. A repository could act.</p>
+<h2><a href="#developers-and-technologies-are-a-graph" id="developers-and-technologies-are-a-graph">Developers and technologies are a graph</a></h2>
+<p>Here is the mental model I keep returning to. Developers are nodes in a graph. So are technologies. A Java developer connects to Java, a UI developer connects to React, and both connect to shared things: the build pipeline, version control. Teams, components, and architecture repositories are nodes too.</p>
+<p>News is emitted by nodes and travels along connections. Each traversal attenuates the message’s strength. When the same message reaches you through several paths, the strengths add up. The effect is exactly what targeting is supposed to achieve, but emergent rather than configured: things close to you, or reachable through many of your connections, arrive loud; distant single-path noise fades to nothing. Readers of my earlier stories will recognize the family: this is messaging over <a href="https://medium.com/nasdanika/general-purpose-executable-graphs-and-diagrams-8663deae5248">executable graphs</a>, and the propagation semantics belong to the same lineage as <a href="https://github.com/Nasdanika/waypoint">Waypoint</a>.</p>
+<p>Nodes are not passive relays. A node can accumulate messages for a day and emit one AI-generated digest: backpressure applied to human attention. It can filter by type, gate on strength, or, and this is where it gets interesting, trigger an agent.</p>
+<h2><a href="#git-is-the-substrate" id="git-is-the-substrate">Git is the substrate</a></h2>
+<p>None of this needs a platform. A developer defines their node in <a href="https://markdown.models.nasdanika.org/">Markdown</a>, YAML or <a href="https://docs.nasdanika.org/core/groovy/index.html">Groovy DSL</a> in their personal repository and, via a pull request to a shared registry or a server-wide scan, becomes discoverable. Technology nodes live in their own repositories. Message delivery is a commit into an <code>updates/</code> folder, or a pull request. Propagation runs on scheduled scans or commit hooks. Identity, history, provenance, and access control come free with Git: signed commits tell you who really emitted a message, repository permissions decide who may deliver where.</p>
+<p>If this sounds like <a href="https://about.gitlab.com/topics/gitops/">GitOps</a>, it should. GitOps already treats the repository as a message bus and the commit as an event; controllers watch and reconcile. Renovate and Dependabot already deliver one narrow genre of news, version updates, as pull requests, and the world has accepted that interaction completely. I am proposing to generalize the pattern from deployment manifests and lockfiles to organizational knowledge.</p>
+<p>And not everything worth reacting to lives in Git. In most organizations the decision-relevant news sits in Confluence spaces, <a href="https://jira.models.nasdanika.org/">Jira</a> projects, office documents, and vendor web pages. Those enter the graph through snapshot gateways: a connector pulls the source on a schedule, stores a snapshot as a model in a repository, and the <a href="https://medium.com/nasdanika/harnessing-complex-change-with-emf-compare-git-uri-handler-and-genai-c9ee5c8b53e2">diff</a> between consecutive snapshots becomes the message. Picture a central AI group that publishes its catalog of approved models on a Confluence page. A scheduled pull snapshots the page; the day a new frontier model appears in the catalog, the diff propagates to every architecture repository whose model-selection decision cited the old catalog. There is a quiet bonus here: a decision can cite the snapshot commit rather than a live URL, so “what did the source say when we decided” stays verifiable long after the page has changed or vanished.</p>
+<h2><a href="#the-part-that-actually-matters" id="the-part-that-actually-matters">The part that actually matters</a></h2>
+<p>Targeted news for humans is the visible motivation. The durable value is one step further, in <a href="https://medium.com/nasdanika/architecture-as-code-7c0eadfc0b2b">architecture as code</a>.</p>
+<p>A message lands in the <code>updates/</code> folder of an architecture repository. It triggers an architect agent. The agent scans the repository, decision records in particular, and asks: what does this change? Perhaps there is an ADR whose stated premise is the very bug this release just fixed. Perhaps a new LLM announcement flips a model-selection decision. The agent drafts the modifications, opens a pull request with evidence quoted and cited, and assigns it to a human reviewer. The human decides. Only the human decides; research on LLM-based decision checking is quite clear that these systems belong in hybrid workflows, as early warning rather than final word, and the security lesson of the bot-PR era is that automated pull requests must earn trust with evidence.</p>
+<p>Now notice what happens after the merge. The accepted decision change is itself news. It becomes a message to every repository that depends on that decision, traveling the same graph with the same attenuation. Decisions form a dependency graph across repositories; change propagates along it and terminates naturally instead of flooding.</p>
+<p>Release notes become messages. Decision changes become messages. The architecture stops being a snapshot that decays from the moment it is written and becomes something closer to a nervous system: the outside world changes, the change travels to exactly the artifacts it affects, and a human is presented with a reviewed, evidenced proposal instead of a feed item.</p>
+<h2><a href="#what-exists-and-what-doesnt" id="what-exists-and-what-doesnt">What exists and what doesn’t</a></h2>
+<p>Every piece of this has prior art, which is a feature. Backstage put the organization’s technology graph into YAML in Git, but the catalog is passive. Renovate delivers news as PRs, but only version news, assessed against manifests rather than decisions. ADR tooling and recent research can review decisions competently, but assume someone decides when to run the review. The missing piece is the connective tissue: an explicit, owned graph over which news travels to the artifact it affects, arriving as a reviewable commit that wakes an agent. That is the piece I intend to build, in the open, as part of the <a href="https://product-management.models.nasdanika.org/">Nasdanika Product Management model’s</a> neighborhood.</p>
+<h2><a href="#conclusion" id="conclusion">Conclusion</a></h2>
+<p>If your organization records decisions at all, ask yourself one question: when the world changed last month, how many of your recorded decisions quietly became fiction, and how would you know? If the honest answer is “we wouldn’t,” that is the problem worth solving, and I would like to hear how you would solve it.</p>
+<h2><a href="#resources" id="resources">Resources</a></h2>
+<h3><a href="#landscape" id="landscape">Landscape:</a></h3>
+<ul>
+<li><a href="https://daily.dev/">daily.dev</a></li>
+<li><a href="https://snapbyte.dev/best-developer-news-digests">Snapbyte</a></li>
+<li><a href="https://github.com/renovatebot/renovate">Renovate</a></li>
+<li><a href="https://fossa.com/blog/fossabot-dependency-upgrade-ai-agent/">Fossabot announcement</a></li>
+<li><a href="https://blog.gitguardian.com/renovate-dependabot-the-new-malware-delivery-system/">GitGuardian on bot-PR trust</a></li>
+<li><a href="https://backstage.io/">Backstage</a></li>
+<li><a href="https://opengitops.dev/">OpenGitOps</a></li>
+<li><a href="https://cloudevents.io/">CloudEvents</a></li>
+</ul>
+<h3><a href="#ai-decision-records" id="ai-decision-records">AI + decision records:</a></h3>
+<ul>
+<li><a href="https://arxiv.org/html/2602.07609v1">LLMs detecting architectural decision violations</a></li>
+<li><a href="https://www.salesforce.com/blog/architectural-decisions-human-led-ai-powered-approach/">Salesforce: human-led, AI-powered</a></li>
+<li><a href="https://www.equalexperts.com/blog/our-thinking/accelerating-architectural-decision-records-adrs-with-generative-ai/">Equal Experts on ADRs with GenAI</a></li>
+<li><a href="https://www.janisexplainsarchitecture.com/blog/ai-architecture-implementation/topic-012-architecture-decision-records-as-ai-context-why-your-ai-needs-to-know-what-youve-already-decided.html">ADRs as AI context</a></li>
+<li><a href="https://arxiv.org/pdf/2604.03826">Context strategies for ADR generation</a></li>
+<li><a href="https://arxiv.org/pdf/2504.08207">DRAFT-ing architectural design decisions</a></li>
+</ul>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
