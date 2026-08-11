@@ -23,7 +23,20 @@
 
 <!-- DIAGRAM (placeholder for embedded Draw.io) -->
 <section class="text-center container pb-4 mx-auto">
-   ${circle-diagram}
+	<figure>
+       ${circle-diagram}
+	  
+	  <details>
+	    <summary>AI Context & Detailed Diagram Breakdown</summary>
+	    <div class="text-left">
+	      <p>This diagram represents the federated model hierarchy...</p>
+	      <ul>
+	        <li>NxCore handles Role IAM and Lifecycle.</li>
+	        <li>Decision Analysis feeds into Decision Binding.</li>
+	      </ul>
+	    </div>
+	  </details>
+	</figure>   
 </section>
 
 <!-- PROBLEM -->
@@ -152,7 +165,33 @@
 <section class="section" id ="tower">
   <div class="container text-center">
     <h2>The model tower</h2>
-    ${tower-diagram}
+	<figure>
+      ${tower-diagram}
+	  
+	  <!-- Trigger Button (BS4 uses data-toggle and data-target) -->
+	  <button type="button" class="btn btn-sm btn-outline-secondary mt-2" data-toggle="modal" data-target="#diagramSpecModal">
+	    View Full Diagram Specification
+	  </button>
+	</figure>
+	
+	<!-- Modal Container -->
+	<div class="modal fade" id="diagramSpecModal" tabindex="-1" role="dialog" aria-labelledby="diagramSpecLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="diagramSpecLabel">Diagram Architecture Description</h5>
+	        <!-- Close Button (BS4 uses data-dismiss="modal" and &times;) -->
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p>Detailed textual breakdown for AI assistants and human reviewers...</p>
+	      </div>
+	    </div>
+	  </div>
+	</div>    
+        
     <p/>
     <a href="models.html" class="btn btn-outline-primary mt-3">Explore the tower</a>
   </div>
