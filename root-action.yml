@@ -38,6 +38,7 @@ Action:
                     text: Micro-models - A Model Should Fit in Your Head		
                     content:
                       content.Markdown:
+                        style: true
                         source:
                           exec.content.Resource: stories/2026/micro-models.md              
                 - Action:
@@ -45,6 +46,7 @@ Action:
                     text: Micro-wikis - The Model Is the Site Map		
                     content:
                       content.Markdown:
+                        style: true
                         source:
                           exec.content.Resource: stories/2026/micro-wikis.md              
                 - Action:
@@ -52,6 +54,7 @@ Action:
                     text: When Architecture Reads the News		
                     content:
                       content.Markdown:
+                        style: true
                         source:
                           exec.content.Resource: stories/2026/when-architecture-reads-the-news/story.md             
                 - Action:
@@ -59,6 +62,7 @@ Action:
                     text: "Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building"
                     content:
                       content.Markdown:
+                        style: true
                         source:
                           exec.content.Resource: stories/2026/nobody-credits-the-mail-slot/story.md     
                 - Action:
@@ -66,6 +70,7 @@ Action:
                     text: The Value Is in the Builder, Not the Chat		
                     content:
                       content.Markdown:
+                        style: true
                         source:
                           exec.content.Resource: stories/2026/the-value-is-in-the-builder-not-the-chat/story.md             
   navigation:

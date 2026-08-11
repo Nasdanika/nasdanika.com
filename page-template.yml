@@ -62,6 +62,7 @@ bootstrap.Page:
         .subblock h5 { font-weight: 700; margin-top: 2rem; }
         .badge-line { font-size: 0.85rem; color: #6c757d; }
         .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+        .arc-icon { height: 1.1em; vertical-align: -0.15em; }
         .tower-placeholder {
           border: 2px dashed #ced4da; border-radius: 0.5rem;
           padding: 3rem 1rem; color: #6c757d; background: #fff;

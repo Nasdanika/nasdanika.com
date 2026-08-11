@@ -22,21 +22,36 @@
 </header>
 
 <!-- DIAGRAM (placeholder for embedded Draw.io) -->
-<section class="text-center container pb-4 mx-auto">
+<section class="text-center container pb-4">	
 	<figure>
        ${circle-diagram}
-	  
-	  <details>
-	    <summary>AI Context & Detailed Diagram Breakdown</summary>
-	    <div class="text-left">
-	      <p>This diagram represents the federated model hierarchy...</p>
-	      <ul>
-	        <li>NxCore handles Role IAM and Lifecycle.</li>
-	        <li>Decision Analysis feeds into Decision Binding.</li>
-	      </ul>
+
+	  <figcaption>	  
+		  <button type="button" class="btn btn-sm btn-outline-secondary mt-2" data-toggle="modal" data-target="#heroModal">
+		    View Diagram Description
+		  </button>
+	  </figcaption>	  
+	</figure>
+	
+	<!-- Modal Container -->
+	<div class="modal fade" id="heroModal" tabindex="-1" role="dialog" aria-labelledby="diagramSpecLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h2 class="modal-title" id="diagramSpecLabel">About this diagram</h2>
+	        <!-- Close Button (BS4 uses data-dismiss="modal" and &times;) -->
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body morkdown-body text-left" id="hero-diagram-description">
+	        ${hero-diagram-description}	        
+	      </div>
 	    </div>
-	  </details>
-	</figure>   
+	  </div>
+	</div>    
+    <p/>
+	   
 </section>
 
 <!-- PROBLEM -->
@@ -176,7 +191,7 @@
 	
 	<!-- Modal Container -->
 	<div class="modal fade" id="diagramSpecModal" tabindex="-1" role="dialog" aria-labelledby="diagramSpecLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-lg" role="document">
+	  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="diagramSpecLabel">Diagram Architecture Description</h5>
@@ -191,6 +206,8 @@
 	    </div>
 	  </div>
 	</div>    
+    # About this diagram
+
         
     <p/>
     <a href="models.html" class="btn btn-outline-primary mt-3">Explore the tower</a>
