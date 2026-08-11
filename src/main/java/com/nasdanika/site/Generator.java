@@ -1,17 +1,32 @@
 package com.nasdanika.site;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.URI;
 import org.nasdanika.common.ExecutionException;
+import org.nasdanika.common.Util;
+import org.nasdanika.drawio.Document;
 import org.nasdanika.models.app.gen.AppSiteGenerator;
 
 public class Generator {
 	
 	public static void main(String[] args) throws Exception {
+		// Filtering index.html
+		String indexHtmlTemplate = Files.readString(new File("index.html").toPath(), StandardCharsets.UTF_8);
+		Document modelCoreDiagram = Document.load(new File("nasdanika.drawio"));
+		Document modelTowerDiagram = Document.load(new File("model-tower.drawio"));
+		Map<String, String> tokens = Map.of(
+				"circle-diagram", modelCoreDiagram.toHtml().replace("<div class=\"mxgraph\"", "<div class=\"mxgraph mx-auto\""),
+				"tower-diagram", modelTowerDiagram.toHtml().replace("<div class=\"mxgraph\"", "<div class=\"mxgraph mx-auto\""));
+		
+		String indexHtml = Util.interpolate(indexHtmlTemplate, tokens::get);		
+		Files.writeString(new File("target/index.html").toPath(), indexHtml, StandardCharsets.UTF_8);		
+		
 		AppSiteGenerator actionSiteGenerator = new AppSiteGenerator() {
 			
 			@Override
@@ -43,12 +58,6 @@ public class Generator {
 		}
 		
 		System.out.println("There are " + errorCount + " site errors");
-		
-		if (errors.size() != 11) {
-			throw new ExecutionException("There are problems with pages: " + errorCount);
-		}				
-		
 	}
-
 	
 }

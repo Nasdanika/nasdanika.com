@@ -1,0 +1,65 @@
+[
+    {
+        "identifiers": ["uuid:59a61438-a8b7-46ab-a94a-a60abac64da0"],
+        "name": "Nasdanika",
+        "icon": "/images/nasdanika-logo.png",
+        "location": "index.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:59a61438-a8b7-46ab-a94a-a60abac64da0"]
+        },
+        "identifiers": ["uuid:27d94a29-139f-4ac2-9f40-db3e808dc463"],
+        "type": {
+            "name": "Label",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:59a61438-a8b7-46ab-a94a-a60abac64da0"]
+        },
+        "identifiers": ["uuid:fec98ce9-6675-4246-b009-cc765c28da56"],
+        "name": "Models",
+        "icon": "/images/data-model.svg",
+        "location": "models.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:59a61438-a8b7-46ab-a94a-a60abac64da0"]
+        },
+        "identifiers": ["uuid:e56cc83f-6bf0-4aba-85cd-9da137d6905c"],
+        "name": "Docs",
+        "icon": "fas fa-book",
+        "location": "https://docs.nasdanika.org",
+        "type": {
+            "name": "Link",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "navigation",
+            "identifiers": ["uuid:59a61438-a8b7-46ab-a94a-a60abac64da0"]
+        },
+        "identifiers": ["uuid:7e709321-084a-4f92-8d21-b854b461202a"],
+        "name": "GitHub",
+        "icon": "fab fa-github",
+        "location": "https://github.com/Nasdanika/",
+        "type": {
+            "name": "Link",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    }
+]
