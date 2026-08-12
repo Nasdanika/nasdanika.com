@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>AI Literacy, With Receipts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="5bd06172-eb64-40b1-a381-ab026fd76508" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="75923c3d-bf1a-49a4-9a50-9fb283d4efdb" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="4bfc9f6b-9931-4113-b2c6-1209941dffb7" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../demos.html" data-nsd-label-uuid="f4787b3a-8c3c-4637-a44d-b5cb460ceb8a" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="4be35bff-16be-4285-8d44-5b261f5a1f14" data-nsd-action-uris="uuid:4be35bff-16be-4285-8d44-5b261f5a1f14" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="4bfc9f6b-9931-4113-b2c6-1209941dffb7"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="dca14430-bac9-4486-ba37-968d68750b2b">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="4be35bff-16be-4285-8d44-5b261f5a1f14">AI Literacy, With Receipts</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="4be35bff-16be-4285-8d44-5b261f5a1f14" class="nsd-app-content-panel-title">AI Literacy, With Receipts</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p><em>A glossary is a view. A view without a source of truth fails the explainability test.</em></p>
+<p>I have watched a team debate for half an hour whether they needed a vector database, when the actual question was whether they needed similarity search at all. Over a few hundred documents. I have watched &ldquo;agent tool&rdquo; and &ldquo;MCP server&rdquo; used interchangeably in the same design discussion, by people who were each certain the other meant what they meant. Nobody in these conversations was careless. The words simply did not bind to the same things in different heads.</p>
+<p>Until recently I filed this under productivity: terminology confusion wastes meetings and money. Then I started preparing for the AIGP certification, and the framing shifted under me. AI literacy is not just an efficiency concern anymore. The EU AI Act&rsquo;s Article 4 has, since February 2025, required providers and deployers to ensure a sufficient level of AI literacy in their staff. I am not a lawyer and this is not legal advice, but the direction is unambiguous: literacy is moving from a nice-to-have into the category of things an organization must do and, when asked, must show it did. And anything an organization must show, it must be able to stand behind.</p>
+<p>That changes what counts as literate.</p>
+<h2><a href="#three-literacies-not-one" id="three-literacies-not-one">Three literacies, not one</a></h2>
+<p>The confusion I opened with is vocabulary illiteracy, and fixing it is necessary. It is not sufficient. Watching the regulatory material, I now count at least three layers.</p>
+<p><strong>Vocabulary literacy</strong> is knowing what an agent is, what a tool is, how retrieval relates to generation, and which of the three different things your organization calls an agent this particular one is. Its absence costs meetings, rework, and the occasional architecture built on a misunderstanding.</p>
+<p><strong>Governance literacy</strong> is knowing what a risk tier is, what human oversight means in practice, what an impact assessment covers, which controls apply to the system you are building, and what evidence looks like. Its absence costs audit findings, and increasingly it costs legal exposure. A team that can define MCP precisely but cannot say who accepted the residual risk of their agent is not literate in the sense that now matters.</p>
+<p><strong>Organizational literacy</strong> is knowing who owns what, who decides what, who must be in the room for which decision, and how accountability for an AI system actually flows through your structure. Its absence is why oversight exists on paper and not in practice: the committee is named in the policy and nobody can name the committee.</p>
+<p>Courses teach the first layer in the abstract and gesture at the second. The third is not teachable in the abstract at all, because it is specific to your organization by definition. And this is the training gap that a subscription cannot close: the bindings are yours. Your approved models, your sanctioned frameworks, your risk appetite, your committees, your names for things.</p>
+<h2><a href="#the-glossary-instinct-and-where-it-goes-wrong" id="the-glossary-instinct-and-where-it-goes-wrong">The glossary instinct, and where it goes wrong</a></h2>
+<p>The instinctive fix, once someone notices the vocabulary problem, is a glossary. I want to defend that instinct, because it is exactly right. A shared vocabulary is the cheapest coordination mechanism there is. Before you can review an agent architecture, before you can write a sensible policy about tool use, before two teams can reuse anything, the words have to mean the same thing.</p>
+<p>Where the instinct goes wrong is the medium. A glossary lands on a wiki page, and a wiki page is a snapshot of somebody&rsquo;s understanding at the moment of writing. The field moves monthly; the page does not. Six months later it defines terms nobody uses anymore, omits the ones everybody argues about, and nobody can tell whether it reflects the current state or the state when its author changed roles. A flat list of definitions also cannot answer the questions people actually bring to it. What is the relationship between a tool and the protocol that serves it? Which models can I use for this classification task? Who approved this framework and when does that approval expire? Those are relational questions, and a page of alphabetized definitions has no relationships in it.</p>
+<p>Under the old framing, that was an inconvenience. Under the new one, it is a failure mode with a name. If literacy is something you must demonstrate, then the artifacts of your literacy program are subject to the same question every other governed artifact faces: where did this come from? A glossary that is its own source, authored by hand, updated by whoever last cared, cannot answer. It would fail what I think of as the explainability test: for any statement, show me the source of truth it derives from, who owns that source, and whether it is current. We are learning to demand this of AI systems. It would be strange to exempt the documents that teach people about them.</p>
+<h2><a href="#a-glossary-is-a-view" id="a-glossary-is-a-view">A glossary is a view</a></h2>
+<p>Here is the reframe I keep coming back to: a glossary is a view. Definitions, the relationships between concepts, and the organizational bindings (approved models, sanctioned frameworks, committees, internal naming) are structured data. The glossary everyone wants is one rendering of that structure. A concept diagram is another rendering. A &ldquo;what am I allowed to use for X&rdquo; lookup is another. An onboarding path for a new engineer is another. A governance-literacy primer scoped to what <em>this</em> team&rsquo;s systems actually require is another.</p>
+<p>Views are wonderful. Sources of truth they are not, and treating a view as a source is precisely how organizations end up with five glossaries that disagree. The discipline is one rule long: derive the views from the source, and make every derived statement link back to it. Author the structure once and every view stays consistent, because they are generated from the same place and carry their lineage with them. Author each view by hand and they diverge from day one, which is the state most organizations are in.</p>
+<p>The objection writes itself: are you seriously proposing every company build its own metamodel of AI concepts? No, and this is the part I care about most. The concepts are not organization-specific. What an agent is, what a tool is, what a risk tier is: that is industry common ground, and it belongs in open, shared models, maintained the way industry common ground is maintained. What is organization-specific is the instance: your bindings, your approvals, your committees, your local names. This is the Kubernetes pattern applied to concepts. Nobody defines what a pod is in-house. You adopt the industry model and supply your clusters, namespaces, and policies. Adopt the industry&rsquo;s concept models and supply your organization&rsquo;s bindings.</p>
+<h2><a href="#what-the-source-of-truth-looks-like" id="what-the-source-of-truth-looks-like">What the source of truth looks like</a></h2>
+<p>This is not hypothetical, though I will be honest about what exists today and what is coming. I maintain an open-source <a href="https://agent.models.nasdanika.org/">model of agentic AI concepts</a>: agents, tools, MCP, models, retrieval, and the relationships between them, with a home-page diagram a newcomer can absorb over a cup of coffee and generated documentation behind every element. That covers vocabulary literacy, and it is live now.</p>
+<p>The other two literacies get the same treatment. <em>A governance model (frameworks, policies, controls, risks, evidence, waivers) with an AI extension (risk tiers, oversight modes, model cards, evaluations, incidents), and an organizational design model that gives personas real coordinates (people, committees, responsibilities), are in active development as part of the same family of small, composable, federated models. When they publish, a &ldquo;governance glossary&rdquo; and an &ldquo;who decides what&rdquo; view fall out of them the same way the vocabulary glossary falls out of the agent model: generated, current, and linked back to source.</em> The models compose, which is the point: an agent in the vocabulary model is a governed system in the governance model, owned by someone the organizational model can name. Literacy in the composed picture is the &ldquo;true&rdquo; AI literacy the regulatory material is actually asking for.</p>
+<p>And a model instance can do something no wiki page can: publish. A new model is approved, and instead of an announcement on an office-hours call that lands on a page nobody finds, the element&rsquo;s own page announces it, and the people who depend on it are subscribed to it. The glossary entry, the approval, the announcement, and the deprecation notice are the same element seen at different moments, each carrying its provenance.</p>
+<h2><a href="#why-publish-this-before-the-models-are-done" id="why-publish-this-before-the-models-are-done">Why publish this before the models are done</a></h2>
+<p>Deliberately. The argument does not depend on my implementation, and the timing matters: organizations are standing up literacy programs right now, mostly by buying courses, and the derived-views-with-lineage discipline is cheapest to adopt before five hand-authored glossaries exist rather than after. The literacy program can keep the courses; courses are good at what they are good at. But the vocabulary should come from a model, the governance definitions should come from a model, the org bindings should come from a model, and every glossary, diagram, and primer derived from them should say where it came from.</p>
+<p>Literacy with receipts, in other words. Anything less will read fine on a wiki and fall apart the first time somebody asks the question regulators have taught us all to ask: how do you know?</p>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

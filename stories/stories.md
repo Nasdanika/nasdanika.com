@@ -4,6 +4,8 @@ Titles link to the canonical version: on this site for stories already migrated 
 
 ## 2026
 
+- [AI Literacy, With Receipts](2026/ai-literacy.html) 
+- [Model Tetris](2026/model-tetris.html)
 - [Micro-models](2026/micro-models.html) - A Model Should Fit in Your Head 
 - [Micro-wikis](2026/micro-wikis.html) - The Model Is the Site Map
 - [When Architecture Reads the News](2026/when-architecture-reads-the-news.html) (Medium, July 19, 2026). *Why the true consumer of technology updates isn’t your attention — it’s your architecture repository.*

@@ -34,6 +34,22 @@ Action:
               text: 2026		
               children:
                 - Action:
+                    location: 2026/ai-literacy.html
+                    text: AI Literacy, With Receipts		
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/ai-literacy.md              
+                - Action:
+                    location: 2026/model-tetris.html
+                    text: Model tetris		
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/model-tetris.md              
+                - Action:
                     location: 2026/micro-models.html
                     text: Micro-models - A Model Should Fit in Your Head		
                     content:
@@ -73,6 +89,14 @@ Action:
                         style: true
                         source:
                           exec.content.Resource: stories/2026/the-value-is-in-the-builder-not-the-chat/story.md             
+    - Action:
+        location: demos.html
+        icon: fas fa-laptop-code
+        text: Demos		
+        content:
+          content.Markdown:
+            source:
+              exec.content.Resource: demos.md
   navigation:
     - Link:
         text: GitHub
