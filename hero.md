@@ -21,7 +21,23 @@ Agents do not get raw files; they get JSON schemas and tool definitions generate
 Connectors load and cross-reference data from the systems where work already happens: [GitLab](https://gitlab.models.nasdanika.org/), [Jira](https://jira.models.nasdanika.org/), ...
 Models are stored in Git, which provides file-level version control and distributed, federated ownership; feature-level [change recording](https://change.models.nasdanika.org/) and [telemetry](https://telemetry.models.nasdanika.org/) stored beside the model provide the finer grain that Git alone cannot.
 
-One model at the center, three audiences at the edges, each meeting the model through its own surface.
-The gaps between the arcs are deliberate: the list of surfaces is open.
+### Snapshotting &amp; Enrichment
+
+Data loaded from external systems can be saved - snapshotted - in XML, JSON, YAML, or binary formats and consumed later, independently of the source.
+Three pain points make this essential in practice:
+
+* **Staged enrichment.** A snapshot is enriched in multiple passes - adding cross-references, computed fields, or review notes - without re-querying the source on every pass.
+* **Availability windows.** Access may be temporary (a temporary access token) or the source may be unreachable from the environment where analysis runs (air-gapped audit, regulated data boundary).
+* **Cost and rate limits.** Jira is not a system of record and enforces rate limits; re-scanning thousands of GitLab repositories on every pipeline run is slow and expensive. A quarterly snapshot is the practical answer.
+
+Git subtrees are a complementary snapshotting mechanism: the history travels with the subtree, and the source repository need not be reachable later - it may even disappear.
+The two approaches chain naturally: take a broad snapshot into a shared "multi-purpose" snapshot repository, then sub-tree the slice that matters into the repository for a specific task.
+
+Concretely: a risk manager needs to compare the state of a Jira project hierarchy once a quarter - snapshotting captures that state at the moment it matters, not whenever the pipeline next runs.
+
+<div class="jumbotron">
+  One model at the center, three audiences at the edges, each meeting the model through its own surface.
+  The gaps between the arcs are deliberate: the list of surfaces is open.
+</div>  
 
 [^xcore-doc]: See [Xcore-doc template](https://github.com/Nasdanika-Templates/xcore-doc) for details.

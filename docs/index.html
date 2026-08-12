@@ -113,25 +113,25 @@ window.nsdJsTreeSearchCallback = function(str, node) {
   <body>
     <div class="container nsd-app-container">
       <div class="row">
-        <div class="col nsd-app-header"><span data-nsd-label-uuid="5bd06172-eb64-40b1-a381-ab026fd76508" class="nsd-app-header-title"><img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</span>
+        <div class="col nsd-app-header"><span data-nsd-label-uuid="f5ecfda6-2afc-42dd-bd6c-177a7649bb40" class="nsd-app-header-title"><img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</span>
           <ul class="nav nsd-app-header-navs">
             <li class="nav-item">
-              <a href="models.html" data-nsd-label-uuid="75923c3d-bf1a-49a4-9a50-9fb283d4efdb" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+              <a href="models.html" data-nsd-label-uuid="39738ffa-5e64-413b-8c39-ea33c7a1d63f" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
             </li>
             <li class="nav-item">
               <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
             </li>
             <li class="nav-item">
-              <a href="stories/index.html" data-nsd-label-uuid="4bfc9f6b-9931-4113-b2c6-1209941dffb7" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+              <a href="stories/index.html" data-nsd-label-uuid="23e5d090-f885-4d14-ad64-f61c2a720376" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
             </li>
             <li class="nav-item">
-              <a href="demos.html" data-nsd-label-uuid="f4787b3a-8c3c-4637-a44d-b5cb460ceb8a" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+              <a href="demos.html" data-nsd-label-uuid="3098c632-de15-4a21-8919-367281a3d6dd" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
             </li>
           </ul>
         </div>
       </div>
       <div class="row nsd-app-content-row">
-        <main data-nsd-label-uuid="5bd06172-eb64-40b1-a381-ab026fd76508" data-nsd-action-uris="uuid:5bd06172-eb64-40b1-a381-ab026fd76508" class="col nsd-app-content-panel">
+        <main data-nsd-label-uuid="f5ecfda6-2afc-42dd-bd6c-177a7649bb40" data-nsd-action-uris="uuid:f5ecfda6-2afc-42dd-bd6c-177a7649bb40" class="col nsd-app-content-panel">
           <div class="container-fluid">
             <div class="row nsd-app-content-panel-content-row">
               <div class="col">
@@ -183,7 +183,7 @@ window.nsdJsTreeSearchCallback = function(str, node) {
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body morkdown-body text-left" id="hero-diagram-description">
+	      <div class="modal-body markdown-body text-left" id="hero-diagram-description">
 	        <p>At the center (the Nasdanika logo) is the model: not one monolithic model, but a federation of <a href="stories/2026/micro-models.html">micro-models</a>. Each micro-model is small enough to read in one sitting, formal enough for tools and agents to operate on, and composable with the others: models reference and extend each other across repositories the same way Java modules reference each other across Maven. Micro-models are cheap to author: the <a href="https://github.com/Nasdanika-Archetypes/xcore-model">Xcore archetype</a> instantiates a new model project in minutes, and AI assistance drafts the first cut from a conversation. They are cheap to publish: the <a href="https://docs.nasdanika.org/nsd-cli/index.html">Nasdanika CLI</a> generates a documentation site with visualizations and search, and GitHub Pages hosts it<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>. Cheap to author and cheap to publish is what makes &ldquo;one micro-model at a time&rdquo; a realistic adoption path rather than a slogan.</p>
 <p>Around the model are three interaction surfaces.</p>
 <h2><a href="#humans" id="humans"><img src="images/human.svg" alt="" aria-hidden="true" class="arc-icon"> Humans</a></h2>
@@ -192,7 +192,19 @@ window.nsdJsTreeSearchCallback = function(str, node) {
 <p>Agents do not get raw files; they get JSON schemas and tool definitions generated from the metamodels, and JSON generated from the models. Semantic contexts scope what an agent sees to exactly the slice of the model and metamodel it needs, so agents stay focused and constrained.</p>
 <h2><a href="#systems" id="systems"><img src="images/systems.svg" alt="" aria-hidden="true" class="arc-icon"> Systems</a></h2>
 <p>Connectors load and cross-reference data from the systems where work already happens: <a href="https://gitlab.models.nasdanika.org/">GitLab</a>, <a href="https://jira.models.nasdanika.org/">Jira</a>, &hellip; Models are stored in Git, which provides file-level version control and distributed, federated ownership; feature-level <a href="https://change.models.nasdanika.org/">change recording</a> and <a href="https://telemetry.models.nasdanika.org/">telemetry</a> stored beside the model provide the finer grain that Git alone cannot.</p>
-<p>One model at the center, three audiences at the edges, each meeting the model through its own surface. The gaps between the arcs are deliberate: the list of surfaces is open.</p>
+<h3><a href="#snapshotting-enrichment" id="snapshotting-enrichment">Snapshotting &amp; Enrichment</a></h3>
+<p>Data loaded from external systems can be saved - snapshotted - in XML, JSON, YAML, or binary formats and consumed later, independently of the source. Three pain points make this essential in practice:</p>
+<ul>
+<li><strong>Staged enrichment.</strong> A snapshot is enriched in multiple passes - adding cross-references, computed fields, or review notes - without re-querying the source on every pass.</li>
+<li><strong>Availability windows.</strong> Access may be temporary (a temporary access token) or the source may be unreachable from the environment where analysis runs (air-gapped audit, regulated data boundary).</li>
+<li><strong>Cost and rate limits.</strong> Jira is not a system of record and enforces rate limits; re-scanning thousands of GitLab repositories on every pipeline run is slow and expensive. A quarterly snapshot is the practical answer.</li>
+</ul>
+<p>Git subtrees are a complementary snapshotting mechanism: the history travels with the subtree, and the source repository need not be reachable later - it may even disappear. The two approaches chain naturally: take a broad snapshot into a shared &ldquo;multi-purpose&rdquo; snapshot repository, then sub-tree the slice that matters into the repository for a specific task.</p>
+<p>Concretely: a risk manager needs to compare the state of a Jira project hierarchy once a quarter - snapshotting captures that state at the moment it matters, not whenever the pipeline next runs.</p>
+<div class="jumbotron">
+  One model at the center, three audiences at the edges, each meeting the model through its own surface.
+  The gaps between the arcs are deliberate: the list of surfaces is open.
+</div>  
 <div class="footnotes">
 <hr />
 <ol>
@@ -359,7 +371,7 @@ window.nsdJsTreeSearchCallback = function(str, node) {
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body morkdown-body text-left" id="tower-diagram-description">
+	      <div class="modal-body markdown-body text-left" id="tower-diagram-description">
 	        <p>Each floor extends the floor below it, so everything above a floor inherits its vocabulary. Reading bottom-up, every floor adds one concern, and by the top an element is documented, owned, access controlled, staged, decided, governed, worked, and threat-modeled without any single model defining more than its own concern. Composition examples are given per floor; they compound as you climb.</p>
 <h2><a href="#bedrock" id="bedrock">Bedrock</a></h2>
 <p><strong><a href="https://ecore.models.nasdanika.org/">Ecore</a></strong> with Java, EMF, and Git. Not a floor: what the ground is made of. Models and metamodels, code generation, storage, and versioning are twenty-year-old load-bearing technology.</p>

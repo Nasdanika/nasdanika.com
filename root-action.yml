@@ -95,6 +95,7 @@ Action:
         text: Demos		
         content:
           content.Markdown:
+            style: true
             source:
               exec.content.Resource: demos.md
   navigation:

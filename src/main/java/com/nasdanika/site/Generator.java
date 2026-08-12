@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.URI;
-import org.nasdanika.common.ExecutionException;
 import org.nasdanika.common.MarkdownHelper;
 import org.nasdanika.common.Util;
 import org.nasdanika.drawio.Document;
