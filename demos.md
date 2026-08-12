@@ -15,8 +15,8 @@ Demos are organized by audience, multi-audience demos are placed in the first au
     * [Draw.io site](https://nasdanika-demos.github.io/internet-banking-system/index.html) 
     * [Semantic to the C4 Model](https://nasdanika-demos.github.io/internet-banking-system-c4/cerulean/index.html)
 * [Semantic mapping](https://nasdanika-demos.github.io/semantic-mapping/)
-* [Wireframes](https://nasdanika-demos.github.io/semantic-mapping/) - a demo of creating wireframes as Draw.io diagrams using [Bootstrap library](https://bootstrap.models.nasdanika.org/resources/bootstrap.xml) and then generating documentation site
-and using the wireframe at runtime with reflective contributors     
+* [Wireframes](https://nasdanika-demos.github.io/semantic-mapping/) - a demo of creating wireframes as Draw.io diagrams using [Bootstrap library](https://bootstrap.models.nasdanika.org/resources/bootstrap.xml) and then generating documentation site and using the wireframe at runtime with reflective contributors
+* [AI Roadmap](https://nasdanika-templates.github.io/ai-roadmap/) - an AI roadmap site generated from a Draw.io diagram      
     
 ### <img src="images/apachemaven.svg" alt="" aria-hidden="true" class="arc-icon"> Maven
 

@@ -150,9 +150,11 @@
         <mxCell id="ti0M_KN8BQ78oUv5JaEK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#57534E;fontColor=#ffffff;strokeColor=#001DBC;" value="Git" vertex="1">
           <mxGeometry height="50" width="790" x="880" y="740" as="geometry" />
         </mxCell>
-        <mxCell id="YX0wwl3GkrpvA5CVu_9X-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Crypto" vertex="1">
-          <mxGeometry height="50" width="1590" x="80" y="500" as="geometry" />
-        </mxCell>
+        <UserObject label="Seal" link="https://seal.models.nasdanika.org" id="YX0wwl3GkrpvA5CVu_9X-1">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4 1 4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1">
+            <mxGeometry height="50" width="1590" x="80" y="500" as="geometry" />
+          </mxCell>
+        </UserObject>
         <UserObject label="Maven" link="https://maven.models.nasdanika.org/" id="YX0wwl3GkrpvA5CVu_9X-2">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;" vertex="1">
             <mxGeometry height="50" width="80" x="1320" y="20" as="geometry" />
