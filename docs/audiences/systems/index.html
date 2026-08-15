@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="EN">
   <head>
-    <title>Model tetris</title>
+    <title>Systems</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -121,12 +121,10 @@ window.nsdJsTreeSearchCallback = function(str, node) {
               <li class="dropdown">
                 <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
                 <div class="dropdown-menu">
-                  <a href="../../audiences/humans/index.html" data-nsd-label-uuid="1fd19d61-8ad5-43cc-ab56-ba1b30e719e6" class="dropdown-item">
+                  <a href="../humans/index.html" data-nsd-label-uuid="1fd19d61-8ad5-43cc-ab56-ba1b30e719e6" class="dropdown-item">
                     <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
-                  <a href="../../audiences/ai/index.html" data-nsd-label-uuid="94ad133e-50c8-457f-9184-fab7faef831a" class="dropdown-item">
-                    <img src="/images/sparke.svg" class="nsd-app-label-icon"/>AI</a>
-                  <a href="../../audiences/systems/index.html" data-nsd-label-uuid="f78f5022-a2e8-48f7-8fe8-96c469682234" class="dropdown-item">
-                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                  <a href="../ai/index.html" data-nsd-label-uuid="94ad133e-50c8-457f-9184-fab7faef831a" class="dropdown-item">
+                    <img src="/images/sparke.svg" class="nsd-app-label-icon"/>AI</a><span data-nsd-label-uuid="f78f5022-a2e8-48f7-8fe8-96c469682234" class="active dropdown-item"><img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</span>
                 </div>
               </li>
             </li>
@@ -137,7 +135,7 @@ window.nsdJsTreeSearchCallback = function(str, node) {
               <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
             </li>
             <li class="nav-item">
-              <a href="../index.html" data-nsd-label-uuid="3126089a-587e-42f6-9831-fff7ad615c0d" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+              <a href="../../stories/index.html" data-nsd-label-uuid="3126089a-587e-42f6-9831-fff7ad615c0d" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
             </li>
             <li class="nav-item">
               <a href="../../demos.html" data-nsd-label-uuid="2a53bb25-b253-47f2-9331-6a32e5176477" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
@@ -146,18 +144,15 @@ window.nsdJsTreeSearchCallback = function(str, node) {
         </div>
       </div>
       <div class="row nsd-app-content-row">
-        <main data-nsd-label-uuid="f896a8a1-6441-4bff-80fb-85b775a88b9a" data-nsd-action-uris="uuid:f896a8a1-6441-4bff-80fb-85b775a88b9a" class="col nsd-app-content-panel">
+        <main data-nsd-label-uuid="f78f5022-a2e8-48f7-8fe8-96c469682234" data-nsd-action-uris="uuid:f78f5022-a2e8-48f7-8fe8-96c469682234" class="col nsd-app-content-panel">
           <div class="container-fluid">
             <div class="row nsd-app-content-panel-breadcrumb-row">
               <div class="col">
                 <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                      <a href="../index.html" data-nsd-label-uuid="3126089a-587e-42f6-9831-fff7ad615c0d"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    <li class="breadcrumb-item"><span><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</span>
                     </li>
-                    <li class="breadcrumb-item"><span data-nsd-label-uuid="77dc9337-a401-4377-9d56-a09ec39f5b3e">2026</span>
-                    </li>
-                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="f896a8a1-6441-4bff-80fb-85b775a88b9a">Model tetris</span>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="f78f5022-a2e8-48f7-8fe8-96c469682234"><img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</span>
                     </li>
                   </ol>
                 </nav>
@@ -165,7 +160,7 @@ window.nsdJsTreeSearchCallback = function(str, node) {
             </div>
             <div class="row nsd-app-content-panel-title-and-items-row">
               <div class="col-auto">
-                <H1><span data-nsd-label-uuid="f896a8a1-6441-4bff-80fb-85b775a88b9a" class="nsd-app-content-panel-title">Model tetris</span>
+                <H1><span data-nsd-label-uuid="f78f5022-a2e8-48f7-8fe8-96c469682234" class="nsd-app-content-panel-title"><img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</span>
                 </H1>
               </div>
             </div>
@@ -173,13 +168,8 @@ window.nsdJsTreeSearchCallback = function(str, node) {
               <div class="col">
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col"><div class="markdown-body"><p>In Tetris you score by making things disappear.</p>
-<p>I have been restructuring my models into a tower of micro-models: role, access control, lifecycle, decision, governance, work, architecture, threat. Each model sits on the floors below it and extends them. And every time a new floor lands, something on the floors above vanishes.</p>
-<p>When the architecture model slid under the threat model, the threat model lost three things in one move: its generic asset class, its own kind attribute, and its provenance tracking. An asset is now simply an architecture element, and everything an element already had stopped being threat modeling code. When the lifecycle model landed, the accounting model&rsquo;s entry states (imported, reviewed, reconciled) disappeared into a lifecycle catalog, and picked up guarded transitions on the way out: the person who imports a statement can no longer be the person who reconciles it. That is segregation of duties as composition, not as a feature.</p>
-<p>The enterprise model was the ultimate completed row. Stakeholders turned out to be personas. Structure turned out to be architecture elements with TOGAF layers as catalog data. Nothing remained, so the model itself vanished.</p>
-<p>A completed row, it turns out, is a concept fully covered by a floor below. It is the same rule that makes a house work: if there is a laundry room in the basement, you do not put a washer and dryer on the second floor. Floors do not duplicate providers. They pull capabilities from below.</p>
-<p>This is the opposite of how enterprise software usually behaves. Integration adds mass: adapters, mapping layers, glue, wiki pages explaining the glue. Here, every floor that lands makes the tower lighter.</p>
-<p>Most roadmaps promise what they will add. Mine keeps score by what disappears.</p>
+                    <div class="col"><div class="markdown-body"><h2><a href="#personas" id="personas">Personas</a></h2>
+<h2><a href="#interaction-surfaces" id="interaction-surfaces">Interaction Surfaces</a></h2>
 </div></div>
                   </div>
                 </div>

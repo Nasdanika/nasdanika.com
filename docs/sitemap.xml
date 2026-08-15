@@ -1,58 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
   <url>
+    <loc>https://nasdanika.com/audiences/ai/index.html</loc>
+    <lastmod>2026-08-15T03:22:51.576-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://nasdanika.com/audiences/humans/index.html</loc>
+    <lastmod>2026-08-15T03:22:51.575-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://nasdanika.com/audiences/systems/index.html</loc>
+    <lastmod>2026-08-15T03:22:51.577-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://nasdanika.com/demos.html</loc>
-    <lastmod>2026-08-12T18:34:42.837-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.592-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/index.html</loc>
-    <lastmod>2026-08-12T18:34:42.820-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.571-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/models.html</loc>
-    <lastmod>2026-08-12T18:34:42.825-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.579-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/ai-literacy.html</loc>
-    <lastmod>2026-08-12T18:34:42.828-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.581-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/micro-models.html</loc>
-    <lastmod>2026-08-12T18:34:42.831-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.584-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/micro-wikis.html</loc>
-    <lastmod>2026-08-12T18:34:42.833-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.586-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/model-tetris.html</loc>
-    <lastmod>2026-08-12T18:34:42.829-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.582-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/nobody-credits-the-mail-slot.html</loc>
-    <lastmod>2026-08-12T18:34:42.835-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.589-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/the-value-is-in-the-builder-not-the-chat.html</loc>
-    <lastmod>2026-08-12T18:34:42.836-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.591-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/when-architecture-reads-the-news.html</loc>
-    <lastmod>2026-08-12T18:34:42.834-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.587-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/index.html</loc>
-    <lastmod>2026-08-12T18:34:42.827-04:00</lastmod>
+    <lastmod>2026-08-15T03:22:51.580-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

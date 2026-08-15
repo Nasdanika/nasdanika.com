@@ -9,6 +9,38 @@ Action:
   children:
     - Label:
         text: "" # A trick to suppress the principal action
+    - Label:
+        text: Audiences
+        icon: fas fa-project-diagram
+        children:
+          - Action:
+              location: audiences/humans/index.html
+              icon: /images/human.svg
+              text: Humans		
+              content:
+                content.Markdown:
+                  style: true
+                  source:
+                    exec.content.Resource: audiences/humans/readme.md
+          - Action:
+              location: audiences/ai/index.html
+              icon: /images/sparke.svg
+              text: AI		
+              content:
+                content.Markdown:
+                  style: true
+                  source:
+                    exec.content.Resource: audiences/ai/readme.md
+          - Action:
+              location: audiences/systems/index.html
+              icon: /images/systems.svg
+              text: Systems		
+              content:
+                content.Markdown:
+                  style: true
+                  source:
+                    exec.content.Resource: audiences/systems/readme.md
+        
     - Action:
         location: models.html
         icon: fas fa-sitemap
