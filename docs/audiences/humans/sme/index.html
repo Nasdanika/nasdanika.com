@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>SME</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../../index.html" data-nsd-label-uuid="e6d3ab3e-8f64-462f-a076-a83e16430f64" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <li class="dropdown">
+                <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
+                <div class="dropdown-menu">
+                  <a href="../index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../ai/index.html" data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../systems/index.html" data-nsd-label-uuid="602a4ae2-f7e6-4e48-82af-58f955675209" class="dropdown-item">
+                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                </div>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a href="../../../models.html" data-nsd-label-uuid="d3bbc62c-dc46-431c-9bd1-ad3119ba4266" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../stories/index.html" data-nsd-label-uuid="fc3d9f2d-f80a-4579-8bb5-b8e1c99076be" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../demos.html" data-nsd-label-uuid="3171e1b0-db33-4287-8546-071ed3acbb7c" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="9161657e-ef00-420c-822c-b0b5b1e14ec1" data-nsd-action-uris="uuid:9161657e-ef00-420c-822c-b0b5b1e14ec1" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><span><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</span>
+                    </li>
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422">
+                        <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="9161657e-ef00-420c-822c-b0b5b1e14ec1">SME</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="9161657e-ef00-420c-822c-b0b5b1e14ec1" class="nsd-app-content-panel-title">SME</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p>A domain expert whose knowledge the organization depends on: a payments specialist, a mainframe veteran, an actuary, a compliance officer. Years of understanding live in decks, spreadsheets, diagrams, and their head. Not a developer and not interested in becoming one; fluent in Excel, PowerPoint, Draw.io or Visio, and email. Repeatedly asked to &ldquo;share knowledge&rdquo; by tools that demand re-authoring into someone else&rsquo;s structure, after which the content is orphaned, uncredited, and stale. Protective of ownership, and rightly so.</p>
+<h2><a href="#concerns" id="concerns">Concerns</a></h2>
+<h3><a href="#goals" id="goals">Goals</a></h3>
+<ul>
+<li>Knowledge captured once, in a form that stays current and keeps paying off, instead of being re-explained in every meeting and re-slided for every audience.</li>
+<li>Visible, durable credit: the knowledge stays attributed to its author.</li>
+<li>Usefulness to others, including AI agents, without the author becoming a help desk.</li>
+</ul>
+<h3><a href="#needs" id="needs">Needs</a></h3>
+<ul>
+<li>To keep authoring in the tools already mastered: Excel, Draw.io, Markdown, documents. No new authoring environment, no learning a modeling tool.</li>
+<li>Ownership that survives capture: the artifact lives where the author keeps it, versioned, with changes attributed at the level of the thing that changed.</li>
+<li>A gentle first step: one spreadsheet or one diagram, not a knowledge-management program.</li>
+</ul>
+<h3><a href="#pain-points" id="pain-points">Pain points</a></h3>
+<ul>
+<li>Explaining the same thing for the tenth time because the last nine explanations died in decks.</li>
+<li>Knowledge extracted into wikis and platforms where it decays, gets edited by strangers, and loses attribution.</li>
+<li>Being invisible to the AI wave: agents answer questions in the SME&rsquo;s domain from stale or wrong sources while the real knowledge sits unreachable.</li>
+<li>&ldquo;Knowledge capture&rdquo; initiatives that mean weeks of re-authoring into a tool that will be replaced in two years.</li>
+</ul>
+<h3><a href="#prompt" id="prompt">Prompt</a></h3>
+<pre><code>I am a subject-matter expert. Years of my knowledge live in decks,
+spreadsheets, diagrams, and my head. My goals: capture it once so it stays
+current and credited to me, instead of re-explaining it in every meeting; make
+it usable by colleagues and AI agents without me becoming a help desk. My pain
+points: knowledge-capture tools that demand weeks of re-authoring into
+someone else's structure, wikis where my content decays and loses attribution,
+and AI agents that answer questions in my domain from stale or wrong sources
+while my real knowledge sits unreachable. I am not a developer: I work in
+Excel, Draw.io, PowerPoint, and documents, and I intend to keep doing so.
+
+Context so you evaluate the right thing: Nasdanika is a federated modeling
+ecosystem that captures knowledge in small versioned models while authors
+keep working in familiar tools (Draw.io, Excel, Markdown); AI agents and
+generated sites read from the same models. It is not an AI platform or
+chatbot product, so do not compare it to AI platforms or model providers.
+
+Read https://nasdanika.com and https://docs.nasdanika.org, then answer:
+
+1. Concretely, how would knowledge in my spreadsheets and diagrams be
+   captured: what do I keep doing in my tools, and what happens around them?
+2. Who owns the result, where does it live, and how is my authorship
+   recorded when something changes?
+3. What does my first week look like, starting from one spreadsheet or one
+   diagram? What effort is required from me, and what do I get back first?
+4. What should make me refuse: which promises here would a skeptic check,
+   and how?
+
+Format: executive summary of at most five bullets first, then short plain
+answers per question, no jargon. Under 450 words; I will ask follow-ups.
+Where the documentation does not answer something or is work in progress,
+say so instead of guessing.
+</code></pre>
+<p>Below are flavors by jurisdiction and industry</p>
+<h2><a href="#us-banking" id="us-banking">US Banking</a></h2>
+<h3><a href="#pain-points" id="pain-points">Pain points</a></h3>
+<ul>
+<li>At exam time my old decks and spreadsheets get pulled into evidence; I answer for content I wrote years ago with no record of how it has been reused since.</li>
+</ul>
+<h3><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h3>
+<h4><a href="#situation" id="situation">Situation</a></h4>
+<pre><code>I am an expert in a US bank: my domain knowledge ends up in model
+documentation and examiner responses, and a wrong AI answer in my area is a
+supervised matter, not an inconvenience.
+</code></pre>
+<h4><a href="#questions" id="questions">Questions</a></h4>
+<pre><code>If an AI agent or an exam response uses my captured knowledge, how does it
+trace back to me and to the exact version of my artifact, and how do I
+correct an error once, in one place.
+</code></pre>
+<h2><a href="#eu" id="eu">EU</a></h2>
+<h3><a href="#pain-points" id="pain-points">Pain points</a></h3>
+<ul>
+<li>Being asked to sign off on compliance documents assembled from my old decks, with no way to see what changed since.</li>
+</ul>
+<h3><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h3>
+<h4><a href="#situation" id="situation">Situation</a></h4>
+<pre><code>I work in the EU, where documentation and traceability obligations
+increasingly reach my domain: what I know ends up in regulated documents
+that someone has to stand behind.
+</code></pre>
+<h4><a href="#questions" id="questions">Questions</a></h4>
+<pre><code>When my knowledge feeds regulated documentation, how are my authorship and
+each subsequent change recorded, so the record protects me rather than
+exposes me.
+</code></pre>
+<h3><a href="#banking" id="banking">Banking</a></h3>
+<h4><a href="#pain-points" id="pain-points">Pain points</a></h4>
+<ul>
+<li>My spreadsheets quietly feed supervisory registers and resilience reports; when a number is questioned, the trail ends at me with no record of what I actually provided and when.</li>
+</ul>
+<h4><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h4>
+<h5><a href="#situation" id="situation">Situation</a></h5>
+<pre><code>I am an expert in a supervised EU bank: my domain knowledge feeds
+documentation that regulators read, and a wrong AI answer in my area is a
+compliance incident, not an inconvenience.
+</code></pre>
+<h5><a href="#questions" id="questions">Questions</a></h5>
+<pre><code>If an AI agent or a regulatory document uses my captured knowledge, how does
+it trace back to me and to the exact version of my artifact, and how do I
+correct an error once, in one place.
+</code></pre>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="EN">
   <head>
-    <title>AI</title>
+    <title>Consultant</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -35,7 +35,7 @@
 </script>   
 
 <!--  Start search configuration -->
-<script src="../../search-documents.js"></script>
+<script src="../../../search-documents.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
 
@@ -114,37 +114,39 @@ window.nsdJsTreeSearchCallback = function(str, node) {
     <div class="container nsd-app-container">
       <div class="row">
         <div class="col nsd-app-header">
-          <a href="../../index.html" data-nsd-label-uuid="e6d3ab3e-8f64-462f-a076-a83e16430f64" class="nsd-app-header-title">
+          <a href="../../../index.html" data-nsd-label-uuid="e6d3ab3e-8f64-462f-a076-a83e16430f64" class="nsd-app-header-title">
             <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
           <ul class="nav nsd-app-header-navs">
             <li class="nav-item">
               <li class="dropdown">
                 <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
                 <div class="dropdown-menu">
-                  <a href="../humans/index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422" class="dropdown-item">
-                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a><span data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83" class="active dropdown-item"><img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</span>
-                  <a href="../systems/index.html" data-nsd-label-uuid="602a4ae2-f7e6-4e48-82af-58f955675209" class="dropdown-item">
+                  <a href="../index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../ai/index.html" data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../systems/index.html" data-nsd-label-uuid="602a4ae2-f7e6-4e48-82af-58f955675209" class="dropdown-item">
                     <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
                 </div>
               </li>
             </li>
             <li class="nav-item">
-              <a href="../../models.html" data-nsd-label-uuid="d3bbc62c-dc46-431c-9bd1-ad3119ba4266" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+              <a href="../../../models.html" data-nsd-label-uuid="d3bbc62c-dc46-431c-9bd1-ad3119ba4266" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
             </li>
             <li class="nav-item">
               <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
             </li>
             <li class="nav-item">
-              <a href="../../stories/index.html" data-nsd-label-uuid="fc3d9f2d-f80a-4579-8bb5-b8e1c99076be" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+              <a href="../../../stories/index.html" data-nsd-label-uuid="fc3d9f2d-f80a-4579-8bb5-b8e1c99076be" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
             </li>
             <li class="nav-item">
-              <a href="../../demos.html" data-nsd-label-uuid="3171e1b0-db33-4287-8546-071ed3acbb7c" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+              <a href="../../../demos.html" data-nsd-label-uuid="3171e1b0-db33-4287-8546-071ed3acbb7c" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
             </li>
           </ul>
         </div>
       </div>
       <div class="row nsd-app-content-row">
-        <main data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83" data-nsd-action-uris="uuid:26f7ef75-346a-4127-b672-42d1c57c3f83" class="col nsd-app-content-panel">
+        <main data-nsd-label-uuid="fc06dd49-3262-4128-b548-84a6cfa2c014" data-nsd-action-uris="uuid:fc06dd49-3262-4128-b548-84a6cfa2c014" class="col nsd-app-content-panel">
           <div class="container-fluid">
             <div class="row nsd-app-content-panel-breadcrumb-row">
               <div class="col">
@@ -152,7 +154,11 @@ window.nsdJsTreeSearchCallback = function(str, node) {
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><span><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</span>
                     </li>
-                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83"><img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</span>
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422">
+                        <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="fc06dd49-3262-4128-b548-84a6cfa2c014">Consultant</span>
                     </li>
                   </ol>
                 </nav>
@@ -160,7 +166,7 @@ window.nsdJsTreeSearchCallback = function(str, node) {
             </div>
             <div class="row nsd-app-content-panel-title-and-items-row">
               <div class="col-auto">
-                <H1><span data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83" class="nsd-app-content-panel-title"><img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</span>
+                <H1><span data-nsd-label-uuid="fc06dd49-3262-4128-b548-84a6cfa2c014" class="nsd-app-content-panel-title">Consultant</span>
                 </H1>
               </div>
             </div>
@@ -168,8 +174,20 @@ window.nsdJsTreeSearchCallback = function(str, node) {
               <div class="col">
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col"><div class="markdown-body"><h2><a href="#personas" id="personas">Personas</a></h2>
-<h2><a href="#interaction-surfaces" id="interaction-surfaces">Interaction Surfaces</a></h2>
+                    <div class="col"><div class="markdown-body"><p>Consultant as a mix-in, not a persona. It adds concerns to personas and changes concern weights. For example, an <a href="../ai-architect/index.html">AI Architect</a> might be an internal consultant. Knowledge of AI, partial knowledge of the organization, workforce augmentation: get the team started, move to the next project. That is one point on a spectrum, not the definition. A permanent AI architect is another point. A pure external consultant (zero tribal knowledge on day one) is a third.</p>
+<p>So &ldquo;consultant&rdquo; is not a new base persona. It is an <strong>engagement-mode dimension</strong> that cuts across base personas.</p>
+<h2><a href="#why-mix-in" id="why-mix-in">Why mix-in</a></h2>
+<p><strong>It stops persona proliferation before it starts.</strong>: a consultant leader, a consultant architect, and a consultant-adjacent SME are different pages only in their weights, not in their concerns.</p>
+<p><strong>The concerns do not change; their weights do.</strong> Take the AI architect&rsquo;s concern list. For a permanent architect, staying current without meetings, inventory and impact analysis, and governed variation dominate: those are tenure concerns. For a consultant entering cold, shared vocabulary, understanding business requirements, and SME-reviewable definitions dominate: those are extraction concerns. Same persona, different slider positions. That is exactly what a weighted-concern instance in the Product Management model expresses, and the weights double as NCDA criteria weights: the persona page becomes a small decision model.</p>
+<h2><a href="#concerns" id="concerns">Concerns</a></h2>
+<ul>
+<li><em>Org familiarity → 0</em> promotes the air-gapped requirement from differentiator vignette to hard constraint. A pure consultant works inside the client&rsquo;s walls with client data that cannot leave; modeling the problem air-gapped is not a nice-to-have, it is the condition of the engagement. The landing page&rsquo;s airgapped story now has a persona attached instead of standing alone.</li>
+<li><em>Engagement is finite</em> changes the deliverable contract: the consultant hands over generated outcomes <strong>plus the model repository they built</strong>. The repo is the durable asset; the generated site, deck, and handbook are projections the client can regenerate.</li>
+<li><em>Repeat engagements</em> create the reference-model economy: a consultant doing twenty similar engagements (acquisition prep, roll-ups, modernization assessments) amortizes a reference capability model across all of them, and the commodity vs. secret-sauce split (share accounting and payroll, protect the kitchen) is a first-class modeling decision with decision-analysis elicitation and encryption-enforced boundaries.</li>
+</ul>
+<h2><a href="#the-counterpart-knowledge-holders-as-sme-flavors" id="the-counterpart-knowledge-holders-as-sme-flavors">The counterpart: knowledge holders as SME flavors</a></h2>
+<p>The consultant-mode architect works opposite long-tenure knowledge holders: resident architects, developers, UX designers, risk people. Their knowledge is trapped in heads and office documents that make it shareable with neither other humans nor machines. If their knowledge were captured, working with them would be easier, and they benefit once the practice is in place.</p>
+<p>The economics of that &ldquo;once&rdquo; is the important part. The individual holder pays the capture cost while the benefit accrues to everyone who works with them; left to individuals, capture never clears the bar. The org must absorb the adoption cost because the org is the beneficiary. This is the same fitness-valley logic that rules out grassroots formal modeling inside enterprises, now stated as a design constraint on the SME persona: the pitch to a knowledge holder is never &ldquo;adopt a practice,&rdquo; it is &ldquo;the practice is sponsored, your artifacts meet you halfway, capture happens as a byproduct of engagements you were doing anyway.&rdquo; The consultant mix-in and the SME flavors are two sides of one engagement: one party pulls knowledge into the model, the other needs a sponsored medium that can hold it.</p>
 </div></div>
                   </div>
                 </div>

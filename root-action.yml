@@ -22,9 +22,42 @@ Action:
                   style: true
                   source:
                     exec.content.Resource: audiences/humans/readme.md
+              anonymous:
+                - Action:
+                    location: leader/index.html
+                    text: Leader		
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: audiences/humans/leader/readme.md
+                - Action:
+                    location: sme/index.html
+                    text: SME		
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: audiences/humans/sme/readme.md
+                - Action:
+                    location: ai-architect/index.html
+                    text: AI Architect		
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: audiences/humans/ai-architect/readme.md
+                - Action:
+                    location: consultant/index.html
+                    text: Consultant		
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: audiences/humans/consultant/readme.md              
           - Action:
               location: audiences/ai/index.html
-              icon: /images/sparke.svg
+              icon: /images/sparkle.svg
               text: AI		
               content:
                 content.Markdown:

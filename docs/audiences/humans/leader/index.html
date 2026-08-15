@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Leader</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../../index.html" data-nsd-label-uuid="e6d3ab3e-8f64-462f-a076-a83e16430f64" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <li class="dropdown">
+                <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
+                <div class="dropdown-menu">
+                  <a href="../index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../ai/index.html" data-nsd-label-uuid="26f7ef75-346a-4127-b672-42d1c57c3f83" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../systems/index.html" data-nsd-label-uuid="602a4ae2-f7e6-4e48-82af-58f955675209" class="dropdown-item">
+                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                </div>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a href="../../../models.html" data-nsd-label-uuid="d3bbc62c-dc46-431c-9bd1-ad3119ba4266" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../stories/index.html" data-nsd-label-uuid="fc3d9f2d-f80a-4579-8bb5-b8e1c99076be" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../demos.html" data-nsd-label-uuid="3171e1b0-db33-4287-8546-071ed3acbb7c" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="92cce925-ef2b-48b3-a778-18268fb1f1c1" data-nsd-action-uris="uuid:92cce925-ef2b-48b3-a778-18268fb1f1c1" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><span><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</span>
+                    </li>
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="7438e37a-c0d1-4ed7-be9d-a8a6a3e9a422">
+                        <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="92cce925-ef2b-48b3-a778-18268fb1f1c1">Leader</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="92cce925-ef2b-48b3-a778-18268fb1f1c1" class="nsd-app-content-panel-title">Leader</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p>A senior leader (director, VP, or head of function) accountable for AI adoption, AI literacy, and developer experience across an organization. Owns outcomes and audit posture, not implementation. Evaluates technology by organizational consequences: adoption cost, risk, regulatory readiness, and whether the people who have to live with it will accept it. Has seen platform migrations sold as transformations and is skeptical of anything that requires the whole organization to move at once.</p>
+<h3><a href="#concerns" id="concerns">Concerns</a></h3>
+<h4><a href="#goals" id="goals">Goals</a></h4>
+<ul>
+<li>AI adoption that is credible to auditors, regulators, and the board, not just demo-ready.</li>
+<li>Decisions grounded in current reality rather than in hand-assembled decks and stale snapshots.</li>
+<li>A record of what was decided, from what inputs, by whom, ahead of regulation such as the EU AI Act rather than behind it.</li>
+<li>Developer experience improvements that do not create another platform team and another migration.</li>
+</ul>
+<h4><a href="#needs" id="needs">Needs</a></h4>
+<ul>
+<li>An honest comparison against the alternatives actually on the table, with explicit walk-away criteria.</li>
+<li>An adoption path that starts with one team and one artifact, shows value in weeks, and can be stopped without writing off a platform investment.</li>
+<li>Provenance: any number or diagram in a review must trace to its source.</li>
+<li>Something that runs where the data is allowed to live, including fully disconnected environments.</li>
+</ul>
+<h4><a href="#pain-points" id="pain-points">Pain points</a></h4>
+<ul>
+<li>Quarterly reviews assembled by hand from Jira, ServiceNow, and last quarter&rsquo;s deck; decisions follow whichever narrative arrived first and was packaged best.</li>
+<li>Every tool pushes its own partial view; nobody owns the whole picture.</li>
+<li>Institutional knowledge locked in decks, wikis, spreadsheets, and heads, invisible to both people and AI agents.</li>
+<li>Centralized platforms whose copy of reality starts aging at import time, and whose audit trail ends at &ldquo;uploaded by&rdquo;.</li>
+</ul>
+<h2><a href="#prompt" id="prompt">Prompt</a></h2>
+<pre><code>I lead an organization and I am responsible for AI adoption, AI literacy, and
+developer experience. My goals: AI adoption that stands up to audit, decisions
+grounded in current reality instead of hand-assembled decks, and a record of
+what was decided, from what inputs, by whom. My pain points: every tool pushes
+its own partial view, reviews are assembled by hand from stale snapshots, and
+institutional knowledge is locked in decks, wikis, spreadsheets, and heads
+where neither people nor AI agents can reach it.
+
+Context so you evaluate the right thing: Nasdanika is a federated modeling
+ecosystem. It keeps enterprise knowledge in small, Git-versioned models that
+people reach through Draw.io, Excel, Markdown, and AI chat, agents reach
+through generated schemas and tools, and systems reach through Git and Jira.
+It is not an AI platform, model runtime, or hosting service, so do not compare
+it to AWS Bedrock, Azure AI Foundry, or model providers; it works alongside
+whatever AI platform I already have.
+
+Read https://nasdanika.com and https://docs.nasdanika.org, then answer:
+
+1. What does Nasdanika address for someone in my position that the adjacent
+   categories do not: developer portals (Backstage), EA tools (LeanIX),
+   wikis and document stores (Confluence, SharePoint), data catalogs?
+2. A realistic adoption path: first team, first artifact, first month, and
+   what I should expect to see before committing further.
+3. Selection criteria I should apply, and the walk-away criteria: what
+   findings should make me drop it.
+
+Format: start with an executive summary of at most five bullet points, then
+brief sections for the three questions. Keep the whole answer under 500 words;
+I will ask for depth where I want it. Where the documentation is incomplete or
+silent, say so plainly instead of guessing; parts of it are explicitly work in
+progress.
+</code></pre>
+<p>Below are flavors by jurisdiction and industry</p>
+<h2><a href="#us" id="us">US</a></h2>
+<h3><a href="#goals" id="goals">Goals</a></h3>
+<ul>
+<li>Defensible AI governance without a single statutory checklist to point at.</li>
+</ul>
+<h3><a href="#pain-points" id="pain-points">Pain points</a></h3>
+<ul>
+<li>A patchwork of state laws and sectoral guidance; every audit measures against a different yardstick.</li>
+</ul>
+<h3><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h3>
+<h4><a href="#situation" id="situation">Situation</a></h4>
+<pre><code>I operate in the US, where there is no single federal AI law: I face a
+patchwork of state laws and sectoral guidance, with NIST AI RMF as the
+de facto yardstick for whether our governance is defensible.
+</code></pre>
+<h4><a href="#questions" id="questions">Questions</a></h4>
+<pre><code>How would one governed model support NIST AI RMF style governance and serve
+audits against multiple, shifting state and sector requirements, and what
+governance work remains manual.
+</code></pre>
+<h3><a href="#banking" id="banking">Banking</a></h3>
+<h4><a href="#goals" id="goals">Goals</a></h4>
+<ul>
+<li>Pass examinations without a documentation fire drill.</li>
+</ul>
+<h4><a href="#needs" id="needs">Needs</a></h4>
+<ul>
+<li>Lineage an examiner can follow from a reported figure back to its source, without moving data outside the bank&rsquo;s boundary.</li>
+</ul>
+<h4><a href="#pain-points" id="pain-points">Pain points</a></h4>
+<ul>
+<li>Model inventories kept in spreadsheets; every exam a scramble to reconstruct decisions and change history.</li>
+</ul>
+<h4><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h4>
+<h5><a href="#situation" id="situation">Situation</a></h5>
+<pre><code>I lead in a bank. Model risk management guidance (SR 11-7, OCC 2011-12) and
+examiner expectations apply: models need documented purpose, inputs,
+validation, and change history, and AI use is a supervised concern.
+</code></pre>
+<h5><a href="#questions" id="questions">Questions</a></h5>
+<pre><code>How do feature-level provenance and versioned models map to model risk
+management documentation and examiner requests, and which parts of that
+documentation would still be authored and maintained by hand.
+</code></pre>
+<h2><a href="#eu" id="eu">EU</a></h2>
+<h3><a href="#goals" id="goals">Goals</a></h3>
+<ul>
+<li>Demonstrate EU AI Act readiness with generated, current evidence rather than compliance-by-spreadsheet.</li>
+</ul>
+<h3><a href="#needs" id="needs">Needs</a></h3>
+<ul>
+<li>Data residency: knowledge and its processing stay within EU boundaries.</li>
+<li>Technical documentation that regenerates as reality changes instead of aging between submissions.</li>
+</ul>
+<h3><a href="#pain-points" id="pain-points">Pain points</a></h3>
+<ul>
+<li>Vendors stamping &ldquo;AI Act ready&rdquo; on everything while shifting the actual record-keeping burden to the customer.</li>
+<li>Compliance documents that are stale the day they are filed.</li>
+</ul>
+<h3><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h3>
+<h4><a href="#situation" id="situation">Situation</a></h4>
+<pre><code>I operate in the EU. The EU AI Act applies to us, including record-keeping
+and technical documentation obligations for higher-risk systems, and GDPR
+constrains where data can live and be processed.
+</code></pre>
+<h4><a href="#questions" id="questions">Questions</a></h4>
+<pre><code>How would Nasdanika help produce and keep current the records the EU AI Act
+expects (what was decided, from what inputs, by whom, plus technical
+documentation), and state clearly what compliance work it does not do for me.
+</code></pre>
+<h3><a href="#banking" id="banking">Banking</a></h3>
+<h4><a href="#needs" id="needs">Needs</a></h4>
+<ul>
+<li>Runs entirely within the bank&rsquo;s boundary, including disconnected environments; nothing leaves supervision.</li>
+</ul>
+<h4><a href="#pain-points" id="pain-points">Pain points</a></h4>
+<ul>
+<li>DORA registers and outsourcing documentation maintained by hand in spreadsheets, aging between submissions.</li>
+</ul>
+<h4><a href="#prompt-additions" id="prompt-additions">Prompt additions</a></h4>
+<h5><a href="#situation" id="situation">Situation</a></h5>
+<pre><code>I lead in a bank supervised under the EU framework: DORA applies, including
+ICT third-party risk and the register of information, alongside EBA
+outsourcing guidelines and ECB supervision.
+</code></pre>
+<h5><a href="#questions" id="questions">Questions</a></h5>
+<pre><code>Could DORA-style evidence (register of information, ICT third-party
+dependencies, operational-resilience documentation) be maintained as
+projections of a living model rather than hand-kept spreadsheets, and what
+does Nasdanika not address there.
+</code></pre>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
