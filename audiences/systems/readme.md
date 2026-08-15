@@ -1,5 +1,9 @@
+Below is a list of system interaction surfaces. Interaction can be unidirectional an bidirectional.  
 
-
-## Personas
-
-## Interaction Surfaces
+* **[Jira](https://jira.models.nasdanika.org/)** - issues can be loaded from Jira and stored as a snapshot for enrichment and further analysis. Draw.io diagrams can be generated from Jira issues as well as 2D and 3D graphs. Jira issues can be generated from models. 
+* **[GitLab](https://gitlab.models.nasdanika.org/)** - repositories can be scanned and files pulled selectively without cloning. For example, scan your GitLab, pull pom.xml files, resolve dependencies, align to the [organization structure](https://org-design.models.nasdanika.org/) by analyzing who committed to the repository and by using organization/developer/contributor elements in pom.xml files.  
+* **RDBMS** - database schema can be loaded into models from [JDBC metadata](https://sql.models.nasdanika.org/index.html) and [SQL sources](https://sql.models.nasdanika.org/ast/index.html). Loaded metadata can be used to generate database schema documentation - [example](https://sql.models.nasdanika.org/demos/sample-database-docs/index.html) and Ecore models. Data can be loaded into Ecore models without writing SQL - there is an ORM layer based on annotations. Loaded data can be stored in XML, JSON, YAML or binary formats and cross-referenced with data loaded from other systems. 
+* **[Tibco BW 5](https://bw5.models.nasdanika.org/)** - with this model you can load BW 5 projects into models, generate documentaion, execute using the engine approach or generate code. Combinded with GitLab scanning you can scan your repositories and produce a report of your legacy footprint. Initial [Bw6](https://bw6.models.nasdanika.org/) model and loader are also available. 
+* **[Confluence](https://confluence.models.nasdanika.org)** - loading of data from Confluence. Loaded data can be saved to files (snapshot) and enriched. It can be aligned to the org structure by analysing authors as well as visitors - this also allows to compute org dependencies. Pages can be analyzed for staleness.    
+* **[Maven](https://maven.models.nasdanika.org/)** - Maven artifacts can be pulled from multiple sources, including Maven repositories such as Artifactory and Maven Central. It allows to build an organization-wide dependency graph which includes 3rd-party dependencies to conduct different types of analysis including vulnerabilities in internal transitive dependencies, alignment to the org structure and computing org dependencies. 
+  

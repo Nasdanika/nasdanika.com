@@ -65,7 +65,7 @@
             <mxGeometry height="20" width="50" x="370" y="415" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="+ More" link="audiences/systems/index.html#interaction-surfaces" id="SHh2Xhadr3F50y-dhRzO-3">
+        <UserObject label="+ More" link="audiences/systems/index.html" id="SHh2Xhadr3F50y-dhRzO-3">
           <mxCell parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#446E2C;strokeColor=#16210E;fontColor=#FFFFFF;" vertex="1">
             <mxGeometry height="20" width="50" x="600.5" y="496" as="geometry" />
           </mxCell>
