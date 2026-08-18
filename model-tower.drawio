@@ -6,42 +6,42 @@
         <mxCell id="1" parent="0" />
         <UserObject label="NxCore" link="https://nxcore.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-1">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="700" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="700" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Role" link="https://role.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-2">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="640" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="640" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="IAM" link="https://iam.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-3">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="580" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="580" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Lifecycle" link="https://lifecycle.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-4">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="460" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="460" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Governance" link="https://governance.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-7">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="260" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="260" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Work" link="https://work.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-8">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="200" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="200" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Architecture" link="https://architecture.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-9">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="140" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="140" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Threat" link="https://threat.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-10">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1500" x="80" y="80" as="geometry" />
+            <mxGeometry height="50" width="1410" x="80" y="80" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Org Design" link="https://org-design.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-11">
@@ -70,7 +70,7 @@
         </mxCell>
         <UserObject label="UI" link="https://ui.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-17">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="170" x="530" y="20" as="geometry" />
+            <mxGeometry height="50" width="80" x="530" y="20" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Bootstrap" link="https://bootstrap.ui.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-18">
@@ -88,47 +88,42 @@
             <mxGeometry height="50" width="170" x="350" y="-40" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="AlpineJS" link="https://alpinejs.ui.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-21">
-          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="620" y="-40" as="geometry" />
-          </mxCell>
-        </UserObject>
         <UserObject label="Diagram" link="https://diagram.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-22">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="600" x="710" y="20" as="geometry" />
+            <mxGeometry height="50" width="600" x="620" y="20" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Sprotty" link="https://sprotty.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-23">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="710" y="-40" as="geometry" />
+            <mxGeometry height="50" width="80" x="620" y="-40" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Presentation" link="https://presentation.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-24">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="510" x="800" y="-40" as="geometry" />
+            <mxGeometry height="50" width="510" x="710" y="-40" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Draw.io" link="https://drawio.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-25">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="800" y="-100" as="geometry" />
+            <mxGeometry height="50" width="80" x="710" y="-100" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="PowerPoint" link="https://powerpoint.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-26">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="886" y="-100" as="geometry" />
+            <mxGeometry height="50" width="80" x="796" y="-100" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="cy2l3BtwxmfXcfT3T_pb-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" value="PlantUML" vertex="1">
-          <mxGeometry height="50" width="80" x="1058" y="-100" as="geometry" />
+          <mxGeometry height="50" width="80" x="968" y="-100" as="geometry" />
         </mxCell>
         <UserObject label="ODP" link="https://odp.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-28">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1144" y="-100" as="geometry" />
+            <mxGeometry height="50" width="80" x="1054" y="-100" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Visio" link="https://visio.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-29">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="972" y="-100" as="geometry" />
+            <mxGeometry height="50" width="80" x="882" y="-100" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="AI&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Governance&lt;/span&gt;" link="https://ai.governance.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-30">
@@ -138,25 +133,25 @@
         </UserObject>
         <UserObject label="PDF" link="https://pdf.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-31">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1230" y="-100" as="geometry" />
+            <mxGeometry height="50" width="80" x="1140" y="-100" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="ti0M_KN8BQ78oUv5JaEK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#57534E;fontColor=#ffffff;strokeColor=#363330;fontSize=14;" value="Git" vertex="1">
-          <mxGeometry height="50" width="880" x="970" y="760" as="geometry" />
+          <mxGeometry height="50" width="835" x="930" y="760" as="geometry" />
         </mxCell>
         <UserObject label="Seal" link="https://seal.models.nasdanika.org" id="YX0wwl3GkrpvA5CVu_9X-1">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1770" x="80" y="520" as="geometry" />
+            <mxGeometry height="50" width="1680" x="80" y="520" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Maven" link="https://maven.models.nasdanika.org/" id="YX0wwl3GkrpvA5CVu_9X-2">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1320" y="20" as="geometry" />
+            <mxGeometry height="50" width="80" x="1230" y="20" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="C4" link="https://c4.architecture.models.nasdanika.org/" id="jIhq6mCHS5zJRgMlt6UH-1">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1590" y="80" as="geometry" />
+            <mxGeometry height="50" width="80" x="1500" y="80" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="jIhq6mCHS5zJRgMlt6UH-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" value="Maven Org" vertex="1">
@@ -164,11 +159,11 @@
         </mxCell>
         <UserObject label="EMF Ecore" link="https://ecore.models.nasdanika.org/" id="jIhq6mCHS5zJRgMlt6UH-3">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#57534E;fontColor=#ffffff;strokeColor=#363330;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="880" x="80" y="760" as="geometry" />
+            <mxGeometry height="50" width="835" x="80" y="760" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="jIhq6mCHS5zJRgMlt6UH-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#57534E;fontColor=#ffffff;strokeColor=#363330;fontSize=14;" value="Java" vertex="1">
-          <mxGeometry height="50" width="880" x="80" y="820" as="geometry" />
+          <mxGeometry height="50" width="835" x="80" y="820" as="geometry" />
         </mxCell>
         <UserObject label="AI&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Org&lt;/span&gt;" link="https://ai.org-design.models.nasdanika.org" id="XPAC18myuYjDGBDUDnQ1-1">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" vertex="1">
@@ -177,12 +172,12 @@
         </UserObject>
         <UserObject label="Tibco BW" link="https://bw5.models.nasdanika.org/" id="XPAC18myuYjDGBDUDnQ1-2">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1410" y="20" as="geometry" />
+            <mxGeometry height="50" width="80" x="1320" y="20" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="SOR" link="https://sor.models.nasdanika.org/" id="XPAC18myuYjDGBDUDnQ1-3">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1680" y="80" as="geometry" />
+            <mxGeometry height="50" width="80" x="1590" y="80" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="AI C4&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Org&lt;/span&gt;" link="https://c4.ai.org-design.models.nasdanika.org" id="CR5LIV6Kl0eZVpEtjBr--1">
@@ -192,30 +187,30 @@
         </UserObject>
         <UserObject label="Accounting" link="https://accounting.models.nasdanika.org/" id="CR5LIV6Kl0eZVpEtjBr--2">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1770" y="80" as="geometry" />
+            <mxGeometry height="50" width="80" x="1680" y="80" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="C4 SOR" link="https://sor.c4.architecture.models.nasdanika.org/" id="nsSOPzikziaHi07sSS36-1">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="170" x="1590" y="20" as="geometry" />
+            <mxGeometry height="50" width="170" x="1500" y="20" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="CISO" link="https://ciso.models.nasdanika.org/" id="2emOiQ3v1xPXQFFRQn7N-1">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1500" y="20" as="geometry" />
+            <mxGeometry height="50" width="80" x="1410" y="20" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="2emOiQ3v1xPXQFFRQn7N-2" parent="1" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;collapsible=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" value="Decision" vertex="1">
-          <mxGeometry height="130" width="1770" x="80" y="320" as="geometry" />
+          <mxGeometry height="130" width="1680" x="80" y="320" as="geometry" />
         </mxCell>
         <UserObject label="Analysis" link="https://analysis.decision.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-5">
           <mxCell parent="2emOiQ3v1xPXQFFRQn7N-2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1730" x="30" y="70" as="geometry" />
+            <mxGeometry height="50" width="1640" x="30" y="70" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Binding" link="https://binding.decision.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-6">
           <mxCell parent="2emOiQ3v1xPXQFFRQn7N-2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1730" x="30" y="10" as="geometry" />
+            <mxGeometry height="50" width="1640" x="30" y="10" as="geometry" />
           </mxCell>
         </UserObject>
       </root>
