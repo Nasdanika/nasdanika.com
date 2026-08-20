@@ -2,115 +2,131 @@
 model-tower.drawio
 ```
 
-## Tower floors and aspect models
+## The portfolio
 
-* **[nxcore](https://github.com/Nasdanika-Models/nxcore)** — Nasdanika Core Metamodel in Xcore: the base floor. Documentation as structure, time including relative time, provenance markers.
-* **[role](https://github.com/Nasdanika-Models/role)** — Undergoer / Role / Actor metamodel for ownership and responsibilities.
-* **[multiple-criteria-decision-analysis](https://github.com/Nasdanika-Models/multiple-criteria-decision-analysis)** ([site](https://mcda.models.nasdanika.org/)) — MCDA and AHP: alternatives, criteria, experts; the decision floor.
-* **[risk](https://github.com/Nasdanika-Models/risk)** — risk management domain and agentic risk management.
-* **[rules](https://github.com/Nasdanika-Models/rules)** — rules, rule sets, inspectors, violations, waivers.
-* **[architecture](https://github.com/Nasdanika-Models/architecture)** ([site](https://architecture.models.nasdanika.org/)) — architecture elements and relationships; being replaced in place by the lightweight tower version.
-* **[accounting](https://github.com/Nasdanika-Models/accounting)** — model/file based double-entry accounting; tower balcony demo.
-* **[enterprise](https://github.com/Nasdanika-Models/enterprise)** ([site](https://enterprise.models.nasdanika.org/)) — semantic enterprise model from the Beyond Diagrams book; dissolving into product management, architecture, and catalogs.
+The tower is not a product suite.
+It is a set of small [micro-models](stories/2026/micro-models.html), each published on its own, each depending only on the floors below it, each generating its own documentation site.
+What makes it a portfolio rather than a pile is that the floors compose: a concern defined once at the bottom - identity, documentation, provenance, time - is inherited by everything above it, and a model that takes its position in the tower stops defining the concerns a lower floor already provides.
+The tower gets taller and the models get smaller.
 
-## Enterprise, product, and organization
+Taken together they let you model an organization and its solutions end to end: from a button in a UI down to a field in a mainframe copybook, carrying ownership, access control, lifecycle stage, decision history, risk, control, evidence, and work along the whole path.
+The same graph answers "which teams depend on this system of record", "who approved this alternative and on what analysis", "which controls cover this requirement", and "what breaks if this vendor library has a CVE" - because those are not four tools' worth of data reconciled by export, they are four aspects of the same elements.
 
-* **[capability](https://github.com/Nasdanika-Models/capability)** — capability model; root of the pull stack.
-* **[product-management](https://github.com/Nasdanika-Models/product-management)** ([site](https://product-management.models.nasdanika.org/)) — personas, concerns, capabilities, evidence: pull, not push.
-* **[product-management-ref](https://github.com/Nasdanika-Models/product-management-ref)** — earlier reference product management model.
-* **[org-design](https://github.com/Nasdanika-Models/org-design)** ([site](https://org-design.models.nasdanika.org/)) — organizational design: structure, strategy, capabilities, coordination.
-* **[party](https://github.com/Nasdanika-Models/party)** — party, organization, role, contact method.
-* **[process](https://github.com/Nasdanika-Models/process)** — processes with activities, roles, actors, resources, artifacts.
-* **[roadmap](https://github.com/Nasdanika-Models/roadmap)** — parties, phases, deliverables.
-* **[goals](https://github.com/Nasdanika-Models/goals)** — goal, objective, key result, task, increment.
-* **[togaf](https://github.com/Nasdanika-Models/togaf)** — TOGAF 10 concepts: study, reference, architecture-as-code.
-* **[c4](https://github.com/Nasdanika-Models/c4)** — Ecore C4 model.
-* **[uaf](https://github.com/Nasdanika-Models/uaf)** — Unified Architecture Framework model.
+### Time is a dimension, not a column
 
-## AI and agents
+Every element is positioned in time, and time may be relative or partially known.
+A person who will be hired in a year is a modelable person.
+Work that starts when a vendor GAs a product and the security review clears is modelable work, with the dependency stated rather than implied by a date somebody guessed.
+An organizational unit that exists for two quarters, a control that applies only after a framework version takes effect, a capability provider valid until its contract ends - all of these are periods with history, not rows that get overwritten and lose what they used to say.
 
-* **[agent](https://github.com/Nasdanika-Models/agent)** ([site](https://agent.models.nasdanika.org/)) — agentic AI systems: agents, tasks, tools, skills, examples, language models.
-* **[agent-skills](https://github.com/Nasdanika-Models/agent-skills)** — agent skills model.
-* **[a2a](https://github.com/Nasdanika-Models/a2a)** — agent-to-agent model generated from the A2A JSON schema.
-* **[crew-ai](https://github.com/Nasdanika-Models/crew-ai)** — CrewAI agents, tools, crews: education, semantic mapping, code generation.
-* **[semantic-kernel](https://github.com/Nasdanika-Models/semantic-kernel)** — Semantic Kernel concepts; declarative kernel construction.
-* **[semantic-context](https://github.com/Nasdanika-Models/semantic-context)** — bidirectional projections between source and target models; scoped views for agents.
-* **[reasoning](https://github.com/Nasdanika-Models/reasoning)** — forward reasoning on Ecore classes using compute graphs.
-* **[azure-document-intelligence](https://github.com/Nasdanika-Models/azure-document-intelligence)** — model and loader for Azure Document Intelligence.
-* **[smart-home](https://github.com/Nasdanika-Models/smart-home)** — rooms-and-lights demo for agentic solutions.
+Plans, current state, and history are the same model read at different points on the time axis.
 
-## Platforms and estates
+### Who it is for
 
-* **[maven](https://github.com/Nasdanika-Models/maven)** ([site](https://maven.models.nasdanika.org/)) — Maven modules, organizations, developers; dependency graphs.
-* **[java](https://github.com/Nasdanika-Models/java)** — Java modules, packages, classes, methods, compilation units.
-* **[java-module](https://github.com/Nasdanika-Models/java-module)** — Java module system: requires, exports, services.
-* **[git](https://github.com/Nasdanika-Models/git)** — Git object model: blob, tree, commit, reference, branch, tag.
-* **[gitlab](https://github.com/Nasdanika-Models/gitlab)** — GitLab users, groups, projects, repositories, commits for cross-referencing.
-* **[jira](https://github.com/Nasdanika-Models/jira)** — Jira model, processors, documentation generator.
-* **[kubernetes](https://github.com/Nasdanika-Models/kubernetes)** — clusters, nodes, pods, workloads on top of containers.
-* **[containers](https://github.com/Nasdanika-Models/containers)** — images, registries, containers.
-* **[azure](https://github.com/Nasdanika-Models/azure)** — Azure resources, subscriptions, resource groups.
-* **[terraform](https://github.com/Nasdanika-Models/terraform)** — Terraform metamodel for documentation and code generation.
-* **[sql](https://github.com/Nasdanika-Models/sql)** — SQL/JDBC metadata, Ecore generation from schemas, data loading.
-* **[bw5](https://github.com/Nasdanika-Models/bw5)** ([site](https://bw5.models.nasdanika.org/)) — Tibco BW 5.x artifacts for model-driven legacy modernization.
-* **[bw6](https://github.com/Nasdanika-Models/bw6)** — Tibco BW 6 model.
-* **[shiro](https://github.com/Nasdanika-Models/shiro)** — Apache Shiro concepts: subjects, roles, permission checks on spans.
-* **[coverage](https://github.com/Nasdanika-Models/coverage)** — code coverage model.
-* **[python](https://github.com/Nasdanika-Models/python)** — model for generating Python sources.
-* **[xpu](https://github.com/Nasdanika-Models/xpu)** — CPU/GPU/TPU analysis: processing units, makers, microarchitectures.
+Anyone who has to grasp complex information quickly and communicate it accurately.
+Consultants first: an engagement is mostly a race to understand an unfamiliar estate, and the deliverable is usually a deck that stops being true the week after it ships.
+A model is a deliverable that keeps working - it can be handed over, extended, queried, and regenerated by the client long after the engagement ends.
+The same argument applies inside an organization to architects, risk and compliance functions, product managers, and anyone who inherits a system nobody has documented since the last reorg.
 
-## Execution and flows
+Templates matter here.
+A reference architecture, a standard org shape, a control set, a persona catalog - these are models, and a new engagement or a new business unit starts by instantiating one rather than by opening an empty page.
 
-* **[op-graph](https://github.com/Nasdanika-Models/op-graph)** — executable graph model compiling to an Ecore metamodel; Direct Semantic Execution substrate.
-* **[function-flow](https://github.com/Nasdanika-Models/function-flow)** — graphs of supplier/function/consumer nodes.
-* **[flow](https://github.com/Nasdanika-Models/flow)** — flows with inheritance: participant, activity, artifact.
-* **[nasdanika-semantic-mapping-language](https://github.com/Nasdanika-Models/nasdanika-semantic-mapping-language)** — NSML: declarative match-and-transform mapping for Ecore models.
+### Pick your floor
 
-## Documents, formats, and visualization
+The tower is meant to be entered in the middle.
 
-* **[drawio](https://github.com/Nasdanika-Models/drawio)** — Draw.io object model; diagrams as Ecore resources, bi-directional.
-* **[markdown](https://github.com/Nasdanika-Models/markdown)** — Markdown model with loader and resource factory.
-* **[excel](https://github.com/Nasdanika-Models/excel)** — Excel files as Ecore resources.
-* **[pdf](https://github.com/Nasdanika-Models/pdf)** — PDF files as Ecore resources.
-* **[echarts](https://github.com/Nasdanika-Models/echarts)** — data structures for Apache ECharts chart types.
-* **[elk](https://github.com/Nasdanika-Models/elk)** — Eclipse Layout Kernel documentation and integration.
-* **[book](https://github.com/Nasdanika-Models/book)** — Leanpub book model.
+* **Ignore what is above.** If you need requirements traceability, take the floors up to requirements and stop. Nothing above them has to exist for the ones below to work.
+* **Ignore what is below.** The lower floors are the water heater in the basement: load-bearing, and not something you are supposed to think about until it breaks. You do not need to understand markers and evaluators to write down who owns a system.
+* **Recombine.** Floors are Maven artifacts under version control. Fork one, and a floor can sit on a different version of a lower floor without a single change to its own code. Different organizations can run different assemblies of the same tower and still exchange model fragments by reference.
 
-## UI
+Adoption is one micro-model at a time, which is only realistic because micro-models are cheap to author - the [Xcore archetype](https://github.com/Nasdanika-Archetypes/xcore-model) plus AI assistance for the first cut - and cheap to publish - the [Nasdanika CLI](https://docs.nasdanika.org/nsd-cli/index.html) plus GitHub Pages.
 
-* **[ui](https://github.com/Nasdanika-Models/ui)** — logical/functional UI rendered by different frameworks.
-* **[a2ui](https://github.com/Nasdanika-Models/a2ui)** — A2UI metamodel.
-* **[html](https://github.com/Nasdanika-Models/html)**, **[bootstrap](https://github.com/Nasdanika-Models/bootstrap)**, **[html-app](https://github.com/Nasdanika-Models/html-app)** — documentation processors for the Nasdanika HTML, Bootstrap, and HTML Application models.
-* **[picocli](https://github.com/Nasdanika-Models/picocli)** — picocli commands and options.
+### Why AI is load-bearing
 
-## People and careers
+Two reasons, and they point in opposite directions.
 
-* **[resume](https://github.com/Nasdanika-Models/resume)** — resume model from the JSON Resume schema; visual authoring, generation.
-* **[cv](https://github.com/Nasdanika-Models/cv)** — assignments, technologies, co-workers.
-* **[professional-knowledge-graph](https://github.com/Nasdanika-Models/professional-knowledge-graph)** — ontology of a professional knowledge graph.
+**AI reads the structure.** A model of an enterprise is larger than any one person can hold, which is exactly the condition under which organizations give up and declare that tribal knowledge rules.
+An assistant can traverse the whole graph, and because the graph is typed and every element carries provenance, its answers are checkable: they cite elements, and elements cite their sources and commits.
+Reasoning over a typed model is a different activity from summarizing a wiki.
 
-## EMF and modeling infrastructure
+**AI writes the structure.** The reason models rot is that updating them is somebody's least favorite chore.
+An assistant reads the meeting notes, drafts the model updates, asks the human to confirm, and applies them.
+What lands is a commit with feature-level [change records](https://change.models.nasdanika.org/) and [telemetry](https://telemetry.models.nasdanika.org/) stored beside the model, so a change is attributable at the granularity of the attribute that changed, not the file that changed.
 
-* **[ecore](https://github.com/Nasdanika-Models/ecore)** — Ecore node and documentation processors.
-* **[ncore](https://github.com/Nasdanika-Models/ncore)** — documentation processors for the Nasdanika Core Ncore model.
-* **[xcore](https://github.com/Nasdanika-Models/xcore)** — documentation for the EMF Xcore model.
-* **[genmodel](https://github.com/Nasdanika-Models/genmodel)** — documentation for the EMF code generation model.
-* **[change](https://github.com/Nasdanika-Models/change)** — EMF change model documentation.
-* **[compare](https://github.com/Nasdanika-Models/compare)** — EMF Compare Maven build and model documentation.
-* **[emf-validation](https://github.com/Nasdanika-Models/emf-validation)** — EMF Validation published to the Maven world.
-* **[exec](https://github.com/Nasdanika-Models/exec)** — documentation processors for the Nasdanika Exec model.
-* **[xsd](https://github.com/Nasdanika-Models/xsd)** — XML Schema model documentation.
-* **[json-schema](https://github.com/Nasdanika-Models/json-schema)** — JSON Schema model.
-* **[graph](https://github.com/Nasdanika-Models/graph)** ([site](https://graph.models.nasdanika.org/)) — graph model.
-* **[archetype](https://github.com/Nasdanika-Models/archetype)** — project instantiation from templates, in the spirit of Maven archetype and cookiecutter.
-* **[source-engineering](https://github.com/Nasdanika-Models/source-engineering)** — engineering source code and line/column structured text.
-* **[telemetry](https://github.com/Nasdanika-Models/telemetry)** — OpenTelemetry model capturing CLI executions; reports with visualizations.
+And a commit is a message.
+It can trigger action: classify a change as material and open a governance review; detect that a new flow crosses a trust boundary and reopen the threat model;
+notice that a control's evidence went stale and raise work against its owner.
+Governance stops being a quarterly interview and becomes a reaction to a change that already carries its own explanation.
 
-## Demos and education
+### Landscape
 
-* **[education](https://github.com/Nasdanika-Models/education)** — education model for demos.
-* **[family](https://github.com/Nasdanika-Models/family)** — the Draw.io-to-Ecore mapping demo.
-* **[nature](https://github.com/Nasdanika-Models/nature)** — forest biome model.
-* **[bank](https://github.com/Nasdanika-Models/bank)** — bank, customer, account, statement, transaction.
-* **[travel](https://github.com/Nasdanika-Models/travel)** — travel planning and documenting.
-* **[trading](https://github.com/Nasdanika-Models/trading)** — algorithmic trading model.
+Each model states its own positioning on its own site - the requirements model against DOORS and Jama, the threat model against IriusRisk and Threat Dragon, the architecture model against ArchiMate and Backstage, and so on.
+At the portfolio level the comparison is a different one, because the alternative to the tower is not a product.
+It is a stack of them: an EA repository, a GRC platform, a requirements tool, a developer portal, a data catalog, a threat modeling tool, an org charting tool, and a drawing tool - each with its own identity model, its own idea of ownership, its own lifecycle vocabulary, joined by exports, CSV round-trips, and somebody whose job is reconciliation.
+
+The tower's claim is narrower and stronger than "does everything": one typed vocabulary defined once and inherited everywhere, stored in Git so versioning,
+branching, and federated ownership come from tooling teams already run, with documentation as a generated artifact rather than a parallel deliverable, under an open license so a model is not hostage to a subscription.
+
+Its limits are worth stating too.
+This is a modeling substrate, not a data-entry portal for hundreds of casual users; much of the value comes from loading and snapshotting what already exists in Jira, GitLab, spreadsheets, and diagrams rather than from asking people to type it in again.
+And the floors below are Ecore, EMF, and Java - twenty-year-old load-bearing technology, which is the point, but it is a technology choice and not a neutral one.
+
+<div class="jumbotron">
+  One vocabulary, many small models, entered at whichever floor you need - and everything you did not need is still there, holding it up.
+</div>
+
+## Tower floors
+
+* **[NxCore](https://nxcore.models.nasdanika.org/)** - the base floor: model elements that are named, documented, identifiable, referenceable, positioned in time, and aware of where they came from. Documentation is structure - sections and content - not a text blob. Provenance is carried by nested markers, with Git markers adding commit, branch, and origins. The time dimension covers points and periods, including relative and partially known time. Evaluators supply computed values from expressions and scripts. Everything above inherits identity, documentation, provenance, and time without redefining them.
+* **[Role](https://role.models.nasdanika.org/)** - ownership and responsibility as Undergoer, Role, and Actor: who is responsible for what, to whom, and when. Role also defines its own Section and Content extending both NxCore and Role, so documentation itself acquires ownership - every section of a document can answer "whose is this".
+* **[IAM](https://iam.models.nasdanika.org/)** - realms, principals, groups, roles, actions, and authorization statements attachable to any model element, for people and agents alike. Both resource-side entries (XACML style) and subject-side permissions (Shiro style) are supported, along with engagement-based rules such as "the owner may edit". Authentication, credentials, and federation are deliberately out of scope, left to the enforcement layer. Uses: identity-scoped generation - one source, many audiences, many formats - Shiro-backed enforcement in web UIs, and tiered element-level visibility.
+* **[Seal](https://seal.models.nasdanika.org/)** - signing and encryption for models: non-repudiation for judgments, approvals, and sojourns, and confidentiality so a model can be distributed widely and still protected element by element.
+* **[Lifecycle](https://lifecycle.models.nasdanika.org/)** - stages and transitions for anything that has a status: `Lifecycle` catalogs, hierarchical `Stage`s, guarded `Transition`s, and `Sojourn` - a dated, attributable, signable record of time spent in a stage. Stages are instance data rather than enums or process tokens, so an element can sit in several lifecycles at once and history is first class. Unlike Jira workflow schemes or a BPM engine, the lifecycle travels with the model. Uses: capability maturity, editorial workflow, compliance audit trails, segregation of duties.
+* **Decisions**
+    * **[Analysis](https://analysis.decision.models.nasdanika.org/)** - multiple-criteria decision analysis as a record, not a spreadsheet: criteria hierarchies, alternatives, expert panels, judgments including pairwise comparisons, and computed results, with aggregation method chosen per node. Judgments are signed and dated with override trails rather than overwritten cells, criteria catalogs are versioned reusable artifacts, and Delphi-style confidentiality comes from IAM. Positioned as a complement to the arithmetic rather than a replacement - Excel for the math, the model for the record - and against vendor silos such as Expert Choice and Decision Lens.
+    * **[Binding](https://binding.decision.models.nasdanika.org/)** - which alternative was committed into which variation point, by whom, on what analysis, and depending on which other decisions. Architecture decision records that cannot silently drift from the architecture they decide, because both are elements in the same graph.
+* **[Governance](https://governance.models.nasdanika.org/)** - frameworks, policies, controls, control applications, risks, evidence, assessments, and waivers, following industry practice: ISO management systems, NIST, OSCAL patterns. Crosswalks are references, so one control answers many requirements across frameworks, and compliance status is structure rather than a cell colored green. `Governed` is an aspect: anything in the tower can carry a governance overlay. Audit packs and compliance views are generated, with export to OSCAL and CycloneDX.
+* **[Work](https://work.models.nasdanika.org/)** - work items attachable to anything through `Workable`: `Work`, `WorkType`, `Dependency`, and `TemporalConstraint`, with containment establishing ownership and impacts recording effects on elements elsewhere in the graph. Work loads from Excel, Draw.io, and PlantUML, treating those artifacts as authoritative sources rather than as exports from a tracker, and inherits staging, ownership, and access control from the floors below. A governance finding traces to its remediation work; a work item traces to everything it will disturb.
+* **[Requirements](https://requirements.models.nasdanika.org/)** - normative statements at element level: `Requirement`, `Satisfier`, a reified and queryable `Satisfaction` claim, `Verification` with method, verdict, and evidence, and requirement kinds for functional, quality attribute, constraint, and business rule. Requirements-as-code between the heavyweight tools (DOORS, Jama, Polarion) and the plain-text ones (Doorstop, StrictDoc): requirements can be worked on, satisfied by architecture elements, approved through a lifecycle, and federated across organizational boundaries by reference.
+* **[Architecture](https://architecture.models.nasdanika.org/)** - elements with containment, reified directed relationships, and `ElementReference` for federation. Kinds are instance data, so C4, ArchiMate, and TOGAF vocabularies load as catalogs instead of being burned into the metamodel. Smaller and more federated than ArchiMate's sixty-odd element types, and typed metamodel composition rather than YAML conventions as in Backstage. Every architecture element is transitively workable, governed, staged, access controlled, owned, and documented with provenance. Uses: threat modeling in place, cross-system views spanning published models, wiki site maps from the containment hierarchy.
+* **[Threat](https://threat.models.nasdanika.org/)** - assets, flows, trust boundaries, threats with attack trees, threat actors, and weaknesses, organized around Shostack's four questions and joined to governance through controls, risks, and waivers. `Asset` extends the architecture element, so there is no parallel description to keep in sync - the security lens is a view of the architecture, not a copy of it. Methodology is data: STRIDE, MITRE ATT&CK, ATLAS, and the OWASP lists load as queryable catalogs. Unlike diagram-first tools (Microsoft TMT, OWASP Threat Dragon) or platforms that silo threat data (IriusRisk, ThreatModeler), an architecture change can surface a new threat, and exports - TMBOM, Threat Dragon JSON - keep the data portable.
+
+## Rooftop and balconies
+
+Branches off the tower at the floor they need.
+
+* **[C4](https://c4.architecture.models.nasdanika.org/)** - the C4 vocabulary - person, software system, container, component.
+* **[System of Records (SOR)](https://sor.models.nasdanika.org/)** - the physical data estate: systems, datasets, record layouts, and fields, with COBOL copybooks and data items and SQL tables and columns as concrete specializations, including the structural facts a spreadsheet cannot hold such as `REDEFINES` and `OCCURS DEPENDING ON`. The core contribution is `VocabularyMapping` - many-to-many and context-qualified - which records how one business term such as `Transaction.amount` is actually realized in deposits, cards, and loans. Governance, lifecycle, ownership, and work come from the floors below. Uses: data stewardship, regulatory work such as GDPR and BCBS 239, migration planning, and grounding for AI agents. Existing spreadsheets, Confluence pages, and extraction tools are treated as sources, not rivals; the contrast is with data catalogs (Collibra, Alation) and ER tools that leave field-level business semantics undeclared.
+* **[Accounting](https://accounting.models.nasdanika.org/)** - double-entry accounting where hierarchical accounts hold multiple commodities and assertions are first-class entries: a statement balance recorded with its provenance, so reconciliation can show exactly where computed balances diverge from asserted reality. 
+* **AI**
+    * **[AI Governance](https://ai.governance.models.nasdanika.org/)** - AI systems as inventory entries inside the governance framework: risk taxonomies, impact assessments, human oversight modes, model cards, incidents, and telemetry-backed evidence, mapped across ISO/IEC 42001, NIST AI RMF, and the EU AI Act. One control, many requirements - the same crosswalk mechanics as the governance floor, applied to AI, and composable with the agent and threat models rather than sitting in a separate GRC or MLOps silo.
+    * **[Agent](https://agent.models.nasdanika.org/)** - framework-neutral declarative specification of agentic systems: agents as personas bound to language models, plus tasks, tools, skills, and examples. Because `AISystem` is upstream, agents are governed by construction - risk tier, evaluations, oversight, and threat surface exist before the first call executes. Subject matter experts author and review behavior without writing code; models generate browsable documentation, diff semantically in Git, and either generate code for a target framework or execute directly on the Java runtime. Complements interchange formats such as Open Agent Spec by being a typed metamodel rather than a wire format.
+    * **[MCP](https://mcp.models.nasdanika.org/)** - Model Context Protocol servers as organizational assets rather than endpoints: federated catalogs, server versions with capabilities, distributions - packages and remotes - and tools, resources, templates, and prompts, with optional bindings for executable behavior. The specification says how to connect and the registry says what exists; this model answers what we have, who owns it, whether it is safe, and whether we can prove it.
+* **[Capability](https://capability.models.nasdanika.org/)** - capabilities, the providers that supply them, and the evidence behind the claim. The root of the pull stack: a capability is something a concern reaches for, not something a vendor pushes.
+* **[Product management](https://product-management.models.nasdanika.org/)** - persona to concern to capability to provider, made machine-readable and federated. Goals, needs, pain points, evidence, ownership, and temporal validity are typed, published as Maven artifacts, and composed across teams without a central administrator. Pull rather than push: a capability is found because it addresses a stated concern with documented evidence and an accountable owner, not because it appeared in a slide deck. A methodology-neutral substrate rather than a competitor to OKR or V2MOM, and distributed where roadmap platforms and catalogs are centralized. Uses: portfolio deduplication, federated goal alignment, AI-assisted reasoning over intent.
+* **[Org design](https://org-design.models.nasdanika.org/)** - units, roles, people, capabilities, decision rights, and coordination mechanisms as typed, time-aware elements rather than boxes on a chart. A person extends a persona and provides capabilities with evidence, which is what gives personas organizational coordinates. The unit of analysis is a period with history, not a row to update, so reorganizations, scenarios, and cost projections anchored to organizational events are all expressible. Against Workday or OrgVue: typed decision rights, capability overlap detection, fit rules, and federation by URI reference instead of hand-maintained copies.
+* **[UI](https://ui.models.nasdanika.org/)** - a micro-model of functional user interfaces: structure, layout, data binding, and event handling, with presentation deliberately left downstream. `ValueBinding` (one-way, two-way, one-time), `EventBinding`, `Iterator`, `Conditional`, and `DataContext` say what is bound; expressions are strings interpreted by a binding provider. Elements carry approvals, risks, and controls, so UI governance is fine-grained - which is what makes agent-generated UI reviewable. Between design tools (specification over fidelity) and low-code platforms (no vendor lock-in), and deliberately smaller than IFML.
+    * **[Bootstrap](https://bootstrap.models.nasdanika.org/)** - Bootstrap elements as a model; one of the renderings of the UI model.
+* **[Diagram](https://diagram.models.nasdanika.org/)** - the common diagram vocabulary shared by the renderers and format bindings below.
+    * **[Sprotty](https://sprotty.models.nasdanika.org/)** - [Sprotty](https://sprotty.org/) support
+    * **[Presentation](https://presentation.models.nasdanika.org/)** - the shared slide and page vocabulary behind the presentation formats below.
+        * **[Draw.io](https://drawio.models.nasdanika.org/)** - the Draw.io object model: diagrams as Ecore resources, read and written bidirectionally, which is what makes a diagram an authoring surface for the model rather than a picture of it.
+        * **[PowerPoint](https://power-point.models.nasdanika.org/)** - PowerPoint decks as model resources, read and written.
+        * **[Visio](https://visio.models.nasdanika.org/)** - Visio diagrams as model resources, read-only - leverage your existing Visio assets.
+        * **[PlantUML](https://plantuml.models.nasdanika.org/)** - PlantUML sources as model resources, read and written.
+        * **[ODP](https://odp.models.nasdanika.org/)** - OpenDocument presentations as model resources, read and written.
+        * **[PDF](https://pdf.models.nasdanika.org/)** - PDF files as Ecore resources.
+* **[Maven](https://maven.models.nasdanika.org/)** - the POM schema as Ecore, which turns build files into architecture elements: dependencies become edges with semantics across federated repositories, and people named in POMs resolve to actors in the org model. Uses: dependency graphs, transitive vulnerability propagation, coverage across the estate, cross-technology tracing. Maven tooling reports one build at one moment, repository managers see published artifacts, SCA tools produce flat per-build lists; this supports organization-wide queries that combine ownership, governance status, and change impact.
+* **[Tibco BW5](https://bw5.models.nasdanika.org/)** - TIBCO ActiveMatrix BusinessWorks 5.x projects, processes, activities, transitions, and inter-process calls, parsed from `.process` files down to activity level, with configuration retained as opaque XML so inventory-grade analysis does not require typing hundreds of adapter variants. Legacy processes become architecture assets that inherit governance, risk, lifecycle, ownership, and decision analysis - [model-driven modernization](https://docs.nasdanika.org/practices/legacy-modernization/index.html) where the register cannot drift from the code, from documentation generation through migration tracking to continuous scanning.
+* **[CISO](https://ciso.models.nasdanika.org/)** - a micro-model of the security program operations layer, the things a CISO runs that the rest of the tower oes not already model: incidents, vulnerabilities, awareness, resilience, third parties, and metrics.
+* **[C4 SOR](https://c4.sor.models.nasdanika.org/)** - A combination of SOR and C4 models - adding C4 flavors to SOR elements.
+
+## Beyond the tower
+
+The tower is a curated slice.
+The [Nasdanika-Models organization](https://github.com/orgs/Nasdanika-Models/repositories) holds many more - platform and estate models (Java, Git, Kubernetes, containers, Azure, Terraform, SQL), execution and flow models, document and format models, and demo models used for teaching.
+Three of them carry weight for how the tower is used day to day:
+
+* **[Telemetry](https://telemetry.models.nasdanika.org/)** - OpenTelemetry concepts as Ecore: traces, spans, metrics, and logs. Telemetry as code, stored beside the model, is what makes feature-level change recording work: a commit can say which attribute of which element changed, in which execution, at whose request.
+* **[Jira](https://jira.models.nasdanika.org/)** - Jira issues and projects as a model, with a client, rate limiting, and snapshotting, so the quarterly state of a project hierarchy can be captured, enriched in passes, and analyzed later without re-querying a system that is not a system of record.
+* **[Gitlab](https://gitlab.models.nasdanika.org/)** - GitLab users, groups, projects, repositories, and commits, loaded and cross-referenced with the rest of the model rather than re-scanned on every pipeline run.
