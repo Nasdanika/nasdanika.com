@@ -9,8 +9,8 @@ It is a set of small [micro-models](stories/2026/micro-models.html), each publis
 What makes it a portfolio rather than a pile is that the floors compose: a concern defined once at the bottom - identity, documentation, provenance, time - is inherited by everything above it, and a model that takes its position in the tower stops defining the concerns a lower floor already provides.
 The tower gets taller and the models get smaller.
 
-Taken together they let you model an organization and its solutions end to end: from a button in a UI down to a field in a mainframe copybook, carrying ownership, access control, lifecycle stage, decision history, risk, control, evidence, and work along the whole path.
-The same graph answers "which teams depend on this system of record", "who approved this alternative and on what analysis", "which controls cover this requirement", and "what breaks if this vendor library has a CVE" - because those are not four tools' worth of data reconciled by export, they are four aspects of the same elements.
+Taken together they let you model an organization and its solutions end to end: from a button in a UI down to a field in a mainframe copybook, carrying ownership, access control, lifecycle stage, decision history, risk, control, evidence, cost, and work along the whole path.
+The same graph answers "which teams depend on this system of record", "who approved this alternative and on what analysis", "which controls cover this requirement", "what has this migration cost so far and what remains", and "what breaks if this vendor library has a CVE" - because those are not four tools' worth of data reconciled by export, they are four aspects of the same elements.
 
 ### Time is a dimension, not a column
 
@@ -40,6 +40,45 @@ The tower is meant to be entered in the middle.
 * **Recombine.** Floors are Maven artifacts under version control. Fork one, and a floor can sit on a different version of a lower floor without a single change to its own code. Different organizations can run different assemblies of the same tower and still exchange model fragments by reference.
 
 Adoption is one micro-model at a time, which is only realistic because micro-models are cheap to author - the [Xcore archetype](https://github.com/Nasdanika-Archetypes/xcore-model) plus AI assistance for the first cut - and cheap to publish - the [Nasdanika CLI](https://docs.nasdanika.org/nsd-cli/index.html) plus GitHub Pages.
+
+### Inheritance, one floor down
+
+Everything above is inheritance between metamodel classes: an asset extends an architecture element, a section acquires ownership, a floor stops defining what the floor below already provides.
+The same idea applies one level down, between objects - and that is what turns a template from a starting point into a living relationship.
+
+The mechanism is that references are named slots.
+A single-valued reference is a slot with a name; a many-valued reference with eKeys is a set of slots addressed by key.
+Once every feature of an object is addressable by name, an object can declare a base and then, recursively, do three things to what it inherits: **add**, **replace**, and **suppress**.
+
+Add and replace are ordinary object-oriented inheritance.
+Suppress is the one Java has no counterpart for - a subclass cannot un-inherit a member - and containment is what makes it necessary: a derived object has to be able to say that an inherited element is simply not there, which inside a container means deletion.
+Docker layers work exactly this way. A layer adds files, replaces files, and whites out files from the layer beneath; the result flattens into one image; and every file still knows which layer put it there.
+That last part is the point - the flattened model is what you read, and the layer that contributed each value is what you audit.
+
+**Authoring.** The Groovy DSL has the first step already: [`copy('<uri>')`](https://docs.nasdanika.org/core/groovy/index.html#111-prototypes-copying-an-existing-element) resolves an element, deep-copies its containment subtree, rewires references inside the subtree to the copies, leaves references out of it pointing where they pointed, and hands the result to a closure that adjusts it.
+
+```groovy
+architecture {
+    name 'Payments'
+
+    copy('payments.drawio#//@nodes.0') {
+        description 'Fronts the card networks'
+        owner 'platform-team'
+    }
+}
+```
+
+That is a prototype rather than inheritance: a one-time snapshot, where later edits to the base never reach the copy.
+Inheritance keeps the link live and resolves it on load, so the base can keep moving.
+The named-slot approach carries to other authoring surfaces without inventing a new mechanism - in Markdown, attributes name the prototypes or bases and the merge strategy, per element or per section, so adopt-and-adjust works where people are already writing.
+
+**Why it matters.** An org-wide policy is inherited - adopted - by a business unit and adjusted to it: two controls tightened, one suppressed under a waiver, an owner replaced.
+The unit's model holds the delta and nothing else, so "how do we differ from the standard" is a query rather than an archaeology project across two documents that were forked eighteen months ago.
+When the standard changes, everything that inherits it changes with it, and the overrides are precisely the list that has to be re-reviewed.
+The same applies to a reference architecture specialized per workload, a global SDLC narrowed for a regulated team, and a UI where a role-specific screen replaces one field and suppresses another.
+
+Model inheritance is designed rather than finished; it gets implemented on demand, as models start to need it.
+Metamodel inheritance made the models small. Model inheritance makes the model content small.
 
 ### Why AI is load-bearing
 
@@ -82,6 +121,7 @@ And the floors below are Ecore, EMF, and Java - twenty-year-old load-bearing tec
 * **[IAM](https://iam.models.nasdanika.org/)** - realms, principals, groups, roles, actions, and authorization statements attachable to any model element, for people and agents alike. Both resource-side entries (XACML style) and subject-side permissions (Shiro style) are supported, along with engagement-based rules such as "the owner may edit". Authentication, credentials, and federation are deliberately out of scope, left to the enforcement layer. Uses: identity-scoped generation - one source, many audiences, many formats - Shiro-backed enforcement in web UIs, and tiered element-level visibility.
 * **[Seal](https://seal.models.nasdanika.org/)** - signing and encryption for models: non-repudiation for judgments, approvals, and sojourns, and confidentiality so a model can be distributed widely and still protected element by element.
 * **[Lifecycle](https://lifecycle.models.nasdanika.org/)** - stages and transitions for anything that has a status: `Lifecycle` catalogs, hierarchical `Stage`s, guarded `Transition`s, and `Sojourn` - a dated, attributable, signable record of time spent in a stage. Stages are instance data rather than enums or process tokens, so an element can sit in several lifecycles at once and history is first class. Unlike Jira workflow schemes or a BPM engine, the lifecycle travels with the model. Uses: capability maturity, editorial workflow, compliance audit trails, segregation of duties.
+* **[Accounting](https://accounting.models.nasdanika.org/)** - double-entry accounting as a spine aspect: hierarchical accounts holding multiple commodities - dollars, hours, LLM tokens, story points, anything countable - transactions with correspondent legs, and assertions as first-class entries: dated statements of fact with provenance, so reconciliation can show exactly where computed amounts diverge from asserted reality. Everything above this floor is *accountable*: time spent on work, tokens burned by an agent, cloud cost of an architecture element, and the cost of a control or a decision are entries in one vocabulary, rolling up along containment. Amounts may be evaluator-supplied with recorded evaluation history - facts freeze, estimates re-evaluate - which is what makes priced templates and calibrated migration estimates work. Telemetry loads as entries: monotonic counters are transactions, gauges are assertions. Unlike ERP ledgers or FinOps tools, cost is not a separate system reconciled by export; it is an aspect of the elements that incur it. Also stands alone as a personal and household finance model - the floors below are small, and the floors above are optional.
 * **Decisions**
     * **[Analysis](https://analysis.decision.models.nasdanika.org/)** - multiple-criteria decision analysis as a record, not a spreadsheet: criteria hierarchies, alternatives, expert panels, judgments including pairwise comparisons, and computed results, with aggregation method chosen per node. Judgments are signed and dated with override trails rather than overwritten cells, criteria catalogs are versioned reusable artifacts, and Delphi-style confidentiality comes from IAM. Positioned as a complement to the arithmetic rather than a replacement - Excel for the math, the model for the record - and against vendor silos such as Expert Choice and Decision Lens.
     * **[Binding](https://binding.decision.models.nasdanika.org/)** - which alternative was committed into which variation point, by whom, on what analysis, and depending on which other decisions. Architecture decision records that cannot silently drift from the architecture they decide, because both are elements in the same graph.
@@ -97,7 +137,6 @@ Branches off the tower at the floor they need.
 
 * **[C4](https://c4.architecture.models.nasdanika.org/)** - the C4 vocabulary - person, software system, container, component.
 * **[System of Records (SOR)](https://sor.models.nasdanika.org/)** - the physical data estate: systems, datasets, record layouts, and fields, with COBOL copybooks and data items and SQL tables and columns as concrete specializations, including the structural facts a spreadsheet cannot hold such as `REDEFINES` and `OCCURS DEPENDING ON`. The core contribution is `VocabularyMapping` - many-to-many and context-qualified - which records how one business term such as `Transaction.amount` is actually realized in deposits, cards, and loans. Governance, lifecycle, ownership, and work come from the floors below. Uses: data stewardship, regulatory work such as GDPR and BCBS 239, migration planning, and grounding for AI agents. Existing spreadsheets, Confluence pages, and extraction tools are treated as sources, not rivals; the contrast is with data catalogs (Collibra, Alation) and ER tools that leave field-level business semantics undeclared.
-* **[Accounting](https://accounting.models.nasdanika.org/)** - double-entry accounting where hierarchical accounts hold multiple commodities and assertions are first-class entries: a statement balance recorded with its provenance, so reconciliation can show exactly where computed balances diverge from asserted reality. 
 * **AI**
     * **[AI Governance](https://ai.governance.models.nasdanika.org/)** - AI systems as inventory entries inside the governance framework: risk taxonomies, impact assessments, human oversight modes, model cards, incidents, and telemetry-backed evidence, mapped across ISO/IEC 42001, NIST AI RMF, and the EU AI Act. One control, many requirements - the same crosswalk mechanics as the governance floor, applied to AI, and composable with the agent and threat models rather than sitting in a separate GRC or MLOps silo.
     * **[Agent](https://agent.models.nasdanika.org/)** - framework-neutral declarative specification of agentic systems: agents as personas bound to language models, plus tasks, tools, skills, and examples. Because `AISystem` is upstream, agents are governed by construction - risk tier, evaluations, oversight, and threat surface exist before the first call executes. Subject matter experts author and review behavior without writing code; models generate browsable documentation, diff semantically in Git, and either generate code for a target framework or execute directly on the Java runtime. Complements interchange formats such as Open Agent Spec by being a typed metamodel rather than a wire format.
@@ -127,6 +166,6 @@ The tower is a curated slice.
 The [Nasdanika-Models organization](https://github.com/orgs/Nasdanika-Models/repositories) holds many more - platform and estate models (Java, Git, Kubernetes, containers, Azure, Terraform, SQL), execution and flow models, document and format models, and demo models used for teaching.
 Three of them carry weight for how the tower is used day to day:
 
-* **[Telemetry](https://telemetry.models.nasdanika.org/)** - OpenTelemetry concepts as Ecore: traces, spans, metrics, and logs. Telemetry as code, stored beside the model, is what makes feature-level change recording work: a commit can say which attribute of which element changed, in which execution, at whose request.
+* **[Telemetry](https://telemetry.models.nasdanika.org/)** - OpenTelemetry concepts as Ecore: traces, spans, metrics, and logs. Telemetry as code, stored beside the model, is what makes feature-level change recording work: a commit can say which attribute of which element changed, in which execution, at whose request. Telemetry is also a source for the accounting floor - counters load as transactions, gauges as assertions, and span alignment attributes consumption to units of work - so a telemetry dashboard and an account dashboard are the same componentry over the same entries.
 * **[Jira](https://jira.models.nasdanika.org/)** - Jira issues and projects as a model, with a client, rate limiting, and snapshotting, so the quarterly state of a project hierarchy can be captured, enriched in passes, and analyzed later without re-querying a system that is not a system of record.
 * **[Gitlab](https://gitlab.models.nasdanika.org/)** - GitLab users, groups, projects, repositories, and commits, loaded and cross-referenced with the rest of the model rather than re-scanned on every pipeline run.
