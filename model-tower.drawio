@@ -41,7 +41,7 @@
         </UserObject>
         <UserObject label="Threat" link="https://threat.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-10">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="1410" x="80" y="60" as="geometry" />
+            <mxGeometry height="50" width="1500" x="80" y="90" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Org Design" link="https://org-design.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-11">
@@ -172,7 +172,7 @@
         </UserObject>
         <UserObject label="SOR" link="https://sor.models.nasdanika.org/" id="XPAC18myuYjDGBDUDnQ1-3">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
-            <mxGeometry height="50" width="80" x="1500" y="60" as="geometry" />
+            <mxGeometry height="50" width="80" x="1500" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="CISO" link="https://ciso.models.nasdanika.org/" id="2emOiQ3v1xPXQFFRQn7N-1">
@@ -205,7 +205,7 @@
         </UserObject>
         <UserObject label="C4" link="https://c4.architecture.models.nasdanika.org/" id="GXuAiDYbacTv9t5ESQL0-2">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1">
-            <mxGeometry height="20" width="1500" x="80" y="120" as="geometry" />
+            <mxGeometry height="20" width="1500" x="80" y="60" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Telemetry" link="https://telemetry.models.nasdanika.org/" id="dKwdDiMxxplhYqZFI7sv-1">
