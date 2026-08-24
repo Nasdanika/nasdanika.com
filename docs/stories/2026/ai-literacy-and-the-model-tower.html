@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>AI Literacy and The Model Tower</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="0a83ac04-a950-4c49-af60-a81896320547" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <li class="dropdown">
+                <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
+                <div class="dropdown-menu">
+                  <a href="../../audiences/humans/index.html" data-nsd-label-uuid="8f18d64c-2186-4c27-a6e3-c228165cab06" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../audiences/ai/index.html" data-nsd-label-uuid="39f02d26-9bb9-4657-bf10-79c23f0f18ed" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../audiences/systems/index.html" data-nsd-label-uuid="12d4bff8-71a8-4fa5-8a5c-5ce9a0f26988" class="dropdown-item">
+                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                </div>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="8b99aac3-6cb6-488e-a50a-b751cd7c7474" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="61094599-e665-4bca-827b-77142851292e" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../demos.html" data-nsd-label-uuid="f975aa8f-b7e4-481d-b7fa-cfaa5a0bc566" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="d612583b-8f52-43ed-9ecb-1b7ad234e817" data-nsd-action-uris="uuid:d612583b-8f52-43ed-9ecb-1b7ad234e817" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="61094599-e665-4bca-827b-77142851292e"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="1c349070-8b65-4a40-898a-6a1a56b2f90b">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="d612583b-8f52-43ed-9ecb-1b7ad234e817">AI Literacy and The Model Tower</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="d612583b-8f52-43ed-9ecb-1b7ad234e817" class="nsd-app-content-panel-title">AI Literacy and The Model Tower</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p><em>Ninety percent of AI literacy is software engineering. Here is the load-bearing structure.</em></p>
+<p>A few weeks ago I published <a href="https://nasdanika.com/stories/2026/ai-literacy.html">AI Literacy, With Receipts</a>. It argued that a glossary is a view, that a view without a source of truth fails the explainability test, and that the vocabulary, governance, and organizational models the argument depended on were &ldquo;in active development.&rdquo; That last phrase was a promissory note.</p>
+<p>This is the redemption. The <a href="https://nasdanika.com/models.html">Nasdanika Model Tower</a> is published: twenty-nine models building with generated documentation sites, all of them stating their intent - the WHAT - in the open. A few models are still to be published - in source-only form The models will be refined on first use, as all models are; refinement is a straightforward process once the structure exists. What follows is the argument of the first story, resumed with the receipts in hand: floor by floor, what each level of the tower delivers, why it belongs to AI literacy, what regulators and standards bodies are asking for at that level, and what the incumbents - tribal knowledge, office documents, wikis - offer in its place.</p>
+<p>I am not a lawyer and none of this is legal advice. It is an engineer reading regulatory texts the way engineers read specifications: looking for what would have to be true of our systems for the requirements to be satisfiable.</p>
+<h2><a href="#how-my-definition-of-ai-literacy-fell-apart" id="how-my-definition-of-ai-literacy-fell-apart">How my definition of AI literacy fell apart</a></h2>
+<p>When I built the <a href="https://agent.models.nasdanika.org/">agent model</a> and the <a href="https://mcp.models.nasdanika.org/">MCP model</a>, I thought AI literacy meant agentic vocabulary: knowing an agent tool from an MCP server, similarity search from a vector database, a capability from the provider that happens to implement it. That literacy is real and its absence is expensive - I opened the first story with the meetings it wastes.</p>
+<p>Then I started working through the <a href="https://www.udemy.com/course/aigp-cert">AIGP preparation course</a> by <a href="https://www.linkedin.com/in/jacob-bushong/">Jacob Bushong</a>, and the definition fell apart in my hands. The material that certifies you as an AI governance professional is not mostly about AI. It is about ownership, lifecycle, documentation, risk, decision records, oversight, incident response - which is to say, it is about software engineering, done properly and provably. My estimate after sitting with it: ninety percent of AI literacy has nothing to do with AI. It is the engineering discipline that AI, and now AI regulation, applies pressure to.</p>
+<p>The pressure matters because the old ways cannot take it. Tribal knowledge, office documents, and wikis were always a lossy substrate for engineering knowledge; before, the loss was absorbed by patient humans re-deriving what the documents forgot. Regulation removes that slack. The EU AI Act&rsquo;s Article 4 has required providers and deployers to ensure AI literacy in their staff since February 2025 - and the same act&rsquo;s documentation, record-keeping, and oversight articles require the organization to <em>show its work</em> in ways a wiki simply cannot. The US landscape, meanwhile, is churning - Colorado passed an EU-flavored AI act in 2024 and repealed and replaced it with something much narrower in 2026 - which is its own lesson: texts will keep moving. The engineering fundamentals underneath them are the common denominator that doesn&rsquo;t.</p>
+<h2><a href="#field-notes-five-failure-modes" id="field-notes-five-failure-modes">Field notes: five failure modes</a></h2>
+<p>Before the tower, the pathology. These are patterns, not incidents; I have watched each of them more than once, across organizations and years, and I describe them here without names because the point is that they are everywhere.</p>
+<p><strong>Code without a role.</strong> Tens of thousands of lines of generated TypeScript or Python, handed to a Java team by someone who holds no role on the receiving project. The generation took an afternoon; the review debt landed on people who never asked for it. A senior architect summarized it better than I could: anybody can generate tons of code now - what teams need is <em>forward architecture</em>. The generation was not the failure. The absence of any structure that could answer &ldquo;who is this person to this project, and who decided this belongs here&rdquo; was.</p>
+<p><strong>Decision by committee, settled by the boss.</strong> A group with no stake in the outcome debates; the boss doesn&rsquo;t participate, then overrules. Sun Tzu described the ruler who commands the army from the palace more than two millennia ago. The modern version produces a decision with no recorded alternatives, no criteria, and no owner - which, we will see, is now a compliance problem and not merely a cultural one.</p>
+<p><strong>Pictures for architects.</strong> I once generated a full documentation site - diagrams <em>and</em> element descriptions, linked and versioned. I was told the descriptions were unnecessary: just pictures, talked through in a meeting. Talk-through architecture leaves no trace an auditor can follow. I do not believe that process survives contact with an AI audit, and I would not want to be the one defending it.</p>
+<p><strong>The audience failure.</strong> A hackathon produces an AI-assisted prototype. The runtime executes; business and leadership are delighted. The audiences that were never addressed - architecture and the developers who must productionize it - receive the code as a fait accompli with a two-week deadline.</p>
+<p><strong>Alternative suppression.</strong> Office formats hold one proposal at a time, and people fuse their ego to the proposal they authored. The dominant voice - a boss, a golden child - pecks the other alternatives to death, and the rejected options are not archived but <em>erased</em>: the next version of the deck simply doesn&rsquo;t contain them. AI regulation is unusually hostile to this habit, because rationale, assumptions, and trade-off decisions are exactly what technical documentation must now retain.</p>
+<p><strong>Consensus as expertise averaging.</strong> A team builds an agentic application with a user interface. One member has spent years inside UI machinery - editing domains, command stacks, undo/redo - and knows that reversibility is not polish but a load-bearing requirement for AI-driven interfaces: when an agent acts on a user&rsquo;s behalf, clean undo is the difference between oversight and cleanup. The teammates are excellent engineers from a different stack; the UX specialist knows UX, which is a different discipline from UI internals. The proposal goes to consensus, and because the majority has never met a command stack - or the emerging agent-to-UI protocols built on exactly this pattern, of which <a href="https://a2ui.models.nasdanika.org/">Google&rsquo;s A2UI</a> is the most prominent - undo/redo is voted out of scope. Nobody behaved badly, and nobody was overruled; that is what makes this failure mode distinct from the committee one. The decision procedure simply had no way to represent that expertise is unevenly distributed: a flat vote averages decades of industry knowledge with its absence and records the result as agreement. There is a regulatory edge here too. The AI Act&rsquo;s human-oversight provisions (Article 14) assume the overseeing human can disregard, override, or reverse an AI system&rsquo;s output; an interface with no undo machinery makes reversal a slogan rather than a capability. A vote of the unfamiliar just discarded a requirement none of the voters knew existed.</p>
+<p>Add the everyday waste: the twenty-person workshop where two UX designers, who know more about UX than the other eighteen combined, get the same share of the flat conversation as everyone else. Every discipline has its <a href="https://en.wikipedia.org/wiki/Coup_d%27%C5%93il">coup d&rsquo;œil</a> - the practiced glance that sees at once what others reconstruct slowly. A workshop flattens all of them into talk, captures a fraction, and forgets the rest by the following sprint.</p>
+<p>None of these are AI failures. All of them become AI <em>liabilities</em>, because AI both accelerates the damage (generation is free, review is not) and attracts the regulation that demands the missing structure.</p>
+<h2><a href="#the-tower" id="the-tower">The tower</a></h2>
+<p>The <a href="https://nasdanika.com/models.html">Model Tower</a> is a stack of small metamodels - <a href="https://nasdanika.com/stories/2026/micro-models.html">micro-models</a> - in which each floor extends the floor below and adds exactly one concern. By the top, an element is documented, owned, access-controlled, staged, costed, decided, governed, worked, architected, and threat-modeled, without any single model defining more than its own concern. The models are small enough to read in a sitting, formal enough for tools and agents, and composable across repositories the way Maven modules are - because that is literally what they are.</p>
+<p>Read it bottom-up as an AI literacy curriculum. Each floor is one competency the regulations assume you have, and one question the office-document world cannot answer.</p>
+<h3><a href="#nxcore-provenance-and-time" id="nxcore-provenance-and-time">NxCore - provenance and time</a></h3>
+<p>The base floor: model elements with documentation as structure, a time dimension including relative time, and provenance via nested markers - every element and every computed value can carry the tree of sources it came from, down to Git origin and commit ID, which trace to the people who made the commits. That is ownership tracking in its simplest form, and temporals are lifecycle in its simplest form, both present from the first floor up.</p>
+<p>The regulatory resonance is direct: the EU AI Act&rsquo;s record-keeping and traceability provisions (Article 12), and technical documentation that must be kept current (Article 11, Annex IV), all presuppose that statements have knowable origins. A wiki offers page history - who last edited the <em>page</em>. It has no opinion about where the <em>facts</em> on the page came from, which is the question that matters.</p>
+<h3><a href="#role-ownership-as-data" id="role-ownership-as-data">Role - ownership as data</a></h3>
+<p>Undergoer, Role, Actor: the vocabulary of responsibility, as data rather than as a names column in a table. Role also extends the documentation classes, so every section of a document can answer &ldquo;whose is this.&rdquo;</p>
+<p>Explicit ownership is not optional decoration anymore. The AI Act requires deployers to assign human oversight to named natural persons with the competence, training, and authority to exercise it (Article 26). US banking&rsquo;s SR 11-7 has required named model owners for over a decade. NIST&rsquo;s AI RMF makes accountability structures a governance function. And separation of duties - a control frameworks ask for everywhere - stops being an attestation exercise and becomes a <em>query</em> over role data: show me every element where the same actor holds both of these roles.</p>
+<h3><a href="#iam-audiences-human-and-otherwise" id="iam-audiences-human-and-otherwise">IAM - audiences, human and otherwise</a></h3>
+<p>Who may see and do what - with people and agents as first-class subjects of the same model. This floor also introduces the concept the audience failure mode above lacks: a <em>target audience</em> as a modeled thing, not an afterthought. One source generates for multiple audiences in multiple formats - leadership, architecture, developers, auditors - at element granularity, in multiple languages if needed.</p>
+<p>Cybersecurity requirements (Article 15 and everything downstream of it) assume access control exists and produces evidence. The 2026-specific twist is non-human identity: your agents need the same who-can-do-what discipline your people do, and a model that treats agents as subjects from the IAM floor up gets that for free.</p>
+<h3><a href="#seal-proof-and-protected-distribution" id="seal-proof-and-protected-distribution">Seal - proof and protected distribution</a></h3>
+<p>Cryptography on top of IAM: signatures for non-repudiation, encryption so models can be distributed yet protected, and feature variants so that the &ldquo;multiple audiences&rdquo; story above is enforceable, not aspirational. Explainability guidance across frameworks converges on the same demand: an explanation fitted to its audience. Transparency obligations (Article 13) require information appropriate to the deployer&rsquo;s needs and competence. Hand-recutting the same deck per audience produces versions that diverge by Friday; generating audience variants from one sealed source produces explanations that agree with each other and can prove who issued them.</p>
+<h3><a href="#lifecycle-stages-with-receipts" id="lifecycle-stages-with-receipts">Lifecycle - stages with receipts</a></h3>
+<p>Stages and transitions as data. Combined with the floors below, transitions acquire guards: who may fire this transition is an IAM question, stage ownership is a Role question, and an approval gate is a guard demanding a <em>signed</em> sojourn - an approval with a receipt, rather than a &ldquo;status: approved&rdquo; cell whose author and date nobody can reconstruct.</p>
+<p>Every serious framework is lifecycle-shaped: SR 11-7&rsquo;s development-validation-deployment-monitoring-retirement arc, ISO/IEC 42001&rsquo;s lifecycle processes, the AI Act&rsquo;s post-market monitoring (Article 72). The office-document version of lifecycle is a status column and a meeting where someone says it&rsquo;s basically done.</p>
+<h3><a href="#accounting-cost-as-a-first-class-dimension" id="accounting-cost-as-a-first-class-dimension">Accounting - cost as a first-class dimension</a></h3>
+<p>A lightweight double-entry model, recently admitted to the tower&rsquo;s spine, that can attribute cost - building, running, reviewing - to any element in the graph, and therefore to any <em>alternative</em> under consideration.</p>
+<p>No statute mandates double-entry accounting for engineering artifacts. But every risk-based, proportionate decision the statutes do demand presupposes that someone can compare costs - and many technologists demonstrably cannot. &ldquo;We should use MCP&rdquo; is, in most rooms where it is said, a statement about what is currently hot, not a comparison of review cost, running cost, approval cost, and operational risk against the alternative of a plain tool call. In a year when cloud AI capacity has become a genuine constraint the cost of running is no longer a rounding error, and cost illiteracy is an AI literacy gap in the most literal sense.</p>
+<h3><a href="#decision-alternatives-that-survive" id="decision-alternatives-that-survive">Decision - alternatives that survive</a></h3>
+<p>Multi-criteria decision analysis: alternatives, criteria, multiple experts, with deciders drawn from Role, confidentiality of evaluations from IAM (Delphi-style, so the boss&rsquo;s score does not anchor everyone else&rsquo;s), and decision workflows from Lifecycle. &ldquo;Multiple experts&rdquo; carries more weight than it sounds: expertise is data too, and evaluations can be weighted by demonstrated competence in the criterion at hand. That is the structural repair for consensus-as-averaging - the UX specialist&rsquo;s weight peaks on usability criteria, the UI veteran&rsquo;s on interaction machinery, and neither cancels the other with a vote on a subject they have never worked in.</p>
+<p>Here the regulatory text is startlingly specific. Annex IV of the AI Act requires technical documentation to describe key design choices <em>including the rationale and assumptions made</em>, and decisions about <em>trade-offs</em> between technical solutions. Article 86 gives affected persons a right to explanation of the role an AI system played in decisions about them; fundamental rights impact assessments (Article 27) ask what was considered and why. Counterfactual questions - flip a criterion, what changes? which alternative wins if we weight cost double? - are the standard toolkit of explainability practice, and they are only answerable if the alternatives and criteria still <em>exist</em> as data. SR 11-7&rsquo;s &ldquo;effective challenge&rdquo; is the same demand in banking dialect: challenge that leaves no record is indistinguishable from no challenge.</p>
+<p>Now reread the failure modes: the committee that debates while the boss overrides, the alternatives pecked to death and erased from the next deck, the flat vote that averaged expertise away. Organizations where the only decision procedures are debate, consensus, and boss override are not just culturally impoverished. They are accumulating systems whose design rationale cannot be produced on request - and producing it on request is what the law now asks.</p>
+<h3><a href="#binding-decisions-that-cannot-silently-drift" id="binding-decisions-that-cannot-silently-drift">Binding - decisions that cannot silently drift</a></h3>
+<p>Analysis is one floor; commitment is another. Binding records which alternative was committed into which variation point, by whom, based on what analysis and what other decisions. This is the architecture decision record done properly: wired to the element it decides, so that drift between the decision and the reality is <em>detectable</em> rather than archaeological. Article 11 requires technical documentation to be kept up to date; binding is what makes &ldquo;up to date&rdquo; a checkable property instead of a hope.</p>
+<h3><a href="#governance-the-frame-the-ai-frameworks-assume" id="governance-the-frame-the-ai-frameworks-assume">Governance - the frame the AI frameworks assume</a></h3>
+<p>Frameworks, policies, controls, risks, evidence, waivers - modeled on the patterns of ISO management systems, NIST, and OSCAL. Risk acceptance traces to the Decision floor; waiver approval is a Role engagement with an owner and an expiry. This floor is the basis for AI governance because AI governance <em>is</em> governance, specialized: a quality management system (Article 17), an AI management system (ISO/IEC 42001), a controls-and-evidence discipline. Organizations that maintain policy PDFs and a controls spreadsheet reconciled annually under audit duress do not have a governance system; they have governance-flavored documents.</p>
+<h3><a href="#work-the-trace-from-finding-to-fix" id="work-the-trace-from-finding-to-fix">Work - the trace from finding to fix</a></h3>
+<p>Work items attachable to anything: a governance finding traces to remediation work; work is staged, owned, and access-controlled by the floors below. Two literacy points hide here. First, Article 9&rsquo;s risk management is required to be a <em>continuous iterative process</em> - a process leaves a work trail or it didn&rsquo;t happen. Second, estimated work on alternatives is how cost sneaks back into decisions even where no one will write a ledger: choosing an MCP server is also choosing weeks of security review and approval workflow, and &ldquo;so many hours&rdquo; is accounting by other means. A decision floor that can hold estimated work per alternative makes that visible <em>before</em> the commitment, which is precisely when it is worth knowing.</p>
+<h3><a href="#architecture-interpretable-by-construction" id="architecture-interpretable-by-construction">Architecture - interpretable by construction</a></h3>
+<p>Elements with containment, reified relationships, and kinds as instance data; C4, ArchiMate, and TOGAF vocabularies load as catalogs rather than competing metamodels. Every architecture element is transitively workable, governed, staged, access-controlled, owned, and documented with provenance - the whole tower under every box on every diagram.</p>
+<p>Annex IV asks for a description of the system architecture explaining how components build on and feed into one another. &ldquo;Just pictures, talked through with architects&rdquo; is the null implementation of that requirement. Interpretable architecture - where the diagram is a <em>view of data</em> that tools, auditors, and agents can traverse - is the one that survives questioning.</p>
+<h3><a href="#threat-the-security-lens-on-the-same-elements" id="threat-the-security-lens-on-the-same-elements">Threat - the security lens on the same elements</a></h3>
+<p>Assets, threats, weaknesses, trust boundaries, with STRIDE, ATT&amp;CK, ATLAS, and the OWASP lists loading as taxonomy catalogs. The crucial move: an asset <em>is</em> an architecture element seen through the security lens, not a copy of it maintained by a different team in a different tool, which is how the estate actually drifts out from under its threat model.</p>
+<h3><a href="#the-rooftop-where-ai-itself-lives" id="the-rooftop-where-ai-itself-lives">The rooftop: where AI itself lives</a></h3>
+<p>Above the spine, models branch off at the floor they need. The agentic stack - <a href="https://ai.governance.models.nasdanika.org/">AI Governance</a>, then <a href="https://agent.models.nasdanika.org/">Agent</a>, then <a href="https://mcp.models.nasdanika.org/">MCP</a> - grounds AI systems, model and dataset assets, evaluations, incidents, and oversight in the threat floor, so an agent is <em>governed by construction</em>: risk tier, oversight mode, and threat surface exist before a single call executes. Serious-incident reporting (Article 73) has somewhere to accumulate. And the vocabulary literacy the first story was about lives here too, as data: an agent tool and an MCP server are different classes with a modeled relationship, which is more than most glossaries can say.</p>
+<p>The pull stack - <a href="https://capability.models.nasdanika.org/">Capability</a>, then <a href="https://product-management.models.nasdanika.org/">Product Management</a>, then <a href="https://org-design.models.nasdanika.org/">Org Design</a> - is where the organizational literacy lives: personas articulate concerns, capabilities are pulled by concerns, and people get organizational coordinates, decision rights, and separation of duties. I want to dwell on one sentence of statute here, because it is the most underrated sentence in the AI Act for anyone running a literacy program. Article 4 does not say &ldquo;train your staff.&rdquo; It says literacy measures must take into account staff&rsquo;s technical knowledge, experience, education and training, <em>and the context the AI systems are to be used in</em>. That is a persona definition. The statute is describing pull, not push. A program that broadcasts the same firehose of content such as third-party generic AI trainings is not failing at enthusiasm; it is failing at Article 4&rsquo;s own model of how literacy reaches people. Persona-scoped views generated from a model are not a nice-to-have on top of a literacy program; they are what the obligation, read carefully, actually describes.</p>
+<h2><a href="#estates-where-the-tower-pays-for-itself-first" id="estates-where-the-tower-pays-for-itself-first">Estates: where the tower pays for itself first</a></h2>
+<p>Aspect floors are potential energy. Estate models are where it converts.</p>
+<p>The <a href="https://maven.models.nasdanika.org/">Maven model</a> branches off the threat floor: modules as assets with computed ownership and transitive dependency graphs. A security leader I spoke with put the pain plainly: transitive vulnerabilities, and deciding which ones to fix <em>first</em>, is a major unsolved nuisance at enterprise scale. Scanner output is a flat list; prioritization needs the graph - who owns the module, what depends on it, where it sits relative to trust boundaries, what it would cost to move. Because the Maven model inherits ownership, governance, work, and threat from the tower, a vulnerability sweep is a query with owners and costed remediation attached, not a quarterly CSV re-triage. The same structure is what SBOM obligations (the EU Cyber Resilience Act, US federal procurement rules) and financial-sector third-party registers (DORA) keep asking for from different directions. I have done the scan at scale before years ago - sixty thousand repositories with hundreds of thousands of branches into one federated dependency graph - the approach is proven; the tower is what makes the result <em>governable</em> rather than merely impressive.</p>
+<p>The <a href="https://bw5.models.nasdanika.org/">BW5 model</a> does the same for a very different estate: Tibco BusinessWorks 5, the classic dying-vendor-runtime problem, modeled down to activity level. I have scanned and analyzed BW5 estates before as well, years ago. Two things make this more than nostalgia. First, <a href="https://docs.nasdanika.org/practices/legacy-modernization/index.html">modernization</a> and tech-debt planning become estimable: dead-process detection, complexity metrics, migration cost per component, all with the ownership and work floors underneath. Second - and this surprised me when I saw it - a BW process is structurally an agentic system: activities and transitions with XPath conditions are tools and control flow with guards. An organization that learns to model, govern, and modernize its BW estate is rehearsing, on twenty-year-old technology, exactly the discipline its agents will need. The legacy work and the AI work are the same literacy.</p>
+<p>One serious engagement on each - a Maven sweep, a BW estate, an agentic system - is what these models need to move from published intent to refined instrument.</p>
+<h2><a href="#the-method-because-it-is-also-the-message" id="the-method-because-it-is-also-the-message">The method, because it is also the message</a></h2>
+<p>The mainstream of AI-assisted development generates volume: low-level code by the tens of thousands of lines, which is how the first failure mode above comes into the world. My use of AI inverts this. I ask AI to generate <em>Xcore metamodels</em> - distillations of industry knowledge small enough to review in an afternoon. From those, low-level artifacts are generated deterministically: Java classes, loaders, documentation sites. The human reviews a page of structure, not a warehouse of output; determinism does the tedious part with zero marginal model cost, which matters in a capacity-constrained year. With <a href="https://github.com/Nasdanika-Archetypes/xcore-model">Xcore model archetype</a> a new model site can be published literally in minutes.</p>
+<p>Clausewitz called the commander&rsquo;s gift <em>coup d&rsquo;œil</em> - the glance that grasps the field. The division of labor that works is: the human provides the vision (the tower and its floors are a human judgment about what matters), the AI conducts reconnaissance - surveying industry knowledge, distilling it into candidate structure, generating the connective tissue. And AI helps keep the <em>body of knowledge</em> coherent in a way I think of as a hologram, or chain mail: the models overview page gives the high-level picture, each model&rsquo;s documentation explains itself and its relations to its neighbors, and every fragment implies the structure of the whole.</p>
+<p>Two objections deserve direct answers. <em>&ldquo;This is Eclipse.&rdquo;</em> No: Nasdanika is pure Maven with an Xtext plugin for code generation; Eclipse is optional, Xcore is needed only for authoring new metamodels, consuming them is plain Java with Maven dependencies - and AI assistants are notably fluent in Xcore, which has quietly become one of its best qualities. <em>&ldquo;One-person bus factor.&rdquo;</em> Yes, today, and I will not pretend otherwise. It is a cost/risk/benefit decision like every dependency decision - and I note, with some satisfaction, that the tower is precisely the structure in which you would record that decision: alternatives, criteria, costed risk, an owner, and a signature.</p>
+<h2><a href="#literacy-with-receipts-standing" id="literacy-with-receipts-standing">Literacy with receipts, standing</a></h2>
+<p>The first story ended by predicting that hand-authored literacy artifacts would &ldquo;fall apart the first time somebody asks the question regulators have taught us all to ask: how do you know?&rdquo; The tower is my answer, published where anyone can inspect it: vocabulary from models, governance definitions from models, org bindings from models, decisions with their alternatives still attached, architecture that tools can interrogate, estates swept into graphs with owners - every view derived, every derivation linked back to source.</p>
+<p>Twenty-nine models build today. A few models are still source-only; the readmes are catching up with the newest floor; everything will be refined by use.</p>
+<p>Start at the <a href="https://nasdanika.com/models.html">models page</a>, open your favorite AI assistant, describe yourself as a <a href="https://product-management.models.nasdanika.org/references/eClassifiers/Persona/index.html">persona</a> with concerns (goals, needs, painpoints) and ask &ldquo;how this can help in addressing my concerns&rdquo;? You can find a few examples on the <a href="https://nasdanika.com/audiences/humans/index.html">audiences page</a>.</p>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

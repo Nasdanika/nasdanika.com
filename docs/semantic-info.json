@@ -1,6 +1,6 @@
 [
     {
-        "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"],
+        "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"],
         "name": "Nasdanika",
         "icon": "/images/nasdanika-logo.png",
         "location": "index.html",
@@ -12,9 +12,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:22498ea2-8db0-476c-ab2c-de735f23a72a"],
+        "identifiers": ["uuid:457348e3-729a-4c1c-ba0d-2dba2f2652e1"],
         "type": {
             "name": "Label",
             "ns-uri": "ecore://app.models.nasdanika.org"
@@ -23,9 +23,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:ab640cc1-9fb6-4177-a07f-12e1c065f2ab"],
+        "identifiers": ["uuid:84f4e8df-202e-4fe6-a735-3bf004acadf9"],
         "name": "Audiences",
         "icon": "fas fa-project-diagram",
         "type": {
@@ -36,9 +36,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:ab640cc1-9fb6-4177-a07f-12e1c065f2ab"]
+            "identifiers": ["uuid:84f4e8df-202e-4fe6-a735-3bf004acadf9"]
         },
-        "identifiers": ["uuid:ff209896-618b-45a3-970e-6900ec3df76c"],
+        "identifiers": ["uuid:8f18d64c-2186-4c27-a6e3-c228165cab06"],
         "name": "Humans",
         "icon": "/images/human.svg",
         "location": "audiences/humans/index.html",
@@ -50,9 +50,9 @@
     {
         "container": {
             "reference": "anonymous",
-            "identifiers": ["uuid:ff209896-618b-45a3-970e-6900ec3df76c"]
+            "identifiers": ["uuid:8f18d64c-2186-4c27-a6e3-c228165cab06"]
         },
-        "identifiers": ["uuid:9770ceb4-3f9a-424a-af46-b1925373adde"],
+        "identifiers": ["uuid:0ef2c708-016d-4877-b2c6-425367ca4ce0"],
         "name": "Leader",
         "location": "audiences/humans/leader/index.html",
         "type": {
@@ -63,9 +63,9 @@
     {
         "container": {
             "reference": "anonymous",
-            "identifiers": ["uuid:ff209896-618b-45a3-970e-6900ec3df76c"]
+            "identifiers": ["uuid:8f18d64c-2186-4c27-a6e3-c228165cab06"]
         },
-        "identifiers": ["uuid:d6303e7b-3c29-48c4-ab97-4f43ec47adf5"],
+        "identifiers": ["uuid:f655e25e-683d-4d3e-a853-d767e968d691"],
         "name": "SME",
         "location": "audiences/humans/sme/index.html",
         "type": {
@@ -76,9 +76,9 @@
     {
         "container": {
             "reference": "anonymous",
-            "identifiers": ["uuid:ff209896-618b-45a3-970e-6900ec3df76c"]
+            "identifiers": ["uuid:8f18d64c-2186-4c27-a6e3-c228165cab06"]
         },
-        "identifiers": ["uuid:1ce9717f-4379-4a48-bdb9-4ee2e011b005"],
+        "identifiers": ["uuid:2a3354b7-a547-43fb-a3c9-9bd0539b8ceb"],
         "name": "AI Architect",
         "location": "audiences/humans/ai-architect/index.html",
         "type": {
@@ -89,9 +89,9 @@
     {
         "container": {
             "reference": "anonymous",
-            "identifiers": ["uuid:ff209896-618b-45a3-970e-6900ec3df76c"]
+            "identifiers": ["uuid:8f18d64c-2186-4c27-a6e3-c228165cab06"]
         },
-        "identifiers": ["uuid:6720ae53-e715-4c3a-a078-8573e03d8689"],
+        "identifiers": ["uuid:d6041f4a-90d8-423b-988f-40ad779f15df"],
         "name": "Consultant",
         "location": "audiences/humans/consultant/index.html",
         "type": {
@@ -102,9 +102,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:ab640cc1-9fb6-4177-a07f-12e1c065f2ab"]
+            "identifiers": ["uuid:84f4e8df-202e-4fe6-a735-3bf004acadf9"]
         },
-        "identifiers": ["uuid:ee7813ee-457a-4b58-9e7a-77d659f700e2"],
+        "identifiers": ["uuid:39f02d26-9bb9-4657-bf10-79c23f0f18ed"],
         "name": "AI",
         "icon": "/images/sparkle.svg",
         "location": "audiences/ai/index.html",
@@ -116,9 +116,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:ab640cc1-9fb6-4177-a07f-12e1c065f2ab"]
+            "identifiers": ["uuid:84f4e8df-202e-4fe6-a735-3bf004acadf9"]
         },
-        "identifiers": ["uuid:103646cc-e997-411a-947d-e476e6727899"],
+        "identifiers": ["uuid:12d4bff8-71a8-4fa5-8a5c-5ce9a0f26988"],
         "name": "Systems",
         "icon": "/images/systems.svg",
         "location": "audiences/systems/index.html",
@@ -130,9 +130,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:bca50290-19c1-4fb2-893a-c10f1308998c"],
+        "identifiers": ["uuid:8b99aac3-6cb6-488e-a50a-b751cd7c7474"],
         "name": "Models",
         "icon": "fas fa-sitemap",
         "location": "models.html",
@@ -144,9 +144,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:e26e5c20-fcfe-4238-9da6-a5690a0af305"],
+        "identifiers": ["uuid:a50d8ef5-7bae-4785-9a77-842cd62dc1b5"],
         "name": "Docs",
         "icon": "fas fa-book",
         "location": "https://docs.nasdanika.org",
@@ -158,9 +158,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:0df45e5d-c83c-4c7e-8a22-1a38f4f82014"],
+        "identifiers": ["uuid:61094599-e665-4bca-827b-77142851292e"],
         "name": "Stories",
         "icon": "fas fa-newspaper",
         "location": "stories/index.html",
@@ -172,9 +172,9 @@
     {
         "container": {
             "reference": "anonymous",
-            "identifiers": ["uuid:0df45e5d-c83c-4c7e-8a22-1a38f4f82014"]
+            "identifiers": ["uuid:61094599-e665-4bca-827b-77142851292e"]
         },
-        "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"],
+        "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"],
         "name": "2026",
         "type": {
             "name": "Action",
@@ -184,9 +184,22 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:71d223d0-df11-4fea-bd18-f22bb2f3f718"],
+        "identifiers": ["uuid:d612583b-8f52-43ed-9ecb-1b7ad234e817"],
+        "name": "AI Literacy and The Model Tower",
+        "location": "stories/2026/ai-literacy-and-the-model-tower.html",
+        "type": {
+            "name": "Action",
+            "ns-uri": "ecore://app.models.nasdanika.org"
+        }
+    },
+    {
+        "container": {
+            "reference": "children",
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
+        },
+        "identifiers": ["uuid:1a7fb223-f923-4431-99bf-4c7b9f6667c8"],
         "name": "AI Literacy, With Receipts",
         "location": "stories/2026/ai-literacy.html",
         "type": {
@@ -197,9 +210,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:4943dd26-de72-48f0-8fb8-d259344cffc2"],
+        "identifiers": ["uuid:645cb220-3c48-412f-a997-ba9a885402ba"],
         "name": "Model tetris",
         "location": "stories/2026/model-tetris.html",
         "type": {
@@ -210,9 +223,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:577cf3e7-19e6-497d-b539-f8d6f6281bb9"],
+        "identifiers": ["uuid:1e9ad735-61d2-4885-8c60-fcb53ed747b6"],
         "name": "Micro-models - A Model Should Fit in Your Head",
         "location": "stories/2026/micro-models.html",
         "type": {
@@ -223,9 +236,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:0751671e-13e7-4ece-9d3e-9df74d11ab78"],
+        "identifiers": ["uuid:b5de07cc-da45-469b-85d6-3c74f4220a94"],
         "name": "Micro-wikis - The Model Is the Site Map",
         "location": "stories/2026/micro-wikis.html",
         "type": {
@@ -236,9 +249,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:e49d7838-695b-47b4-a09d-70c1c4ac4255"],
+        "identifiers": ["uuid:f1239722-6ea1-4ee3-b082-5b07a27b387b"],
         "name": "When Architecture Reads the News",
         "location": "stories/2026/when-architecture-reads-the-news.html",
         "type": {
@@ -249,9 +262,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:48ada4ea-4ccb-48c0-990c-bf5ebe27166e"],
+        "identifiers": ["uuid:214c132d-489a-4993-9e5a-f2d59e071f6b"],
         "name": "Nobody Credits the Mail Slot: MCP, Microservices, and the Return of the Big Building",
         "location": "stories/2026/nobody-credits-the-mail-slot.html",
         "type": {
@@ -262,9 +275,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:a576e633-5aa3-4e9b-aebf-d2c5d3178595"]
+            "identifiers": ["uuid:1c349070-8b65-4a40-898a-6a1a56b2f90b"]
         },
-        "identifiers": ["uuid:2edaab74-c7f2-444e-887e-4b19960b5692"],
+        "identifiers": ["uuid:c15aca5b-482c-4837-8127-78a4679c5cb2"],
         "name": "The Value Is in the Builder, Not the Chat",
         "location": "stories/2026/the-value-is-in-the-builder-not-the-chat.html",
         "type": {
@@ -275,9 +288,9 @@
     {
         "container": {
             "reference": "children",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:9d2c2514-5ceb-4085-90e7-f676067dbbf1"],
+        "identifiers": ["uuid:f975aa8f-b7e4-481d-b7fa-cfaa5a0bc566"],
         "name": "Demos",
         "icon": "fas fa-laptop-code",
         "location": "demos.html",
@@ -289,9 +302,9 @@
     {
         "container": {
             "reference": "navigation",
-            "identifiers": ["uuid:7621d24d-7caf-4b1f-b20d-5cb6717d0ac6"]
+            "identifiers": ["uuid:0a83ac04-a950-4c49-af60-a81896320547"]
         },
-        "identifiers": ["uuid:c1018997-6742-45f5-8005-217ab677784c"],
+        "identifiers": ["uuid:e57830f1-1aab-48aa-b0ce-f5d2d71ab6e5"],
         "name": "GitHub",
         "icon": "fab fa-github",
         "location": "https://github.com/Nasdanika/",

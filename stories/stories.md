@@ -4,6 +4,7 @@ Titles link to the canonical version: on this site for stories already migrated 
 
 ## 2026
 
+- [AI Literacy and the Model Tower](2026/ai-literacy-and-the-model-tower.html) 
 - [AI Literacy, With Receipts](2026/ai-literacy.html) 
 - [Model Tetris](2026/model-tetris.html)
 - [Micro-models](2026/micro-models.html) - A Model Should Fit in Your Head 
