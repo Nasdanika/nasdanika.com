@@ -2,6 +2,13 @@
 model-tower.drawio
 ```
 
+## Overview video (~4 min)
+
+<div style="max-width: 720px" class="embed-responsive embed-responsive-16by9">
+    <iframe src="https://www.youtube.com/embed/MXOozRp6WY8?si=gFQ_Iky0Kh13BurX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
 ## The portfolio
 
 The tower is not a product suite.
