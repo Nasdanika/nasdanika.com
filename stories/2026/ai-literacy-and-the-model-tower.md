@@ -1,5 +1,10 @@
 *Ninety percent of AI literacy is software engineering. Here is the load-bearing structure.*
 
+<div style="max-width: 720px" class="embed-responsive embed-responsive-16by9">
+    <iframe src="https://www.youtube.com/embed/6rEkH8QnDgM?si=3bFbN2I7SVJdF5Jo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
 A few weeks ago I published [AI Literacy, With Receipts](https://nasdanika.com/stories/2026/ai-literacy.html).
 It argued that a glossary is a view, that a view without a source of truth fails the explainability test, and that the vocabulary, governance, and organizational models the argument depended on were "in active development."
 That last phrase was a promissory note.
