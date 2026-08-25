@@ -179,7 +179,7 @@ Three of them carry weight for how the tower is used day to day:
 
 ## Model Tree
 
-[!Model tree](/images/model-tree.jpg)
+![Model tree](/images/model-tree.jpg)
 
 One more way to think about the tower is as a tree - each model has a "trunk" class inheriting from the below class with twigs and leaves hanging off it.
 
