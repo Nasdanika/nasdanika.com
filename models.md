@@ -176,3 +176,19 @@ Three of them carry weight for how the tower is used day to day:
 
 * **[Jira](https://jira.models.nasdanika.org/)** - Jira issues and projects as a model, with a client, rate limiting, and snapshotting, so the quarterly state of a project hierarchy can be captured, enriched in passes, and analyzed later without re-querying a system that is not a system of record.
 * **[Gitlab](https://gitlab.models.nasdanika.org/)** - GitLab users, groups, projects, repositories, and commits, loaded and cross-referenced with the rest of the model rather than re-scanned on every pipeline run.
+
+## Model Tree
+
+[!Model tree](/images/model-tree.jpg)
+
+One more way to think about the tower is as a tree - each model has a "trunk" class inheriting from the below class with twigs and leaves hanging off it.
+
+For example
+
+* `ModelElement` in NxCore with markers and documentation attached to it.
+* `Undergoer` in Role with roles attached to it.
+* `Workable` in Work.
+* `Element` in Architecture.
+
+"Trunk" classes are depicted on model diagrams in "woody" color. 
+
