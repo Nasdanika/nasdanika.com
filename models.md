@@ -182,13 +182,14 @@ Three of them carry weight for how the tower is used day to day:
 ![Model tree](/images/model-tree.jpg)
 
 One more way to think about the tower is as a tree - each model has a "trunk" class inheriting from the below class with twigs and leaves hanging off it.
+In some models it would be a `ModelElement` class extending and "shadowing" the lower floor `ModelElement` and implementing the primary class/interface of the floor.
 
 For example
 
 * `ModelElement` in NxCore with markers and documentation attached to it.
-* `Undergoer` in Role with roles attached to it.
+* `Undergoer` in Role with roles attached to it is an interface and `ModelElement` at the role floor extends the `ModelElement` in NxCore and `Undergoer`.
 * `Workable` in Work.
 * `Element` in Architecture.
 
-"Trunk" classes are depicted on model diagrams in "woody" color. 
+"Primary/Trunk" classes are depicted on the model diagrams in "woody" color. 
 
