@@ -101,6 +101,14 @@ Action:
               text: 2026		
               children:
                 - Action:
+                    location: 2026/documentation-strategy.html
+                    text: Documentation Strategy, Take Two
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/documentation-strategy.md              
+                - Action:
                     location: 2026/ai-literacy-and-the-model-tower.html
                     text: AI Literacy and The Model Tower
                     content:

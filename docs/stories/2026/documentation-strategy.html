@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Documentation Strategy, Take Two</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="923609c9-3b7c-4721-a9e5-e4c3d68c0f84" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <li class="dropdown">
+                <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
+                <div class="dropdown-menu">
+                  <a href="../../audiences/humans/index.html" data-nsd-label-uuid="52267409-0bcb-4950-a45b-bcb71f27d751" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../audiences/ai/index.html" data-nsd-label-uuid="05271236-717f-4a9a-9dc5-48273884fbe4" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../audiences/systems/index.html" data-nsd-label-uuid="83baa06e-5ad3-4170-820e-793f8c01af90" class="dropdown-item">
+                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                </div>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="6faf648c-3c69-467e-8711-4a47275c51bc" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="c9674293-6635-4bdd-9223-ff17b0413452" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../demos.html" data-nsd-label-uuid="d4f1dc95-6924-4591-947b-260d0b3372b1" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="cc8a47ee-0f22-43b8-ba20-87fbea4aa3f0" data-nsd-action-uris="uuid:cc8a47ee-0f22-43b8-ba20-87fbea4aa3f0" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="c9674293-6635-4bdd-9223-ff17b0413452"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="d957e299-1ce3-470c-9934-6c94e744417d">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="cc8a47ee-0f22-43b8-ba20-87fbea4aa3f0">Documentation Strategy, Take Two</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="cc8a47ee-0f22-43b8-ba20-87fbea4aa3f0" class="nsd-app-content-panel-title">Documentation Strategy, Take Two</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p><em>Years ago I was part of a documentation and process improvement effort that produced diagrams and no improvement. I went home and built a metamodel. It grew too complex, and I did not yet have the ideas that would have saved it. Recently the same conversation found me again, and this time the missing pieces exist. This is a story about receipts, and about why the standard fix for documentation chaos cannot work no matter how good the people running it are.</em></p>
+<h2><a href="#the-meeting-that-recurs" id="the-meeting-that-recurs">The meeting that recurs</a></h2>
+<p>There is a meeting that happens in every large organization. The subject line says something like &ldquo;documentation strategy&rdquo;, and the content is a lament: different groups want different documents, in different formats, in different places, and nobody can find anything.</p>
+<p>The engineers want documentation next to the code, generated from the artifacts it describes, versioned with the things it documents. The architects want diagrams in the review queue. The project people want status in the wiki. The risk people want evidence in the system of record. Leadership wants one tool, because two tools is confusion, and picks the wiki, because that is the tool leadership uses.</p>
+<p>And then the low-level details assert themselves. Documentation generated from repository artifacts does not flow into the wiki. Documentation that lives in the repository is invisible to everyone who does not use the repository, which is most of the organization. So the mandate produces neither consolidation nor coverage. It produces copies, staleness, and a new genre of meeting: the one where people discuss why the documentation strategy is not working.</p>
+<p>That recent mentioning of documentation strategy reminded me of the past activity with no progress. Which is why I am writing this.</p>
+<h2><a href="#take-one-the-model-i-built-too-early" id="take-one-the-model-i-built-too-early">Take one: the model I built too early</a></h2>
+<p>Years ago, at a previous employer, I participated in a process improvement effort. The method was the standard one: gather smart people, interview practitioners, draw diagrams of the process, publish the diagrams. The outcome was also the standard one: nothing changed. The diagrams described a process that nobody exactly ran, they started aging the day they were published, and there was no mechanism by which a picture on a wiki page could exert force on how work actually flowed.</p>
+<p>I thought the problem was fixable and the fix was structural, so I built a metamodel: document types, processes, engineers, increments, issues, releases, the relationships between all of them. It is still public, in the <a href="https://github.com/Nasdanika/engineering/blob/main/model/model/engineering.ecore">Nasdanika engineering model</a>. You can open the file and watch my past self discover the problem the hard way, one EClass at a time.</p>
+<p>The model worked, in the narrow sense. I modeled several processes with it and generated documentation sites from them. And it failed, in the sense that matters: it grew too complex, and organizational adoption was never feasible.</p>
+<p>Looking back, the failure had specific causes, and I want to name them, because &ldquo;modeling does not work in the enterprise&rdquo; is the lazy conclusion and it is wrong:</p>
+<ul>
+<li><strong>It was a monolith.</strong> One metamodel tried to hold everything: documents, processes, people, issues, releases. Every new concern made every existing concern harder to understand. I did not yet have the concept of a <a href="https://www.nasdanika.com/models.html">tower of micro-models</a>, where each concern is a small model that fits in your head and extends the floor below it.</li>
+<li><strong>The authoring surface was hostile.</strong> Populating the model meant XML or tooling that only I would tolerate. There was no <a href="https://docs.nasdanika.org/core/groovy/index.html">Groovy DSL</a> through which a tech lead could write down their team&rsquo;s process in an afternoon, in an editor they already use.</li>
+<li><strong>There was no org model to hang it on.</strong> Processes do not float free. They belong to org units, cross org unit boundaries, and change when the org changes. I had no <a href="https://org-design.models.nasdanika.org/">organization design model</a> to give processes an owner and an address.</li>
+<li><strong>Everything had to be hand-authored and hand-read.</strong> No AI to interview a team and draft their process fragment. No AI to answer &ldquo;what do I need to submit and where does it go&rdquo; from the model instead of from tribal knowledge.</li>
+</ul>
+<p>So the model sat in a repository, the organization kept improving processes by drawing pictures of them, and I filed the experience away.</p>
+<h2><a href="#take-two" id="take-two">Take two</a></h2>
+<p>A recent mentioning of documentation strategy made me think - what&rsquo;s changed since the first take? How would it be different if done today?</p>
+<p>The organizational response, here and everywhere, follows a pattern I have come to think of as process improvement theater, and I say that with sympathy, because every step of it is locally reasonable. And I think today it would be very similar to what I experienced years ago.</p>
+<p>A tiger team is formed. The team interviews a handful of developers, perhaps five, out of an engineering population of a few thousands. From the interviews it builds a story board, and from the story board a BPMN diagram of &ldquo;the&rdquo; process. In some cases they build a journey map with happy and sad faces - I&rsquo;ve been through this as well - an SDLC process with hundreds of activities and happy/sad faces next to them.</p>
+<p>The diagram cannot reflect reality, and not because the team is careless. It cannot reflect reality because there is no single reality to reflect. Thousands of developers run thousands of ad-hoc variations. A diagram distilled from five interviews is not a description of the process; it is an average of anecdotes, a process that nobody actually runs, published in a place where nobody will consult it at the moment of need. The wrong turn is not in the execution. It is in the assumption that the deliverable is a picture.</p>
+<p>A picture is not data. You cannot query a picture for &ldquo;every process step that consumes a System Context Diagram&rdquo;. You cannot validate a submission against a picture. You cannot generate a checklist, a template, or an agent tool schema from a picture. You cannot even keep a picture true, because nothing that changes in reality has any obligation to update it.</p>
+<h2><a href="#three-questions-wearing-one-trench-coat" id="three-questions-wearing-one-trench-coat">Three questions wearing one trench coat</a></h2>
+<p>The tool argument that anchors these meetings, wiki versus repository, Confluence versus Bitbucket/GitHub/GitLab, SharePoint versus everything, is unwinnable for a structural reason: it is three questions pretending to be one.</p>
+<ul>
+<li><strong>Document type.</strong> What is this thing, semantically? A System Context Diagram. An interface specification. A runbook. A decision record. Types have required content, templates, examples, owners.</li>
+<li><strong>Format.</strong> What are the acceptable serializations of that type? A System Context Diagram might be accepted as Visio or Draw.io, but not as PDF or PowerPoint. A specification might be Markdown or a generated site. Formats are properties of the type, and there can be several.</li>
+<li><strong>Storage and channel.</strong> Where does an instance live, and how does it move? SharePoint is storage. A Git repository is storage. A wiki is storage. Email is a channel; it moves documents but it is not a place where documents live, and every organization that uses inboxes as a document store knows the cost. Some groups will require the wiki, others an attachment to a ticket, others a path in a repository, and within one organization all of these can be simultaneously correct.</li>
+</ul>
+<p>Collapse these three into one question, &ldquo;which tool is our documentation strategy&rdquo;, and every faction is right and the argument is eternal. The engineers are right that generated documentation belongs with the artifacts. The stakeholders are right that they will never open the repository. Leadership is right that sprawl is confusing. The problem is not that someone has the wrong requirements. The problem is that the organization has no vocabulary in which the requirements can all be stated at once.</p>
+<p>That vocabulary is exactly what a model provides. And, importantly, it is not a vocabulary I invented.</p>
+<h2><a href="#the-industry-already-named-this-problem" id="the-industry-already-named-this-problem">The industry already named this problem</a></h2>
+<p>Documentation delivery is a recognized problem domain with decades of standards behind it. ISO/IEC/IEEE 42010 and TOGAF say, in essence: a system has stakeholders (information security, architects, operations, business owners), stakeholders have concerns, concerns are addressed by views, and views are delivered to stakeholders over channels. The documentation strategy meeting is, in standards terms, an argument about view delivery channels conducted by an organization that has no model of its stakeholders, concerns, or views.</p>
+<p>Between the engineering model and the tower I made a second attempt at this, and it took exactly that shape: the <a href="https://enterprise.models.nasdanika.org/">enterprise model</a> was created partly to address this problem, built on the TOGAF and IEEE vocabulary, with stakeholders, concerns, views, and views delivered as messages over channels. It also aligns naturally with the newer <a href="https://product-management.models.nasdanika.org/">product management model</a>, where stakeholders and their concerns reappear as personas and their needs; the two vocabularies describe the same people from two directions.</p>
+<p>So the type, format, and channel decomposition above is not a novelty; it is view delivery made concrete. What the standards give is the vocabulary and a method. What they conspicuously do not give is pragmatics: a cheap way for thousands of groups to state their own fragments, and machinery that pays them back with discovery, validation, and automation. Frameworks that stop at vocabulary produce shelfware and certification courses. Closing the gap between the recognized vocabulary and something a tech lead can use on a Tuesday is the entire project.</p>
+<p>The enterprise model, for its part, is not a failed attempt and is not going anywhere. It is deliberately language independent: it has no type system, which is exactly why it speaks in &ldquo;kinds&rdquo;, and that is its job. It stays as it is, a mental and reference model aligned to TOGAF and IEEE 42010, the thing the pragmatic machinery is checked against.</p>
+<p>The tower, by contrast, is typed, and the enterprise model&rsquo;s concepts materialize in it floor by floor rather than as one more model. Stakeholders and their concerns land at the very base, which means any element of any model, an architecture component, a decision, a process step, can declare who cares about it and why. Roles are stakeholders; access-control subjects are stakeholders; the product management model&rsquo;s personas are stakeholders, with goals, needs, and pain points as their concern flavors. Viewpoints frame concerns, and they come both as inline definitions and as catalogs, so an organization can curate its viewpoint library the way it curates any other catalog. Representations, diagrams, presentations, UI, stay with the presentation models and get typed further on demand.</p>
+<p>And here the story stops being only about documentation. Consider what an AI assistant over models actually does, in this vocabulary: a user prompt is a concern, stated at runtime. Given a catalog of viewpoints, the assistant matches the concern to a viewpoint and generates a conforming view, <a href="https://a2ui.models.nasdanika.org/">agent-generated UI</a> being the vivid case. That is concern-driven UI: viewpoints matched to concerns with human approval while the concern is being authored, automatically where that modality is enabled, and intermediate modalities in between depending on the authoring surface. The documentation-strategy opportunity from earlier, AI that finds or generates a process step&rsquo;s inputs, is the same mechanism wearing work clothes: the input&rsquo;s document type is a viewpoint, the submission is a view, and the assistant generates it against the declared conventions. One vocabulary covers the review board&rsquo;s Visio requirement and the dashboard that assembles itself in answer to a question.</p>
+<h2><a href="#what-the-fix-looks-like" id="what-the-fix-looks-like">What the fix looks like</a></h2>
+<p>What I described piecemeal above assembles into something specific: a <strong>federated model of organizational units and processes</strong>, where processes and process steps declare their inputs and outputs as typed documents, with formats, storage locations, channels, and timelines.</p>
+<p>Take a concrete, deliberately familiar example: an architecture review.</p>
+<ul>
+<li>The review is a process, owned by an org unit, with a declared timeline: submissions reviewed within ten business days.</li>
+<li>Its input is a document of type System Context Diagram. The type carries templates and examples, so a submitter is never guessing what &ldquo;good&rdquo; looks like.</li>
+<li>Accepted formats: Visio or Draw.io.</li>
+<li>Storage: the diagram is uploaded to a designated SharePoint location. Notification goes by email; email is the channel, SharePoint is the store, and the model says so explicitly.</li>
+<li>Output: a review record, its own document type, with its own storage.</li>
+</ul>
+<p>Nothing in that description is exotic. Every review board already has these rules; they live in onboarding decks, wiki pages of varying staleness, and the heads of the reviewers. The change is that stated as a model, the rules become data, and data compounds in ways that prose and pictures cannot:</p>
+<ul>
+<li><strong>Discovery stops being archaeology.</strong> &ldquo;What do I need to produce, in what format, and where do I put it&rdquo; is today a research project conducted over lunch conversations and dead wiki links; discovering what is required and where it lives is a huge share of the pain. From the model it is a generated site, a search hit, or a one-question chat.</li>
+<li><strong>AI assistance becomes concrete.</strong> An assistant grounded in the model can find the right process, explain its inputs, hand you the template, check your draft against the type&rsquo;s requirements, and in the authoring direction, interview a team and draft their process fragment for a human to correct. This is the same modality as chat-over-the-model dashboards: the model gives the assistant something to be right about.</li>
+<li><strong>Pain points get an address.</strong> Process improvement today collects complaints about &ldquo;the process&rdquo; in the abstract. With process steps as model elements, a pain point attaches to the specific step, and improvement work gets a ranked backlog instead of a mood.</li>
+<li><strong>Execution statistics accumulate.</strong> Each execution of a process step can record its timing against the declared timeline. Whether the improvement actually improved anything becomes a before-and-after query over periods, not a testimonial.</li>
+</ul>
+<p>And the model is <strong>federated</strong>, which is the part that makes it survivable. There is no central modeling team drawing the one true process. Each group states its own fragment: its units, its processes, its document types and where they live. Fragments reference each other the way modules reference each other in a build. The organization-wide picture is assembled, not decreed. Where the tiger team samples five developers and averages, federation lets every group be the authority on itself, and disagreement between fragments is not a bug; it is documentation of reality, visible for the first time.</p>
+<h2><a href="#what-is-different-this-time" id="what-is-different-this-time">What is different this time</a></h2>
+<p>I want to be careful here, because &ldquo;I built it wrong once, therefore I now know how to build it right&rdquo; is not automatically true. But the specific causes of the first failure now have specific answers.</p>
+<p>The monolith is gone: the Nasdanika models are now a <a href="https://www.nasdanika.com/models.html">tower of micro-models</a>, each small enough to fit in your head, from organization design down through work, decisions, lifecycles, and access control, so a documentation and process model does not have to reinvent people, roles, time, or evidence; it extends floors that already exist. The authoring surface is a Groovy DSL in an ordinary IDE, not XML in a modeling workbench. Generated sites make the model readable by people who will never know a model is behind the page they are reading. And AI now sits on both sides of the loop, drafting fragments during authoring and answering questions during consumption, which attacks the two costs that killed adoption the first time: writing it down and looking it up.</p>
+<h2><a href="#the-pressure-that-makes-this-non-optional" id="the-pressure-that-makes-this-non-optional">The pressure that makes this non-optional</a></h2>
+<p>The first time around, the case for documented processes was hygiene, and hygiene loses budget fights. Two things have changed.</p>
+<p><strong>Regulation.</strong> AI regulation in particular, and regulated industries in general, increasingly require that processes be documented as processes: quality management systems, technical documentation, evidence of who did what, when, under which controls. A BPMN poster does not satisfy that; a model with typed inputs, outputs, and execution records is built for it. Documentation of process is shifting from a virtue to a compliance artifact, and compliance artifacts get funded.</p>
+<p><strong>Agents.</strong> This is the sharper one. An AI agent&rsquo;s tool definition is, precisely, a declaration of inputs and outputs. That is the entire interface. A process whose steps have declared, typed inputs and outputs is a process an agent can participate in: fetch the template, validate the submission, route it to the right store, chase the timeline. A process that lives in tribal knowledge is invisible to automation. Undocumented processes cannot be improved, and now they also cannot be delegated. Organizations whose processes are stated as data will hand the tedious steps to agents; organizations whose processes are folklore will keep paying humans to be middleware. That gap compounds quarterly.</p>
+<h2><a href="#the-honest-part" id="the-honest-part">The honest part</a></h2>
+<p>The models exist and are public, in their initial state; they will be refined by first use, and saying otherwise would be marketing. There is prior art for every piece: typed document flows, generated sites, DSL authoring, process modeling. Modeling a first real process, one review board, one intake, should take weeks, not quarters.</p>
+<p>Adoption is the actual cliff, and I say that as the person who fell off it once. Nobody adopts a metamodel. What can be adopted is one group deciding that its own intake process will be stated as data, generating its own &ldquo;what to submit, where, in what format&rdquo; page, and quietly becoming the easiest group in the organization to submit to. Pull, not push. The federation grows one fragment at a time or it does not grow at all, and no tiger team can mandate it into existence, which is exactly why it can work where mandates have not.</p>
+<h2><a href="#alternatives-and-the-cost-of-doing-nothing" id="alternatives-and-the-cost-of-doing-nothing">Alternatives, and the cost of doing nothing</a></h2>
+<p>For completeness, the standard alternatives, each of which solves an adjacent problem:</p>
+<ul>
+<li><strong>Wikis and document stores</strong> (Confluence, SharePoint) are storage. Necessary, insufficient: they hold documents without knowing their types, requirements, or place in any process. They are where documentation goes; they have no opinion on what documentation is owed.</li>
+<li><strong>BPM suites and process mining</strong> draw or discover control flow, and process mining in particular is a serious tool where event logs exist. But they model the flow, not the documentation contract: not the typed inputs and outputs, formats, templates, and storage rules that this problem is actually about.</li>
+<li><strong>Internal developer portals</strong> bring documentation next to services, which is real progress for the engineering slice, and mostly stops at the repository boundary, exactly where the non-technical stakeholders begin.</li>
+<li><strong>The tiger team</strong> produces a diagram. See above.</li>
+</ul>
+<p>The cost of doing nothing is not dramatic, which is what makes it dangerous. It is another cycle of the recurring meeting. It is discovery-by-archaeology as a permanent tax on every submission to every process. It is regulatory findings answered with retroactive documentation sprints. And increasingly it is watching competitors point agents at their processes while yours remain folklore.</p>
+<p>I wrote my first answer to this problem too early, in the wrong shape, and left it in public where I could point at it later. This is later. The second attempt is not a bigger diagram. It is a federated model, built on floors that now exist, adopted one group at a time, by pull.</p>
+<hr />
+<p><em>The models referenced here live under <a href="https://docs.nasdanika.org/">nasdanika.org</a> and <a href="https://www.nasdanika.com/models.html">nasdanika.com</a>. The first attempt is preserved in the <a href="https://github.com/Nasdanika/engineering/blob/main/model/model/engineering.ecore">engineering model repository</a>.</em></p>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
