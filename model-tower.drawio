@@ -1,6 +1,6 @@
 <mxfile compressed="false" host="Electron">
   <diagram id="3a700c56-7e87-4f24-ace4-bc9e43059c3c" name="Model Tower">
-    <mxGraphModel dx="3318" dy="2755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="2359" dy="2066" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -113,9 +113,11 @@
             <mxGeometry height="50" width="80" x="706" y="-120" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="cy2l3BtwxmfXcfT3T_pb-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" value="PlantUML" vertex="1">
-          <mxGeometry height="50" width="80" x="878" y="-120" as="geometry" />
-        </mxCell>
+        <UserObject label="PlantUML" link="https://plantuml.models.nasdanika.org" id="cy2l3BtwxmfXcfT3T_pb-27">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
+            <mxGeometry height="50" width="80" x="878" y="-120" as="geometry" />
+          </mxCell>
+        </UserObject>
         <UserObject label="ODP" link="https://odp.models.nasdanika.org/" id="cy2l3BtwxmfXcfT3T_pb-28">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
             <mxGeometry height="50" width="80" x="964" y="-120" as="geometry" />
