@@ -101,6 +101,14 @@ Action:
               text: 2026		
               children:
                 - Action:
+                    location: 2026/enterprise-literacy.html
+                    text: Enterprise Literacy
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/enterprise-literacy.md
+                - Action:
                     location: 2026/documentation-strategy.html
                     text: Documentation Strategy, Take Two
                     content:

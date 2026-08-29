@@ -168,6 +168,30 @@ Branches off the tower at the floor they need.
 * **[CISO](https://ciso.models.nasdanika.org/)** - a micro-model of the security program operations layer, the things a CISO runs that the rest of the tower oes not already model: incidents, vulnerabilities, awareness, resilience, third parties, and metrics.
 * **[C4 SOR](https://c4.sor.models.nasdanika.org/)** - A combination of SOR and C4 models - adding C4 flavors to SOR elements.
 
+## Every model is a course
+
+Every model here has a second job: it teaches its domain.
+
+A generated model site is a concept map with depth.
+The diagram is the map: one look shows what the domain's concepts are and how they relate.
+Each element is one bite-size page: a single concept, its documentation, and links to its neighbors - so learning proceeds one concept at a time, and every concept arrives already connected to the ones it depends on.
+The tower supplies the prerequisite structure the way a course catalog does: to read the CISO model you do not need to first master governance and threat, but they are one click below when a definition rests on them.
+
+This is not a hypothetical.
+The [CISO model](https://ciso.models.nasdanika.org/) was built by someone who knew little of the domain, from public bodies of knowledge; building it produced orientation, and reading it compresses that orientation into an hour.
+Certification bodies of knowledge load as framework catalogs, which makes a model a study companion: the linear book becomes a navigable graph.
+
+The learning does not stop at reading, and this is the part that matters.
+Educational research on concept maps finds that studying a map helps, and *constructing* one helps substantially more.
+Customizing a model to your organization - anchoring your people, policies, and tools to its elements, extending its classes with your cases - is constructing the map.
+Each element's documentation is a space, not a string: it can grow into a [micro-wiki](stories/2026/micro-wikis.html) that links the org's own pages, owners, and systems from the typed element they belong to.
+Adoption and learning are the same activity; the org that tailors the model ends up understanding its own enterprise, with the receipts kept.
+
+The learning is also recordable: in the pull stack, people are capability providers, so a completed course or certification lands as dated, evidenced capability data - and a resume becomes a generated view rather than a source of truth.
+
+A model is not a teacher: it will not give you judgment, and reading the CISO model makes no one a CISO.
+What it gives is fast, structured orientation and a scaffold that becomes yours - the thing tribal knowledge, slide decks, and wikis promise and cannot keep, because they have no structure to hang it on.
+
 ## Beyond the tower
 
 The tower is a curated slice.

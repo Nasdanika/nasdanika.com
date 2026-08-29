@@ -4,6 +4,7 @@ Titles link to the canonical version: on this site for stories already migrated 
 
 ## 2026
 
+- [Enterprise Literacy](2026/enterprise-literacy.html)
 - [Documentation Strategy, Take Two](2026/documentation-strategy.html)
 - [AI Literacy and the Model Tower](2026/ai-literacy-and-the-model-tower.html) 
 - [AI Literacy, With Receipts](2026/ai-literacy.html) 
