@@ -101,6 +101,14 @@ Action:
               text: 2026		
               children:
                 - Action:
+                    location: 2026/ciso-3d.html
+                    text: "The CISO Model: 3D-Printed on the Tower"
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/ciso-3d.md
+                - Action:
                     location: 2026/enterprise-literacy.html
                     text: Enterprise Literacy
                     content:
