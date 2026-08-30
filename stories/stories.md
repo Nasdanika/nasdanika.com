@@ -4,7 +4,7 @@ Titles link to the canonical version: on this site for stories already migrated 
 
 ## 2026
 
-- [The CISO Model: 3D-Printed on the Tower](2026/ciso-3D.html)
+- [The CISO Model: 3D-Printed on the Tower](2026/ciso-3d.html)
 - [Enterprise Literacy](2026/enterprise-literacy.html)
 - [Documentation Strategy, Take Two](2026/documentation-strategy.html)
 - [AI Literacy and the Model Tower](2026/ai-literacy-and-the-model-tower.html) 

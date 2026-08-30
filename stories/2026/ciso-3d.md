@@ -41,7 +41,7 @@ The point of the itemization is that every line is boring - and that the total i
 
 ```
 Read the Nasdanika Model Tower (https://nasdanika.com/models.html) and
-generate a CISO problem Xcore domain model in models/ciso: ciso.xcore plus a README.md writeup.
+generate a CISO problem domain Xcore model in models/ciso: ciso.xcore plus a README.md writeup.
 Position the model in the tower. 
 
 The README should follow the pattern of the other models in the tower.
