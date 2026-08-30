@@ -92,11 +92,19 @@ It also opens what I think of as the *hybrid model*: a manually authored diagram
 Generated from real data: the accounting ledger, telemetry, an explicitly recorded execution.
 Or from simulations: a process or an agentic run.
 And because actions are typed data, an animation does not have to live inside the diagram file at all - it can be maintained in a Groovy DSL or an Excel sheet, owned by someone other than the diagram's author, with one diagram carrying many animations for many audiences.
+
+The best of those external homes turns out to be a notation that has existed all along: the sequence diagram.
+A PlantUML or Mermaid sequence diagram is already an animation script - participants in columns, messages in order, time flowing down the page - and its participants are the boxes on the drawing.
+So an animation button on the diagram references the `.puml` or `.mmd` file, and the animation is generated from it: each message becomes a highlight and a flow between the elements it names.
+The same file renders as a sequence diagram in the documentation, which means the interaction is stated once and shown twice - once in time, once in space - and the person who maintains the interaction never has to open the drawing.
+
 My immediate case is explaining how architecture components interact - systems on the system diagram, then containers, then components.
 Numbers are good; animation is better.
-The honesty clause, as always: the model is published and usable today; the animation-building tooling on top of it is future functionality, to be built on first use.
+The honesty clause, as always: the model is published and usable today; the animation-building tooling on top of it - an `animate` command in the CLI whose generators are resolved per source type, so a sequence diagram, a Groovy script, and a spreadsheet all plug in the same way - is future functionality, to be built on first use.
 
 ## What the alternatives cost
+
+![Quadrant](/images/enterprise-literacy-quadrant.drawio.png)
 
 Enterprise literacy is currently taught, where it is taught at all, by a set of incumbents with very different price tags.
 The figures below are order-of-magnitude context, with vintages stated, because this genre of statistic is routinely abused.
