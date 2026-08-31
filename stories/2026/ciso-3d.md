@@ -55,7 +55,7 @@ Two hundred declarative lines are cheap in every currency that matters - tokens,
 A model this small can be *actually read* by the person accountable for it, which is a property almost nothing generated at scale has.
 
 And the model is small **because the tower ate most of it**.
-A large share of the concepts the AI first proposed were, on review, already provided by lower floors - status workflows are the lifecycle model, ownership is the role model, risk acceptance is a governance waiver, cost is accounting.
+A large share of the concepts were already provided by lower floors - status workflows are the lifecycle model, ownership is the role model, risk acceptance is a governance waiver, cost is accounting.
 They got [tetrised](https://nasdanika.com/stories/2026/model-tetris.html) down, and what remained is only what a running security program adds.
 The floors are why the print is fast; the print is small because the filament is structured.
 
