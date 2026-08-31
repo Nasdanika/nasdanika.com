@@ -118,7 +118,7 @@ Under ten minutes later I had a published site where clicking a Java tool shows 
 
 That last click is worth a story of its own, because many people conflate MCP servers with agent tools, and the difference is not academic.
 An in-process tool is a trip to your own pantry.
-An MCP server is driving to another country for groceries: there is a border, the border has guards, you will show your passport, and you will declare your produce and it might be illegal to bring produce and other food items across the boreder.
+An MCP server is driving to another country for groceries: there is a border, the border has guards, you will show your passport, and you will declare your produce and it might be illegal to bring produce and other food items across the border.
 The guards are also not infallible: an AI gateway in production can read a nine-digit number as a Social Security number and any sixteen-digit number as a payment card.
 Sometimes the border is exactly what you want - that is what borders are for.
 But you should know you are crossing one before you get in the car, and a model where the two kinds of tool are different types with different governance attached makes the border visible at the point where someone is about to propose the trip.
@@ -150,7 +150,7 @@ I am arguing that it has a cost, the cost is paid in attention, and attention ne
 The bounded claim, as always: printing this model did not make me a CISO.
 It made me *literate* in CISO - oriented, conversant, and equipped with an instrument that keeps paying: a picture for meetings, a grounding for AI, a scaffold the [readme](https://ciso.models.nasdanika.org/) now builds on with the awareness economics, the capability evidence, and the landscape.
 
-The prompt are above.
+The prompt is above.
 The [archetype generator](https://github.com/Nasdanika-Archetypes/xcore-model) is public.
 The tower is free.
 The next time a domain is merely adjacent to what you do - print it.
