@@ -220,6 +220,11 @@
             <mxGeometry height="50" width="80" x="964" y="-120" as="geometry" />
           </mxCell>
         </UserObject>
+        <UserObject label="Faimly" link="https://family.models.nasdanika.org" id="k4FxLNBcnOXvpj9Y5fH_-1">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8598AB;strokeColor=#47515C;fontColor=#FFFFFF;fontSize=14;" vertex="1">
+            <mxGeometry height="50" width="80" x="440" y="-240" as="geometry" />
+          </mxCell>
+        </UserObject>
       </root>
     </mxGraphModel>
   </diagram>
