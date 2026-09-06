@@ -101,6 +101,17 @@ Action:
               text: 2026		
               children:
                 - Action:
+                    location: 2026/my-aunt-asked-me-for-a-picture.html
+                    text: "My Aunt Asked Me for a Picture"
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/my-aunt-asked-me-for-a-picture.md
+          - Action:
+              text: 2026		
+              children:
+                - Action:
                     location: 2026/ciso-3d.html
                     text: "The CISO Model: 3D-Printed on the Tower"
                     content:
