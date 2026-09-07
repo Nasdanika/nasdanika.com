@@ -4,6 +4,8 @@ Titles link to the canonical version: on this site for stories already migrated 
 
 ## 2026
 
+- [Internal Notation](2026/internal-notation.html)
+- [Occupancy](2026/occupancy.html)
 - [My Aunt Asked Me for a Picture](2026/my-aunt-asked-me-for-a-picture.html)
 - [The CISO Model: 3D-Printed on the Tower](2026/ciso-3d.html)
 - [Enterprise Literacy](2026/enterprise-literacy.html)

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Internal Notation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="c959f267-e939-434c-8c14-f088db791ccc" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <li class="dropdown">
+                <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
+                <div class="dropdown-menu">
+                  <a href="../../audiences/humans/index.html" data-nsd-label-uuid="5bcee6d8-bde1-4adc-9b21-12169194ea1b" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../audiences/ai/index.html" data-nsd-label-uuid="90ed5c8d-86f1-4909-83cc-896338d198bc" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../audiences/systems/index.html" data-nsd-label-uuid="f9aed8bd-61c0-486c-b3f1-44834e813b2f" class="dropdown-item">
+                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                </div>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="747e4c72-e412-4d1c-962a-3ea9298c2b70" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="ebc6eb37-316a-4f86-afa4-6e8fa62c87e1" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../demos.html" data-nsd-label-uuid="b080620e-4071-42d6-8615-58fc9b5a0684" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="3e885ed8-49ea-45fa-ad7f-0c833451cd48" data-nsd-action-uris="uuid:3e885ed8-49ea-45fa-ad7f-0c833451cd48" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="ebc6eb37-316a-4f86-afa4-6e8fa62c87e1"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="40668245-6f6a-4362-91f0-52276cdc82b5">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="3e885ed8-49ea-45fa-ad7f-0c833451cd48">Internal Notation</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="3e885ed8-49ea-45fa-ad7f-0c833451cd48" class="nsd-app-content-panel-title">Internal Notation</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p>Open <a href="https://github.com/Nasdanika-Templates/markdown-ecore-doc">family.ecore.md</a> and you are looking at an ordinary Markdown document. Headings, some prose under each one, a few bracketed annotations. GitHub renders it. GitLab renders it. Anyone can read it without being told anything.</p>
+<p>It is also an Ecore metamodel, exactly and completely, because of a handful of conventions:</p>
+<ul>
+<li>Level 1 is the package.</li>
+<li>Level 2 is a classifier, <code>## Family {superTypes=&quot;Named Element&quot;}</code>.</li>
+<li>Level 3 groups features, <code>### Attributes</code> and <code>### References</code>.</li>
+<li>Level 4 is a feature, <code>#### Parents {type=&quot;Person&quot; multiplicity=&quot;0..2&quot; opposite=&quot;Children&quot;}</code>.</li>
+<li>The prose sitting under any heading is that element&rsquo;s documentation, by virtue of sitting there.</li>
+</ul>
+<p>No new syntax was invented. Markdown already had heading levels, nesting, order, and the idea that text under a heading belongs to it. All that was added is an agreement about what those existing things mean in this particular kind of document.</p>
+<p>That agreement is the thing I have been building for years without naming. I have named the machinery that executes it, <a href="https://medium.com/nasdanika/semantic-mapping-3ccbef5d6c70">semantic mapping</a>, which is the compiler. I have never named the language the compiler compiles.</p>
+<h2><a href="#every-surface-arrives-with-expressive-means" id="every-surface-arrives-with-expressive-means">Every surface arrives with expressive means</a></h2>
+<p>A format is not a blank sheet. It ships with a set of distinctions its authors can already make and its readers can already see.</p>
+<p>Markdown ships heading level, nesting depth, document order, lists ordered and unordered, tables, emphasis, links, code fences, and, through the kramdown and pandoc dialects, attribute lists.</p>
+<p>Draw.io, Visio and PowerPoint ship shape identity, containment, connection with direction, stroke color, stroke width, dash pattern, fill, size, position, z-order, grouping, layers, pages, and a slot for arbitrary custom properties. PowerPoint adds layouts, placeholders, alt text and speaker notes.</p>
+<p>These are given. People already know how to produce them, every tool already enforces their well-formedness, every viewer already renders them, and no one has to be trained. The question an internal notation answers is not &ldquo;what shall we be able to express&rdquo; but &ldquo;what shall the expressive means we already have be taken to mean here&rdquo;.</p>
+<p>An internal DSL does not invent syntax. It overloads the host language&rsquo;s existing constructs, method chaining, blocks, operators, so that ordinary Java or Groovy reads as domain vocabulary. In other words, it overloads the existing expressive.</p>
+<p>Similarly, an <strong>internal notation</strong> assigns domain meaning to expressive means a format already has. An <strong>external notation</strong> invents its own expressive means and needs an editor built or generated to produce them.</p>
+<h2><a href="#two-kinds-of-carriers-and-they-behave-differently" id="two-kinds-of-carriers-and-they-behave-differently">Two kinds of carriers, and they behave differently</a></h2>
+<p>Looking at my own artifacts, the conventions divide cleanly in two, and I had not separated them.</p>
+<p><strong>Overloaded structure.</strong> Heading level, nesting, order, prose position, containment, connection, arrow direction. These already mean something to a human reading the document, and the notation makes that reading formal. A reader who has never heard of the notation still gets most of it right, because a heading below another heading already looks subordinate, and a box inside another box already looks contained. This is the good kind. It is self-documenting and it survives being read by people who lack the mapper.</p>
+<p><strong>Provided slots.</strong> Kramdown attribute lists, Draw.io custom properties, Visio shape data, PowerPoint alt text and speaker notes. Formats supply these deliberately as places to put things the format itself does not understand. <code>{type=&quot;Person&quot; multiplicity=&quot;0..2&quot;}</code> is not an overloaded heading, it is a filled slot. Slots are unambiguous and safe, and they are invisible to the reader, which is the whole tradeoff.</p>
+<p>Between the two sits the dangerous middle: <strong>aesthetic carriers</strong>. Stroke color, width, dash. They are expressive means, they are tempting, and they are shared with taste. Red may mean deprecated to the mapper and important to the reader, and the first person who tidies the diagram will change it without any sense of having edited a model. Styles are useful - in UML connection styles define whehter a connection is a composition, aggregation, subclassing or interface realization. Storing such information in properties can lead to a situation where somebody changes connection style and forgets to changge properties. Therefore, the meaning of style shall be documented. Some of such meaning is widely understood. For example, in Jira grey means TODO, bulue IN PROGRESS, green DONE. Adding a legend and possibly a user library makes the meaning of style clear.</p>
+<h2><a href="#this-pattern-is-proven-only-unnamed-across-media" id="this-pattern-is-proven-only-unnamed-across-media">This pattern is proven, only unnamed across media</a></h2>
+<p>I want to be careful not to present a known pattern as a discovery. Assigning meaning to existing structure is one of the more successful moves in our field.</p>
+<p>Javadoc did it to comment structure. Front matter and attribute lists exist in Markdown dialects because people kept wanting this.</p>
+<p>What is missing is not the pattern. It is a name that spans text and pictures, so that &ldquo;level 1 is an EClass&rdquo; and &ldquo;a dashed red connector is a deprecated dependency&rdquo; are recognizably the same kind of statement, plus the machinery to execute them, which is where my work actually sits.</p>
+<h2><a href="#notation-and-mapping-are-not-the-same-thing" id="notation-and-mapping-are-not-the-same-thing">Notation and mapping are not the same thing</a></h2>
+<p>This is the test of whether the coinage earns anything, so I want it explicit.</p>
+<p>The notation is the agreement: what the expressive means are taken to mean. The mapping is the executable interpretation of that agreement. Grammar and parser.</p>
+<p>They come apart in ways that matter. A notation can be published, read, followed and taught with no code in the room, which is how a subject matter expert can author correctly on day one. Two mappers can implement the same notation, in different languages, against different target metamodels. A notation outlives the mapper that first executed it, which is the same durability argument I make about plain text and Maven Central. And a document can be checked for conformance to a notation before anything interprets it, which is a linter.</p>
+<p>&ldquo;Semantic mapping&rdquo; names the act well and I am not retiring it. It just cannot answer &ldquo;what do I hand my colleague so she can draw this correctly&rdquo;, and that artifact needs a noun.</p>
+<h2><a href="#why-meaning-can-be-assigned-later" id="why-meaning-can-be-assigned-later">Why meaning can be assigned later</a></h2>
+<p>Because the means belong to the format and not to the notation, a document is complete, valid and readable before anyone decides what it means. That is the whole of <a href="https://medium.com/nasdanika/draw-first-execute-later-iterate-forever-d6ac29d7aba5">draw first, execute later</a>, stated as a cause rather than a practice.</p>
+<p>It also means the assignment can be done by someone other than the author. A workshop produces a diagram ona a whiteboard. A photograph of it becomes a Draw.io file, and I have had an AI assistant do that conversion well enough to keep. Then meaning gets attached, by an architect binding shapes to the notation, or by an agent proposing bindings by matching shape labels against system names and a human confirming. Four steps, four actors, one of them a whiteboard. None of that sequence exists if drawing and meaning are the same act, which is the condition an external notation enforces by design.</p>
+<p>The same holds in text. Somebody writes a document about their domain because they wanted a document. Later it turns out the headings were classifiers all along.</p>
+<h2><a href="#the-cross-surface-question" id="the-cross-surface-question">The cross-surface question</a></h2>
+<p>If a notation is an assignment of meaning to a surface&rsquo;s own expressive means, then a notation is surface-bound by definition. Markdown has no stroke width. Draw.io has no heading level. There is no literal notation that both can carry.</p>
+<p>What can be shared is one level up. The semantic target is shared, and so are the abstract distinctions the surfaces make in their different ways: identity, label, containment, connection, direction, order, grouping, emphasis, annotation. The <a href="https://diagram.models.nasdanika.org/">Diagram model</a> is already an attempt to name those for the visual family, and the <a href="https://presentation.models.nasdanika.org/">presentation family design</a> already lifts Draw.io, Visio, PowerPoint, PlantUML and Mermaid into it.</p>
+<p>So the honest framing is one semantic model with a family of notations, and the open decision is how much of a notation can be stated abstractly, over those shared distinctions, and merely <em>bound</em> to each surface&rsquo;s concrete carriers. My instinct is that quite a lot can, that the abstract statement is &ldquo;containment means composition&rdquo; while the binding says &ldquo;in Draw.io that is a child cell, in Markdown that is a deeper heading&rdquo;, and that this is what a shippable notation pack would contain.</p>
+<h2><a href="#the-host-is-already-in-the-training-data" id="the-host-is-already-in-the-training-data">The host is already in the training data</a></h2>
+<p>One argument that would have been weak ten years ago. An external notation produces a format nobody has seen, so every model that might help you author in it must be taught first, with examples, forever. An internal notation inherits its format&rsquo;s presence in the world, and that now includes the training corpus. Frontier models produce Markdown, mxGraph XML and Mermaid fluently and unprompted. Assigning meaning to expressive means the machine already produces correctly is a different proposition from teaching it a private syntax.</p>
+<h2><a href="#where-this-is-the-wrong-call" id="where-this-is-the-wrong-call">Where this is the wrong call</a></h2>
+<p>When the domain needs a distinction the surface cannot make, and you find yourself overloading a third aesthetic attribute to encode it, the notation has outgrown its host.</p>
+<p>When the audience must be prevented from producing something wrong, because a palette offering only legal moves teaches faster than any convention document and stops the error at the moment of drawing. Safety engineering lives here.</p>
+<p>When the overloading collides with what the reader already believes the formatting means, and the document becomes correct for the mapper and misleading for the human.</p>
+<h2><a href="#the-word" id="the-word">The word</a></h2>
+<p>I am not certain &ldquo;internal notation&rdquo; is right, and the uncertainty is worth stating rather than resolving by usage.</p>
+<p>For it: the internal DSL analogy is exact under the corrected reading, the pair with &ldquo;external notation&rdquo; is what makes it usable, and it covers text and pictures with one word, which is the gap.</p>
+<p>Against it: &ldquo;notation&rdquo; already has a precise and different job in the modeling world, where it means concrete syntax, and a reader from that tradition will hear a synonym rather than a distinction. &ldquo;Profile&rdquo; is the term that community already uses for meaning added inside an existing notation, and &ldquo;a Draw.io profile for architecture models&rdquo; is immediately legible, at the cost of borrowing vocabulary from the Eclipse and OMG world I have deliberately walked away from. In Java/Maven world &ldquo;Profile&rdquo; has a different meaning. &ldquo;Convention&rdquo; is honest and too weak to build on.</p>
+<p>What I am certain of is that the thing exists, that it is not the same as the mapping that executes it, and that I have been shipping it unnamed since the first Draw.io diagram that meant something.</p>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
