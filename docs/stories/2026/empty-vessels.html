@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Empty Vessels</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.7.0/github-markdown.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/html-app@master/gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>   
+
+<!--  Start search configuration -->
+<script src="../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['link-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+<!-- End search configuration  -->
+
+<style>
+  :root {
+    --nsd-blue: #2c5aa0;      /* model/core */
+    --nsd-slate: #64748B;     /* humans */
+    --nsd-amber: #D79B00;     /* agents */
+    --nsd-green: #4C9A61;     /* systems */
+  }
+  /* Match the docs.nasdanika.org header: replace with the exact hex from the docs site CSS. */
+  .navbar-nsd { background: #1e3f70; }
+  .navbar-nsd .navbar-brand img { height: 28px; margin-right: 0.5rem; }
+  /* Bend Cerulean toward the brand blue so the page has one blue, not two. */
+  .btn-primary, .btn-primary:hover, .btn-primary:focus { background-color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary { color: #2c5aa0; border-color: #2c5aa0; }
+  .btn-outline-primary:hover, .btn-outline-primary.active { background-color: #2c5aa0 !important; border-color: #2c5aa0 !important; }
+  .hero { padding: 4.5rem 0 3rem 0; }
+  .hero h1 { font-weight: 700; letter-spacing: -0.5px; }
+  .hero .lead { max-width: 46rem; margin: 1.25rem auto 0 auto; }
+  .cta-note { color: #6c757d; font-size: 0.95rem; }
+  .persona-chip { font-size: 0.85rem; font-weight: 500; margin: 0 0.2rem; }
+  .section { padding: 3.5rem 0; }
+  .section-alt { background: #f5f7f9; }
+  .section h2 { font-weight: 700; margin-bottom: 1.5rem; }
+  .prose { max-width: 44rem; margin: 0 auto; font-size: 1.06rem; }
+  .prose p + p { margin-top: 1rem; }
+  .subblock h5 { font-weight: 700; margin-top: 2rem; }
+  .badge-line { font-size: 0.85rem; color: #6c757d; }
+  .diagram-caption { color: #6c757d; font-size: 0.9rem; }
+  .arc-icon { height: 1.1em; vertical-align: -0.15em; }
+  .tower-placeholder {
+    border: 2px dashed #ced4da; border-radius: 0.5rem;
+    padding: 3rem 1rem; color: #6c757d; background: #fff;
+  }
+  .level-card h5 { font-weight: 700; }
+  footer { padding: 2.5rem 0; font-size: 0.9rem; }
+  .arc-label { font-size: 13px; font-weight: 600; }
+</style>
+ 
+</head>
+  <body>
+    <div class="container nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="../../index.html" data-nsd-label-uuid="f1085bce-1972-4990-b273-af218b2d888e" class="nsd-app-header-title">
+            <img src="/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <li class="dropdown">
+                <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Audiences</a>
+                <div class="dropdown-menu">
+                  <a href="../../audiences/humans/index.html" data-nsd-label-uuid="b0da4fa7-945f-49e6-b18c-6e09baa0b945" class="dropdown-item">
+                    <img src="/images/human.svg" class="nsd-app-label-icon"/>Humans</a>
+                  <a href="../../audiences/ai/index.html" data-nsd-label-uuid="efd31ee4-e924-43c6-888b-923f92e6d8bf" class="dropdown-item">
+                    <img src="/images/sparkle.svg" class="nsd-app-label-icon"/>AI</a>
+                  <a href="../../audiences/systems/index.html" data-nsd-label-uuid="7bce3a22-0a94-43bc-8b9a-871efa603033" class="dropdown-item">
+                    <img src="/images/systems.svg" class="nsd-app-label-icon"/>Systems</a>
+                </div>
+              </li>
+            </li>
+            <li class="nav-item">
+              <a href="../../models.html" data-nsd-label-uuid="1903e8e4-bcb1-4cc0-bbaf-f6e1cedac297" class="nav-link"><span class="fas fa-sitemap nsd-app-label-icon"></span>Models</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://docs.nasdanika.org" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Docs</a>
+            </li>
+            <li class="nav-item">
+              <a href="../index.html" data-nsd-label-uuid="b599d79b-25e3-438a-9f6d-350d37fa94d5" class="nav-link"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../demos.html" data-nsd-label-uuid="6623063d-568d-4788-a547-27ea68f06954" class="nav-link"><span class="fas fa-laptop-code nsd-app-label-icon"></span>Demos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <main data-nsd-label-uuid="18143a77-12c0-46b7-a4ef-84caf773fd9d" data-nsd-action-uris="uuid:18143a77-12c0-46b7-a4ef-84caf773fd9d" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="../index.html" data-nsd-label-uuid="b599d79b-25e3-438a-9f6d-350d37fa94d5"><span class="fas fa-newspaper nsd-app-label-icon"></span>Stories</a>
+                    </li>
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="41f50d3c-5b7d-45e8-ae65-65194c9fe0a4">2026</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="18143a77-12c0-46b7-a4ef-84caf773fd9d">Empty Vessels</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <H1><span data-nsd-label-uuid="18143a77-12c0-46b7-a4ef-84caf773fd9d" class="nsd-app-content-panel-title">Empty Vessels</span>
+                </H1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p><em>Banks once paid seven figures for a list of entity names. Then they went back to Excel. Something is about to ask them for that list again.</em></p>
+<p>There is a category of software product most people have never heard of, which used to be extraordinarily expensive: the industry data model.</p>
+<p>IBM sold one for banking, descended from its Information FrameWork, and another for insurance. Oracle sells a Financial Services Data Foundation, and siblings for retail, telecoms and utilities. Teradata had its Financial Services Logical Data Model. What you bought was content: thousands of entities, their attributes, their relationships, their definitions, blessed by an industry and delivered as a starting point so you would not have to argue about what a Customer is from first principles. The licences ran into six and seven figures before anybody implemented anything.</p>
+<p>I want to be careful about what that proves. It proves people have paid a great deal of money for structure. It does not prove they were happy afterwards.</p>
+<h2><a href="#what-happened-to-that-market" id="what-happened-to-that-market">What happened to that market</a></h2>
+<p>It deflated, and the reason is worth sitting with, because it is the same reason the ivory tower team at your bank is ignored.</p>
+<p>Those models were enormous. They served multi-year enterprise data warehouse programmes, the kind with a steering committee and a three-year horizon, and a great many of those programmes were quietly abandoned. The model was not usually the thing that failed, but it was in the room when the failure happened, and organizations remember proximity.</p>
+<p>So the retreat to spreadsheets and wiki pages is not ignorance. It is scar tissue. Somebody at that bank remembers a canonical model that arrived as a thousand-page PDF and a database schema, consumed two years, and produced a governance forum. When you walk in and say &ldquo;domain model&rdquo;, that is the film playing behind their eyes.</p>
+<p>This is the part that took me longest to accept. I had been treating Excel and Confluence as the competition: primitive tools used by people who had not discovered modeling yet. They are not the competition. They are the survivors.</p>
+<h2><a href="#what-changed" id="what-changed">What changed</a></h2>
+<p>Something started asking for the list again, and it is not a steering committee.</p>
+<p>Palantir&rsquo;s entire pitch for its AI platform is that the Ontology - their word, capitalised - is what lets a language model act on your business rather than talk about it. Strip the branding and the claim is unremarkable: an agent that does not know what a Customer is will invent one. What is remarkable is that the claim is now load-bearing for a company worth a great deal of money, which settles the question of whether anybody wants machine-readable domain semantics in 2026.</p>
+<p>They do. The market did not die, it changed buyer. It used to be bought by a data warehouse programme. It is now bought by whoever is responsible for an assistant that must not make things up.</p>
+<p>And the seam in Palantir&rsquo;s version is visible from a long way off: the Ontology does not leave. You can have the structure, and you can have it as long as you keep paying, and you cannot take it with you.</p>
+<h2><a href="#the-landscape-honestly" id="the-landscape-honestly">The landscape, honestly</a></h2>
+<p>Five camps, and none of them is Excel, which is why Excel keeps winning.</p>
+<p>The <strong>industry model vendors</strong> - IBM, Oracle, Teradata - sell content and carry the scar tissue. The <strong>standards bodies</strong> - FIBO from the EDM Council, BIAN&rsquo;s service landscape, ISO 20022, ACORD - give away content that is genuinely good and almost unusable, because it ships as OWL files, PDFs and spreadsheets with no tooling around them. The <strong>data catalogs</strong> - Collibra, Alation, Atlan - govern physical assets well and leave business semantics thin, because a catalog is organised around where data lives rather than what it means. The <strong>semantic layers</strong> - dbt, Cube, AtScale - have the freshest story and the narrowest scope: analytics, metrics, joins, nothing about ownership or lifecycle or who approved this. The <strong>ontology platforms</strong> - Palantir above all - have the whole thing and keep it.</p>
+<p>The modeling tools, Sparx and erwin and the rest, are not really in this list. They produce documents.</p>
+<h2><a href="#the-uncomfortable-sentence" id="the-uncomfortable-sentence">The uncomfortable sentence</a></h2>
+<p>Here is the thing I have to say about my own work before I say anything else about it.</p>
+<p>A metamodel is a vessel. IBM and Oracle never sold the vessel; they sold what was in it. Nasdanika has a tower of composable micro-models, a metamodel for describing domain models, generated documentation, federation by URI, and soon a viewer that runs in a browser with nothing uploaded - and not one banking entity in the whole portfolio.</p>
+<p>An empty vessel is not a product, however good the vessel is. Every time I have caught myself excited about the substrate, the honest correction has been the same: nobody buys substrate.</p>
+<h2><a href="#what-that-leaves-which-is-more-than-it-sounds" id="what-that-leaves-which-is-more-than-it-sounds">What that leaves, which is more than it sounds</a></h2>
+<p><strong>Fill the vessel with content you do not have to write.</strong> FIBO is published under a permissive licence. BIAN publishes its service landscape. ISO 20022 publishes a repository. All of it is free, all of it is credible, and all of it is currently delivered in formats that make it hard to use - which means loading it into a typed model and publishing it as a browsable site and an installable package is a real contribution rather than a demo. It borrows credibility instead of claiming it, and it costs a loader.</p>
+<p><strong>Sell the deliverable, not the model.</strong> A consulting engagement is mostly a race to understand an unfamiliar estate, and the artifact at the end is usually a deck that stops being true the week after it ships. The same engagement that produces a living, queryable, regenerable model produces something the client still has in a year. That is a better deliverable at the same price, and it needs no content library at all.</p>
+<p><strong>Lead with grounding, not with modeling.</strong> The word &ldquo;model&rdquo; is radioactive in exactly the rooms where the work is most needed. &ldquo;Your assistant is confidently wrong about your business because nothing ever told it what a Customer is, and the answer should live in your Git rather than in somebody&rsquo;s platform&rdquo; is the same sentence with the scar tissue removed.</p>
+<p><strong>Let the spreadsheets be the input.</strong> This is the one that inverts the old failure. IBM and Oracle asked you to adopt their model. The interesting move is to capture yours - from the spreadsheets and the wiki pages and the tracker that already hold it - because then nobody has to agree to a two-year programme before anything is true.</p>
+<h2><a href="#the-risk-i-cannot-argue-away" id="the-risk-i-cannot-argue-away">The risk I cannot argue away</a></h2>
+<p>Agents may not need any of this.</p>
+<p>Context windows keep growing, and language models keep getting better at inferring structure from raw schemas and a pile of documentation. It is entirely possible that the winning answer is &ldquo;paste the DDL and two hundred thousand tokens of Confluence&rdquo; and that curated ontologies turn out to be a thing that felt necessary for about three years. I do not think the evidence settles it either way yet, and anybody who tells you otherwise is selling something.</p>
+<p>The counter-argument I actually believe is narrower than &ldquo;agents need ontologies&rdquo;. It is that <strong>an answer you have to defend needs a declared model</strong>. If an agent tells a regulator&rsquo;s examiner how customer exposure was calculated, the chain from the answer to the definition to whoever owns the definition has to exist, and it has to have existed before the question was asked. Inference is not a chain of custody.</p>
+<p>That is a smaller market than &ldquo;all of AI&rdquo;. It is also, as it happens, the market that was already here: the one that pays for evidence rather than for output.</p>
+<h2><a href="#what-the-vessel-is-actually-for" id="what-the-vessel-is-actually-for">What the vessel is actually for</a></h2>
+<p>The industry data model was sold as a shortcut past an argument - here is what a Customer is, you may stop debating. It failed partly because the argument was the valuable part and the model was where the conclusions were supposed to go.</p>
+<p>What I think is worth building is not a better shortcut. It is somewhere for the conclusions to live that a machine can read, that Git can version, that a regulator can follow backwards, and that nobody can take away from you.</p>
+<p>Whether anyone pays for that is a separate question from whether it is true, and I would rather find out cheaply than argue about it. Loading FIBO takes a fortnight and tells you more than a year of positioning.</p>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika/" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

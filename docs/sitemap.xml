@@ -2,127 +2,132 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
   <url>
     <loc>https://nasdanika.com/audiences/ai/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.914-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.139-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/audiences/humans/ai-architect/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.914-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.138-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/audiences/humans/consultant/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.914-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.139-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/audiences/humans/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.910-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.133-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/audiences/humans/leader/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.911-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.135-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/audiences/humans/sme/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.912-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.137-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/audiences/systems/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.914-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.139-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/demos.html</loc>
-    <lastmod>2026-09-06T22:20:02.944-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.170-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.904-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.130-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/models.html</loc>
-    <lastmod>2026-09-06T22:20:02.921-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.139-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/ai-literacy-and-the-model-tower.html</loc>
-    <lastmod>2026-09-06T22:20:02.933-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.161-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/ai-literacy.html</loc>
-    <lastmod>2026-09-06T22:20:02.934-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.161-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/ciso-3d.html</loc>
-    <lastmod>2026-09-06T22:20:02.924-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.154-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/documentation-strategy.html</loc>
-    <lastmod>2026-09-06T22:20:02.932-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.159-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://nasdanika.com/stories/2026/empty-vessels.html</loc>
+    <lastmod>2026-09-16T04:46:28.150-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/enterprise-literacy.html</loc>
-    <lastmod>2026-09-06T22:20:02.930-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.157-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/internal-notation.html</loc>
-    <lastmod>2026-09-06T22:20:02.924-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.139-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/micro-models.html</loc>
-    <lastmod>2026-09-06T22:20:02.934-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.164-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/micro-wikis.html</loc>
-    <lastmod>2026-09-06T22:20:02.934-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.166-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/model-tetris.html</loc>
-    <lastmod>2026-09-06T22:20:02.934-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.161-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/my-aunt-asked-me-for-a-picture.html</loc>
-    <lastmod>2026-09-06T22:20:02.924-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.154-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/nobody-credits-the-mail-slot.html</loc>
-    <lastmod>2026-09-06T22:20:02.941-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.166-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/occupancy.html</loc>
-    <lastmod>2026-09-06T22:20:02.924-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.150-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/the-value-is-in-the-builder-not-the-chat.html</loc>
-    <lastmod>2026-09-06T22:20:02.943-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.170-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/2026/when-architecture-reads-the-news.html</loc>
-    <lastmod>2026-09-06T22:20:02.940-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.166-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://nasdanika.com/stories/index.html</loc>
-    <lastmod>2026-09-06T22:20:02.923-04:00</lastmod>
+    <lastmod>2026-09-16T04:46:28.139-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

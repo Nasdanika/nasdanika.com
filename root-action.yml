@@ -109,6 +109,14 @@ Action:
                         source:
                           exec.content.Resource: stories/2026/internal-notation.md
                 - Action:
+                    location: 2026/empty-vessels.html
+                    text: "Empty Vessels"
+                    content:
+                      content.Markdown:
+                        style: true
+                        source:
+                          exec.content.Resource: stories/2026/empty-vessels.md
+                - Action:
                     location: 2026/occupancy.html
                     text: "Occupancy"
                     content:
